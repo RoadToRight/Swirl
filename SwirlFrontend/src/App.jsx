@@ -28,13 +28,13 @@ import Scroll from "./Components/ScrollIndicator.jsx";
 import Loader from "./Components/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { IoCloseOutline } from "react-icons/io5";
 import styled from "styled-components";
 
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 function App() {
   const [DarkLight, setDarkLight] = useState(true);
   const [loading, setLoading] = useState(true);
