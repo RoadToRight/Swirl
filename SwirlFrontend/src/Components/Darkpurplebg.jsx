@@ -2,44 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const Darkpurplebg = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
 
-  useGSAP(() => {
-    gsap.from(".img", {
-      x: -300, // Start from 200px below the element's initial position
-      opacity: 0, // Start from 0 opacity
-      duration: 1.5, // Duration for the animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: ".img", // The element to trigger the animation
-        start: "top 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
-        end: "bottom 80%", // End when the top of the element reaches 30% from the top of the viewport
-        scrub: 1, // Smoothly scrub the animation based on scroll position
-        // markers: true, // Show scroll trigger markers for debugging (you can remove it once you're done debugging)
-      },
-    });
-    gsap.from(".textttD, .buttondiv", {
-      x: 300, // Start from 200px below the element's initial position
-      opacity: 0, // Start from 0 opacity
-      duration: 1.5, // Duration for the animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: ".img", // The element to trigger the animation
-        start: "top 80%",
-        end: "bottom 80%",
-        scrub: 1, // Smoothly scrub the animation based on scroll position
-        // markers: true, // Show scroll trigger markers for debugging (you can remove it once you're done debugging)
-      },
-    });
-  });
+ 
 
   return (
     <DarkPurplediv>
