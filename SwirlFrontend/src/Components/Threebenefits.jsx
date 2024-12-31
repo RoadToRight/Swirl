@@ -7,10 +7,10 @@ import { IoMdPlayCircle } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa6";
 import Context1 from "../Context/Context1";
 import { Link, Links } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 
 const Threebenefits = () => {
   const { DarkLight } = useContext(Context1);
@@ -23,21 +23,7 @@ const Threebenefits = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
-    useGSAP(() => {
-      gsap.from(three.current, {
-        x: -300, // Start from 200px below the element's initial position
-        opacity: 0, // Start from 0 opacity
-        duration: 1.5, // Duration for the animation
-        ease: "power3.out", // Easing function to smooth the transition
-        scrollTrigger: {
-          trigger: three.current, 
-          start: "top 80%",
-          end: "bottom 80%", 
-          scrub: 1, 
-        },
-      });
-
-    });
+   
   return (
     <>
       <ThreeBeneDiv className={`bg-${bgcolor} `}>
