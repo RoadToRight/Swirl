@@ -8,10 +8,10 @@ import { IoCloseOutline } from "react-icons/io5";
 import Context1 from "../Context/Context1";
 import Loader from "./Loader";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 const Work = () => {
   const [isOpen2, setIsOpen2] = useState(false);
   const [TypeOfVideo, setTypeOfVideo] = useState("All");
@@ -41,18 +41,6 @@ const Work = () => {
   console.log(location)
   let work = useRef(null);
 
-useGSAP(() => {
-  gsap.from(work.current,{
-    y:1000,
-    opacity:0,
-    // scrollTrigger:{
-    //   markers:true,
-    //   start:"5% top",
-    //   end:"5% top",
-    //   scrub:2,
-    // }
-  })
-})  
 
   useEffect(() => {
     // Decode the URL and then replace all '%' characters with a space
