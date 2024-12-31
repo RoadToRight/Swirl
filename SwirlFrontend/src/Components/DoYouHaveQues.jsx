@@ -2,10 +2,10 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import AccordianCompo from "./Accordian";
 import Context1 from "../Context/Context1";
-import { useGSAP } from '@gsap/react';
-import {gsap} from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { useGSAP } from '@gsap/react';
+// import {gsap} from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 const DoYouHaveQues = () => {
 
   const {DarkLight,Questions } = useContext(Context1)
@@ -15,24 +15,7 @@ const DoYouHaveQues = () => {
   let bgcolor2 = DarkLight ? "white" : "black" ;
 let q = useRef();
 let qchild = useRef();
-  useGSAP(() => {
-    gsap.from(qchild.current, {
-      y: 400,  // Start from 200px below the element's initial position
-      opacity: 0,  // Start from 0 opacity
-      duration: 1,  // Duration for the animation
-      ease: 'power3.out',  // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: q.current,  // The element to trigger the animation
-        start: '-33% 80%',  
-        end: 'top 30%',  
-        scrub: 1,  
-      },
-    });
-  });
 
-useEffect(() => {
-  ScrollTrigger.refresh();
-}, [location])
 
 
   return (
