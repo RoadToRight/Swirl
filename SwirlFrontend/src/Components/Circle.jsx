@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Button from "./Button";
 import Context1 from "../Context/Context1";
 import TopBrandsWithCircle from "./TopBrandsWithCircle";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from "react-router-dom";
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const Circle = () => {
   const { DarkLight } = useContext(Context1);
@@ -18,36 +18,7 @@ const Circle = () => {
   let Logo = DarkLight
     ? "/Project IMG/navblack-wtbg.png"
     : "/Project IMG/Layer_8.png";
-  useGSAP(() => {
-    gsap.from(".imgDiv", {
-      x: -300, // Start from 300px left of the element's initial position
-      opacity: 0, // Start from 0 opacity
-      duration: 1.5, // Adjusted duration for smoother animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: ".imgDiv", // The element to trigger the animation
-        start: "top 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
-        end: "bottom 80%", // End when the top of the element reaches 80% from the top of the viewport
-        scrub: 1, // Smoothly scrub the animation based on scroll position
-        markers: false, // Disable markers once you're done debugging
-      },
-    });
 
-    // Animation for the '.textttC' element
-    gsap.from(".textttC", {
-      x: -300, // Start from 300px left of the element's initial position
-      opacity: 0, // Start from 0 opacity
-      duration: 1.5, // Adjusted duration for smoother animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: ".imgDiv", // The element to trigger the animation
-        start: "top 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
-        end: "bottom 80%", // End when the top of the element reaches 80% from the top of the viewport
-        scrub: 1, // Smoothly scrub the animation based on scroll position
-        markers: false, // Disable markers once you're done debugging
-      },
-    });
-  });
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
