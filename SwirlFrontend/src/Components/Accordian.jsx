@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import Context1 from "../Context/Context1";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
+// gsap.registerPlugin(ScrollTrigger);
 const AccordianCompo = ({ Question,Answer }) => {
   const [openIndex, setOpenIndex] = useState(null); // Track the currently open accordion item
   const { DarkLight } = useContext(Context1);
