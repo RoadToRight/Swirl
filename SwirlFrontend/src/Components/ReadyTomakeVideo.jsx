@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Button from "./Button";
 import Context1 from "../Context/Context1";
 import { Link, useLocation } from "react-router-dom";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const ReadyTomakeVideo = () => {
   const { DarkLight } = useContext(Context1);
@@ -19,24 +19,7 @@ const ReadyTomakeVideo = () => {
   let bgcolor2 = DarkLight ? "white" : "black";
 
 
-  useGSAP(() => {
-    gsap.from(ready.current, {
-      y: 400,
-      opacity:0,        // Start from 200px below the element's initial position
-      duration: 3,     // Duration for the animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger:readyparent.current,    // The element to trigger the animation
-        start: "top 80%",      // Start animation when the top of the element reaches 80% from the top of the viewport
-        end: "bottom 80%",        // End when it reaches 30% from the top of the viewport
-        scrub: 3,           // Smoothly scrub the animation based on scroll position
-        // markers: true,         // Show scroll trigger markers for debugging
-      }
-    });
-  });
-useEffect(() => {
-  ScrollTrigger.refresh();
-}, [location])
+
 
 
   const scrollToTop = () => {
