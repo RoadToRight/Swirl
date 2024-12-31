@@ -3,8 +3,8 @@ import styled from "styled-components";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import Context1 from "../Context/Context1";
-import { useGSAP } from "@gsap/react";
-import {gsap} from "gsap";
+// import { useGSAP } from "@gsap/react";
+// import {gsap} from "gsap";
 
 
 const OneQuote = () => {
@@ -50,12 +50,12 @@ let Data = [
 ]
 
 const handleClick = () => {
-  gsap.from(DataAnime.current, {
-    x: -60,  // Start from 60px left of the element's initial position
-    opacity: 0,  // Start from 0 opacity
-    duration: 1.5,  // Adjusted duration for smoother animation
-    ease: 'power3.out',  // Easing function to smooth the transition
-  });
+  // gsap.from(DataAnime.current, {
+  //   x: -60,  // Start from 60px left of the element's initial position
+  //   opacity: 0,  // Start from 0 opacity
+  //   duration: 1.5,  // Adjusted duration for smoother animation
+  //   ease: 'power3.out',  // Easing function to smooth the transition
+  // });
 };
 
 
