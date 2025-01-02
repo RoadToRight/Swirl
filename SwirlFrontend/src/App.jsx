@@ -67,6 +67,8 @@ function App() {
     }
   }, [location]);
   useEffect(() => {
+    // setLoading(true);
+   setTimeout(() => {
     if (document.readyState === "complete") {
       setLoading(false); // If the page is already fully loaded, hide the loader
     } else {
@@ -78,6 +80,7 @@ function App() {
         window.removeEventListener("load", handleLoad);
       };
     }
+   }, 3000);
   }, []);
   // useEffect(() => {
   //   const lenis = new Lenis();
@@ -188,7 +191,7 @@ function App() {
           YoutubeVideo,
           YoutubeUrl,
           PlayYouTubeCard,
-          setYoutubeUrl,
+       
           ProjectSlider,
           Tracker,
           Questions
