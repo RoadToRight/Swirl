@@ -9,7 +9,7 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
   const [mobileNavWidth, setmobileNavWidth] = useState("330px");
   const [mobileWidthgconfirm, setmobileWidthgconfirm] = useState();
 
-  console.log(NavOpenCondi);
+  // console.log(NavOpenCondi);
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
@@ -29,7 +29,7 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
 
   const NavOpen = () => {
     setNavOpenCondi((props) => !props);
-    console.log("ma chale");
+    // console.log("ma chale");
   };
 
   useEffect(() => {
@@ -82,35 +82,35 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
           <Link
             className={`link text-${Textcolor}`}
             to={"/"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop(); NavOpen()}}
           >
             <li>HOME</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/creations/All"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop(); NavOpen()}}
           >
             <li>CREATIONS</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/pricing"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop(); NavOpen()}}
           >
             <li>PRICING</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/aboutus"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop(); NavOpen()}}
           >
             <li>ABOUT</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/contactus"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop(); NavOpen()}}
           >
             <li>CONTACT</li>
           </Link>
