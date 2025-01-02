@@ -216,16 +216,19 @@ const location =  useLocation();
         }
       } catch (error) {
         toast(`${error}`, {
-          position: "top-right",
+          position: "bottom-right",
           autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        });
+          theme: "dark",
+          style:{
+            background:"linear-gradient(135deg, #3b0a45, #2f1d3f, #4b1f6f)",
+            color:"white",
+        }
+          });
       }
     } else {
       toast(`Please Fill All Fields!`, {
