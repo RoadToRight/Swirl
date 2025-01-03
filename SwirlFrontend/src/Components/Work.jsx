@@ -28,7 +28,7 @@ const Work = () => {
   const [TypeOfVideoToPrint, setTypeOfVideoToPrint] = useState("All");
   const [YoutubeVideo, setYoutubeVideo] = useState(false);
   const [YoutubeUrl, setYoutubeUrl] = useState();
-  const [videoHoverStates, setVideoHoverStates] = useState({}); 
+  const [videoHoverStates, setVideoHoverStates] = useState({});
   const [controlHoverStates, setControlHoverStates] = useState({}); // To handle control hover
   const { DarkLight } = useContext(Context1);
 
@@ -51,15 +51,15 @@ const Work = () => {
     handleSelectOption2(updatedString)
     SearchVideoType2(updatedString)
     console.log("ma useEffect chala")
-}, [location]);
+  }, [location]);
 
-const AnimationOnClick = () =>{
-  gsap.from(work.current,{
-    y:1000,
-    opacity:0,
-  })
-}
-  
+  const AnimationOnClick = () => {
+    gsap.from(work.current, {
+      y: 1000,
+      opacity: 0,
+    })
+  }
+
   useEffect(() => {
     const link = document.createElement("link");
     link.rel = "preload";
@@ -76,303 +76,303 @@ const AnimationOnClick = () =>{
   const handleToggleDropdown2 = () => {
     setIsOpen2(!isOpen2);
   };
-let Alldata =  [
-  {
-    "2D Character Explainer": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/-wJjmguH_oU?si=ENmbCOaV95tCjQXw",
-        text1: "Trust Quay",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-        poster:"/Project IMG/trust quay.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/aTexngJxhHE?si=KySph3KgS-U0lpSX",
-        text1: "Rixious",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/rixius.png"
-      },
+  let Alldata = [
+    {
+      "2D Character Explainer": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/-wJjmguH_oU?si=ENmbCOaV95tCjQXw",
+          text1: "Trust Quay",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/trust quay.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/aTexngJxhHE?si=KySph3KgS-U0lpSX",
+          text1: "Rixious",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/rixius.png"
+        },
 
-      {
-        video:
-          "https://www.youtube.com/embed/_w7RCCjtMdI?si=gyuP0D5UyZc7L8Va",
-        text1: "Quick Vila",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/quickvila.png"
-      },
+        {
+          video:
+            "https://www.youtube.com/embed/_w7RCCjtMdI?si=gyuP0D5UyZc7L8Va",
+          text1: "Quick Vila",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/quickvila.png"
+        },
 
- 
-    ],
-  },
 
-  {
-    "SAAS Explainer": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/iM7WKPX2tQg?si=uABZu3rHRcnCXeuX",
-        text1: "Zoom Prop",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/westermann.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/I382yokt2A8?si=TyjnnqWAELBsJed8",
-        text1: "Westerman",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/zoomprop.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/NzVM9PU0CvI?si=OvwebdSh6jpBq_ex",
-        text1: "The Straw Boss",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/straw boss.png"
-      },
+      ],
+    },
 
-    ],
-  },
+    {
+      "SAAS Explainer": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/iM7WKPX2tQg?si=uABZu3rHRcnCXeuX",
+          text1: "Zoom Prop",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/westermann.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/I382yokt2A8?si=TyjnnqWAELBsJed8",
+          text1: "Westerman",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/zoomprop.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/NzVM9PU0CvI?si=OvwebdSh6jpBq_ex",
+          text1: "The Straw Boss",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/straw boss.png"
+        },
 
-  {
-    "Line Art Explainer": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/dRzZ3eKy29Q?si=0ILZfG9cEUluZqNH",
-        text1: "Websites",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/website.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/0MoCR68sqJQ?si=4SYBEUHc0BfGulHH",
-        text1: "Recycling",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/recycle.png"
-      },
+      ],
+    },
 
-    ],
-  },
+    {
+      "Line Art Explainer": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/dRzZ3eKy29Q?si=0ILZfG9cEUluZqNH",
+          text1: "Websites",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/website.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/0MoCR68sqJQ?si=4SYBEUHc0BfGulHH",
+          text1: "Recycling",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/recycle.png"
+        },
 
-  {
-    "Motion Graphics": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/_R0AEQCs_-w?si=XsGZLsA17JMPFQgv",
-        text1: "Extend Files",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/extentfiles.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/ncVpiYwFBg4?si=eQveQp9g0Gyg1fY_",
-        text1: "Olampia",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/uncle.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/Br0x3dmyM0A?si=PiaHMZ13avfeU8Xf",
-        text1: "Intent Connect",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/tag.png"
-      },
-    ],
-  },
+      ],
+    },
 
-  {
-    "Whiteboard": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/NVtrZI31G2k?si=nk2DTg7V8FDhpC0t",
-        text1: "Compassion",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/Compassion Video.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/UGRD0k_SC_I?si=UPmw-O0dRJ7FPgvR",
-        text1: "Mojo Naaz",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/ai.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/Nn-0oKmNsG0?si=9FBFEnP5xPi5vMZ_",
-        text1: "Zycada",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/zycada.png"
-      },
-    ],
-  }, 
+    {
+      "Motion Graphics": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/_R0AEQCs_-w?si=XsGZLsA17JMPFQgv",
+          text1: "Extend Files",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/extentfiles.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/ncVpiYwFBg4?si=eQveQp9g0Gyg1fY_",
+          text1: "Olampia",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/uncle.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/Br0x3dmyM0A?si=PiaHMZ13avfeU8Xf",
+          text1: "Intent Connect",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/tag.png"
+        },
+      ],
+    },
 
-  {
-    "Education and Training": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/irgaeMl9fvQ?si=t8HU6ElKACDMTGeV",
-        text1: "Tiger Finance",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/tiger finance.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/Bm0lHD9stfs?si=c_d3rBnzryMbwWSC",
-        text1: "North Point",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/northpoint.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/SBHs42FB3vc?si=khawvSses1e_jpxi",
-        text1: "Commitment",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/commitment.png"
-      },
-    ],
-  }, 
+    {
+      "Whiteboard": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/NVtrZI31G2k?si=nk2DTg7V8FDhpC0t",
+          text1: "Compassion",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/Compassion Video.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/UGRD0k_SC_I?si=UPmw-O0dRJ7FPgvR",
+          text1: "Mojo Naaz",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/ai.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/Nn-0oKmNsG0?si=9FBFEnP5xPi5vMZ_",
+          text1: "Zycada",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/zycada.png"
+        },
+      ],
+    },
 
-  {
-    "Cel Animation": [
-      {
-        largevideo:
-          "https://www.youtube.com/embed/QOJI12yDgFk?si=QLGOz4-GERJMeZuV",
-        text1: "Sprinto",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/sprinto.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/se_6p5mOO2g?si=4e7tjHJuBFKbcF81",
-        text1: "Game Providers",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/game.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/kncsl7USwPs?si=n6qgynph9-0MWCdk",
-        text1: "Haive",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/Haive.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/qextxBCf1tg?si=MDO23N3WRaUSRWvu",
-        text1: "Honey",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/white.png"
-      },
-  
-      
-    ],
+    {
+      "Education and Training": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/irgaeMl9fvQ?si=t8HU6ElKACDMTGeV",
+          text1: "Tiger Finance",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/tiger finance.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/Bm0lHD9stfs?si=c_d3rBnzryMbwWSC",
+          text1: "North Point",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/northpoint.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/SBHs42FB3vc?si=khawvSses1e_jpxi",
+          text1: "Commitment",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/commitment.png"
+        },
+      ],
+    },
 
-    
-  },
-  {
-    animation:[
-      {
-        video:
-          "https://www.youtube.com/embed/I9L5hG2psIo?si=5dT3sxztQ4XyalVU",
-        text1: "RDP Store",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/store.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/VuIxarvKIQ0?si=-FeC-tR-PoLB_2c3",
-        text1: "We Love Our Pets",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/pet.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/otePY-mmumA?si=6sFxqP83YNT5uuTG",
-        text1: "Zen Marketing",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/zen market.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/HdvVRbJNuYM?si=_KaFDPYj0kA_ZUOL",
-        text1: "Burners",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/burners.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/mf789YBsUFo?si=cLGEahZWMO7MUKts",
-        text1: "OLX",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/olx.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/LIMwCtLpnao?si=rn5D4MgSlLMFe9GP",
-        text1: "Cyber X",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/cyber.png"
-      },
+    {
+      "Cel Animation": [
+        {
+          largevideo:
+            "https://www.youtube.com/embed/QOJI12yDgFk?si=QLGOz4-GERJMeZuV",
+          text1: "Sprinto",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/sprinto.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/se_6p5mOO2g?si=4e7tjHJuBFKbcF81",
+          text1: "Game Providers",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/game.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/kncsl7USwPs?si=n6qgynph9-0MWCdk",
+          text1: "Haive",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/Haive.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/qextxBCf1tg?si=MDO23N3WRaUSRWvu",
+          text1: "Honey",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/white.png"
+        },
 
-    ]
 
-  } 
-  ,
-  {
-    animtion2:[
-      {
-        video:
-          "https://www.youtube.com/embed/vnC6P0Sx5Z8?si=SHPwOU5rRf7IkxRd",
-        text1: "The Property Finance",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/property.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/HLmJZaNWgs8?si=30Bbjy5oDSwxbO7G",
-        text1: "Daddy Promise Foundation",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/promise.png"
-      },
-      {
-        video:
-          "https://www.youtube.com/embed/HLmJZaNWgs8?si=30Bbjy5oDSwxbO7G",
-        text1: "Health Section",
-        text2: "Next-gen audience intelligence",
-        type: "Explainer Video",
-           poster:"/Project IMG/health.png"
-      },
-    ]
-  }
-  
-];
+      ],
+
+
+    },
+    {
+      animation: [
+        {
+          video:
+            "https://www.youtube.com/embed/I9L5hG2psIo?si=5dT3sxztQ4XyalVU",
+          text1: "RDP Store",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/store.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/VuIxarvKIQ0?si=-FeC-tR-PoLB_2c3",
+          text1: "We Love Our Pets",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/pet.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/otePY-mmumA?si=6sFxqP83YNT5uuTG",
+          text1: "Zen Marketing",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/zen market.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/HdvVRbJNuYM?si=_KaFDPYj0kA_ZUOL",
+          text1: "Burners",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/burners.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/mf789YBsUFo?si=cLGEahZWMO7MUKts",
+          text1: "OLX",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/olx.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/LIMwCtLpnao?si=rn5D4MgSlLMFe9GP",
+          text1: "Cyber X",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/cyber.png"
+        },
+
+      ]
+
+    }
+    ,
+    {
+      animtion2: [
+        {
+          video:
+            "https://www.youtube.com/embed/vnC6P0Sx5Z8?si=SHPwOU5rRf7IkxRd",
+          text1: "The Property Finance",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/property.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/HLmJZaNWgs8?si=30Bbjy5oDSwxbO7G",
+          text1: "Daddy Promise Foundation",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/promise.png"
+        },
+        {
+          video:
+            "https://www.youtube.com/embed/HLmJZaNWgs8?si=30Bbjy5oDSwxbO7G",
+          text1: "Health Section",
+          text2: "Next-gen audience intelligence",
+          type: "Explainer Video",
+          poster: "/Project IMG/health.png"
+        },
+      ]
+    }
+
+  ];
   let data = [
     {
       "2D Character Explainer": [
@@ -382,7 +382,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-          poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -390,7 +390,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
 
         {
@@ -399,7 +399,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
     },
@@ -412,7 +412,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -420,7 +420,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -428,7 +428,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
     },
@@ -441,7 +441,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/ball.png"
+          poster: "/Project IMG/ball.png"
         },
         {
           video:
@@ -449,7 +449,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/ball.png"
+          poster: "/Project IMG/ball.png"
         },
         {
           video:
@@ -457,7 +457,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/ball.png"
+          poster: "/Project IMG/ball.png"
         },
       ],
     },
@@ -470,7 +470,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -478,7 +478,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -486,7 +486,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
     },
@@ -499,7 +499,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -507,7 +507,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -515,10 +515,10 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
-    }, 
+    },
 
     {
       "Education and Training": [
@@ -528,7 +528,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -536,7 +536,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -544,10 +544,10 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
-    }, 
+    },
 
     {
       "Cel Animation": [
@@ -557,7 +557,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -565,7 +565,7 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
         {
           video:
@@ -573,30 +573,30 @@ let Alldata =  [
           text1: "Intent Connect",
           text2: "Next-gen audience intelligence",
           type: "Explainer Video",
-             poster:"/Project IMG/about1.png"
+          poster: "/Project IMG/about1.png"
         },
       ],
-    }, 
-    
+    },
+
   ];
 
   const handleSelectOption2 = (value) => {
     setTypeOfVideo(value);
-    
+
     setIsOpen2(false);
   };
   const SearchVideoType2 = (TypeOfVideoParams) => {
     setTypeOfVideoToPrint(TypeOfVideoParams ? TypeOfVideoParams : TypeOfVideo);
     // const String = TypeOfVideo.split(" ").join("")
-    if(!TypeOfVideoParams){
+    if (!TypeOfVideoParams) {
       Navigate(`/creations/${TypeOfVideo}`)
     }
     let Filter = data.find((x) => {
       let Keys = Object.keys(x)[0];
       let Values = Object.values(x)[0];
       // console.log(TypeOfVideo)
- 
-     
+
+
       if (TypeOfVideoParams !== "All") {
         return Keys === TypeOfVideoParams;
       }
@@ -610,7 +610,7 @@ let Alldata =  [
       });
       console.log(smallData);
       setDataToVideo(smallData);
-    }else{
+    } else {
       setDataToVideo([]);
       setLargeVideoData([]);
     }
@@ -618,15 +618,15 @@ let Alldata =  [
   const SearchVideoType = (TypeOfVideoParams) => {
     setTypeOfVideoToPrint(TypeOfVideoParams ? TypeOfVideoParams : TypeOfVideo);
     // const String = TypeOfVideo.split(" ").join("")
-    if(!TypeOfVideoParams){
+    if (!TypeOfVideoParams) {
       Navigate(`/creations/${TypeOfVideo}`)
     }
     let Filter = data.find((x) => {
       let Keys = Object.keys(x)[0];
       let Values = Object.values(x)[0];
       // console.log(TypeOfVideo)
- 
-     
+
+
       if (TypeOfVideo !== "All") {
         return Keys === TypeOfVideo;
       }
@@ -640,7 +640,7 @@ let Alldata =  [
       });
       console.log(smallData);
       setDataToVideo(smallData);
-    }else{
+    } else {
       setDataToVideo([]);
       setLargeVideoData([]);
     }
@@ -677,7 +677,7 @@ let Alldata =  [
     //   sethoverbg1smallWidth("97.3%");
     // }
 
-    
+
     if (windowWidth <= 468) {
       setbtnWidth("90vw"); // This will apply when the width is 468px or less
     } else if (windowWidth <= 900) {
@@ -697,6 +697,89 @@ let Alldata =  [
       <div className="ball absolute left-0 top-28">
         <img src="/Project IMG/ball.png" alt="" />
       </div>
+      <div className="ball-right absolute right-0 top-28">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+   {TypeOfVideoToPrint === "All" ? <div className="multi-balls">
+    <div className="ball absolute right-0 top-28">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute right-36 top-[100%]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute right-36 top-[2200px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute left-10 top-[1600px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute left-36 top-[2500px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute right-10 top-[2800px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute left-10 top-[3200px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute right-10 top-[3700px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>   
+         <div className="ball absolute left-10 top-[4100px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>   
+         <div className="ball absolute right-10 top-[4500px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>    
+        <div className="ball absolute left-10 top-[4800px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute right-10 top-[5200px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute left-10 top-[5600px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute right-10 top-[6000px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>   <div className="ball absolute left-10 top-[6400px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>   <div className="ball absolute right-10 top-[6800px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>   <div className="ball absolute left-10 top-[7200px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute right-10 top-[7600px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute left-10 top-[8000px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute right-10 top-[8400px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute left-10 top-[8800px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute right-10 top-[9200px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball absolute left-10 top-[9600px]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+
+   </div> : <div>
+   <div className="ball2 absolute right-36 top-[100%]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+      <div className="ball2 absolute left-26 top-[120%]">
+        <img src="/Project IMG/ball.png" alt="" />
+      </div>
+
+
+      </div>}
+
+
       {YoutubeVideo ? (
         <div className="video-container">
           <IoCloseOutline
@@ -744,9 +827,8 @@ let Alldata =  [
                 >
                   <span>{TypeOfVideo || "Select an option"}</span>
                   <svg
-                    className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${
-                      isOpen2 ? "rotate-180" : ""
-                    }  }`}
+                    className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${isOpen2 ? "rotate-180" : ""
+                      }  }`}
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -764,7 +846,7 @@ let Alldata =  [
                 </button>
                 {isOpen2 && (
                   <ul className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg p-0 z-1  h-56 overflow-y-scroll ">
-                    {["All", "2D Character Explainer", "SAAS Explainer", "Line Art Explainer","Motion Graphics" , "Whiteboard","Education and Training" ,"Cel Animation"].map(
+                    {["All", "2D Character Explainer", "Isometric", "SAAS Explainer", "Line Art Explainer", "Motion Graphics", "Whiteboard", "Education and Training", "Cel Animation"].map(
                       (option) => (
                         <li
                           key={option}
@@ -772,9 +854,8 @@ let Alldata =  [
                           className={`px-4 py-2 text-gray-700 cursor-pointer hover:bg-[#EBE1F9] focus:outline-none`}
                         >
                           <span
-                            className={`${
-                              TypeOfVideo === option ? "font-bold" : ""
-                            } block px-4 py-2`}
+                            className={`${TypeOfVideo === option ? "font-bold" : ""
+                              } block px-4 py-2`}
                           >
                             {option}
                           </span>
@@ -789,7 +870,7 @@ let Alldata =  [
 
           <div
             className=" w-full button mt-8 flex items-center justify-center "
-            onClick={() => {SearchVideoType();AnimationOnClick()}}
+            onClick={() => { SearchVideoType(); AnimationOnClick() }}
           >
             <Button
               text={"Search Portfolio"}
@@ -806,401 +887,261 @@ let Alldata =  [
         <div className="video-small-All gap-2 flex flex-wrap "  >
           {TypeOfVideoToPrint === "All"
             ? Alldata.map((x, index) => {
-                // Extracting the list of videos
-                const videos = Object.values(x)[0];
-                // console.log(videos);
-                let videoElements = [];
+              // Extracting the list of videos
+              const videos = Object.values(x)[0];
+              // console.log(videos);
+              let videoElements = [];
 
-                // Check if there are enough videos to display a large one and two small ones
-                if (videos.length >= 2) {
-                  // First, handle the large video (appears alone)
-                  videoElements.push(
+              // Check if there are enough videos to display a large one and two small ones
+              if (videos.length >= 2) {
+                // First, handle the large video (appears alone)
+                videoElements.push(
+                  <div
+                    className="video-large flex justify-center items-center mt-6 relative w-full"
+
+                    key={`large-video-${index}`}
+
+                  >
+                    {/* Large video container with hover effects */}
                     <div
-                      className="video-large flex justify-center items-center mt-6 relative w-full"
-                      
-                      key={`large-video-${index}`}
-                      
-                    >
-                      {/* Large video container with hover effects */}
-                      <div
-                        className="bg1 l-bg-1 absolute"
-                        style={{
-                          background: hoverStates[index]
-                            ? "black"
-                            : "transparent",
+                      className="bg1 l-bg-1 absolute"
+                      style={{
+                        background: hoverStates[index]
+                          ? "black"
+                          : "transparent",
 
-                          width: hoverStates[index]
-                            ? `${hoverbg1bigWidth}`
-                            : "0",
-                          height: hoverStates[index] ? "100%" : "0",
-                          transition: "opacity 300ms ease-in",
-                          opacity: hoverStates[index] ? "0.6" : "0",
-                        }}
-                      ></div>
-                      <div
-                        className="bg2 l-bg-2 absolute"
-                        style={{
-                          background: hoverStates[index]
-                            ? "black"
-                            : "transparent",
-                            height: hoverStates[index] ? "97%" : "0",
-                          transition: "all 300ms ease-in",
-                          opacity: hoverStates[index] ? "0.6" : "0",
-                        }}
-                      ></div>
-                      <div
-                        className={`text Thisis left-[${TextPosition}] text-[28px] font-semibold text-white absolute pt-4 pl-3`}
-                        style={{
-                          opacity: hoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          top: hoverStates[index] ? "2%" : "0",
-                        }}
-                      >
+                        width: hoverStates[index]
+                          ? `${hoverbg1bigWidth}`
+                          : "0",
+                        height: hoverStates[index] ? "100%" : "0",
+                        transition: "opacity 300ms ease-in",
+                        opacity: hoverStates[index] ? "0.6" : "0",
+                      }}
+                    ></div>
+                    <div
+                      className="bg2 l-bg-2 absolute"
+                      style={{
+                        background: hoverStates[index]
+                          ? "black"
+                          : "transparent",
+                        height: hoverStates[index] ? "97%" : "0",
+                        transition: "all 300ms ease-in",
+                        opacity: hoverStates[index] ? "0.6" : "0",
+                      }}
+                    ></div>
+                    <div
+                      className={`text Thisis left-[${TextPosition}] text-[28px] font-semibold text-white absolute pt-4 pl-3`}
+                      style={{
+                        opacity: hoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        top: hoverStates[index] ? "2%" : "0",
+                      }}
+                    >
                       <div>
-                                {videos[0].text1}
-                                <div className="small font-extralight text-[14px]">
-                                  {videos[0].type}
-                                </div>
-                              </div>
-                      </div>
-                      <div
-                        className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                        style={{
-                          opacity: hoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          left: hoverStates[index] ? `${TextPosition}` : "0",
-                        }}
-                      >
-                        <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
-                          <span className="text-[14px]"> </span>{" "}
-                          
+                        {videos[0].text1}
+                        <div className="small font-extralight text-[14px]">
+                          {videos[0].type}
                         </div>
                       </div>
-                      <div
-                        className="play z-1 flex gap-2 items-center  top-[80%] absolute text-white font-medium pt-4 pl-3"
-                        style={{
-                          opacity: hoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          right: hoverStates[index] ? `${TextPosition}` : "0",
-                        }}
-                        onMouseEnter={(e) => {
-                          console.log(videos[0].largevideo);
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: true,
-                          }));
-                        }}
-                        onMouseLeave={(e) => {
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: false,
-                          }));
-                        }}
-                      >
-                        <div className="text text-[18px]">Quick Play</div>
-                        <FaRegCirclePlay
-                          className="text-[28px] cursor-pointer"
-                          onClick={() => {
-                            PlayYouTube();
-                            setYoutubeUrl(videos[0].largevideo);
-                          }}
-                        />
-                      </div>
-                      <div
-                        className="play2 z-1 items-center absolute text-white font-medium"
-                        onMouseEnter={(e) => {
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: true,
-                          }));
-                        }}
-                        onMouseLeave={(e) => {
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: false,
-                          }));
-                        }}
-                      >
-                        <FaRegCirclePlay
-                          className="text-[55px] cursor-pointer"
-                          onClick={() => {
-                            PlayYouTube();
-                            setYoutubeUrl(videos[0].largevideo);
-                          }}
-                        />
-                      </div>
-                      <video
-                        className="large-vi cursor-pointer"
-                        muted
-                        loop
-                    
-                        poster={videos[0].poster}
-                        onMouseEnter={(e) => {
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: true,
-                          }));
-                        }}
-                        onMouseLeave={(e) => {              
-                          setHoverStates((prev) => ({
-                            ...prev,
-                            [index]: false,
-                          }));
-                        }}
-                      ></video>
                     </div>
-                  );
-                  videoElements.push(
                     <div
-              
-                      className="small-videos flex items-center justify-center flex-wrap w-full mt-6 "
-                      key={`small-videos-${index}`}
+                      className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                      style={{
+                        opacity: hoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        left: hoverStates[index] ? `${TextPosition}` : "0",
+                      }}
                     >
-                      {videos
-                        .slice(
-                          1,
-                          videos.slice(1).length % 2 !== 0
-                            ? videos.length - 1
-                            : videos.length
-                        )
-                        .map((item, idx) => (
-                          <div
-                            className="video-small flex justify-center items-center relative"
-                            key={`small-video-${idx}`}
-                          >
-                            {/* Small video container with hover effects */}
-                            <div
-                              className="bg1 absolute"
-                              style={{
-                                background: hoverStates[`${index}-${idx}`]
-                                  ? "black"
-                                  : "transparent",
+                      <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
+                        <span className="text-[14px]"> </span>{" "}
 
-                                width: hoverStates[`${index}-${idx}`]
-                                  ? `${hoverbg1smallWidth}`
-                                  : "0",
-                                height: hoverStates[`${index}-${idx}`]
-                                  ? "100%"
-                                  : "0",
-                                transition: "opacity 300ms ease-in",
-                                opacity: hoverStates[`${index}-${idx}`]
-                                  ? "0.6"
-                                  : "0",
-                              }}
-                            ></div>
-                            <div
-                              className="bg2 s-bg-2 absolute"
-                              style={{
-                                background: hoverStates[`${index}-${idx}`]
-                                  ? "black"
-                                  : "transparent",
-                                transition: "all 300ms ease-in",
-                                opacity: hoverStates[`${index}-${idx}`]
-                                  ? "0.6"
-                                  : "0",
-                              }}
-                            ></div>
-                            <div
-                              className="text Thisis left-[5%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                              style={{
-                                opacity: hoverStates[`${index}-${idx}`]
-                                  ? "1"
-                                  : "0",
-                                transition: "all 200ms ease-in",
-                                top: hoverStates[`${index}-${idx}`]
-                                  ? "2%"
-                                  : "0",
-                              }}
-                            >
-                              <div>
-                                {item.text1}
-                                <div className="small font-extralight text-[14px]">
-                                  {item.type}
-                                </div>
-                              </div>
-                            </div>
-                            <div
-                              className="text viewpro top-[66%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                              style={{
-                                opacity: hoverStates[`${index}-${idx}`]
-                                  ? "1"
-                                  : "0",
-                                transition: "all 200ms ease-in",
-                                left: hoverStates[`${index}-${idx}`]
-                                  ? "5%"
-                                  : "0",
-                              }}
-                            >
-                              <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
-                                <span className="text-[14px]">
-                                  {" "}
-                                  
-                                </span>{" "}
-                                
-                              </div>
-                            </div>
-                            <div
-                              className="play z-1 flex gap-2 items-center top-[66%] absolute text-white font-medium pt-4 pl-3"
-                              style={{
-                                opacity: hoverStates[`${index}-${idx}`]
-                                  ? "1"
-                                  : "0",
-                                transition: "all 200ms ease-in",
-                                right: hoverStates[`${index}-${idx}`]
-                                  ? "5%"
-                                  : "0",
-                              }}
-                              onMouseEnter={(e) => {
-                        
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: true,
-                                }));
-                              }}
-                              onMouseLeave={(e) => {
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: false,
-                                }));
-                              }}
-                            >
-                              <div className="text text-[18px]">Quick Play</div>
-                              <FaRegCirclePlay
-                                className="text-[28px] cursor-pointer"
-                                onClick={() => {
-                                  PlayYouTube();
-                                  console.log(item.video,"madsga")
-                                  setYoutubeUrl(item.video);
-                                }}
-                              />
-                            </div>
-                            <div
-                              className="play2 z-1 items-center absolute text-white font-medium"
-                              onMouseEnter={(e) => {
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: true,
-                                }));
-                              }}
-                              onMouseLeave={(e) => {
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: false,
-                                }));
-                              }}
-                            >
-                              <FaRegCirclePlay
-                                className="text-[55px] cursor-pointer"
-                                onClick={() => {
-                                  PlayYouTube();
-                                  setYoutubeUrl(item.video);
-                                }}
-                              />
-                            </div>
-                            <video
-                              className="small-vi cursor-pointer"
-                              muted
-                              loop
-                              poster={item.poster}
-                              onMouseEnter={(e) => {
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: true,
-                                }));
-                              }}
-                              onMouseLeave={(e) => {
-                                setHoverStates((prev) => ({
-                                  ...prev,
-                                  [`${index}-${idx}`]: false,
-                                }));
-                              }}
-                            ></video>
-                          </div>
-                        ))}
+                      </div>
                     </div>
-                  );
+                    <div
+                      className="play z-1 flex gap-2 items-center  top-[80%] absolute text-white font-medium pt-4 pl-3"
+                      style={{
+                        opacity: hoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        right: hoverStates[index] ? `${TextPosition}` : "0",
+                      }}
+                      onMouseEnter={(e) => {
+                        console.log(videos[0].largevideo);
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: true,
+                        }));
+                      }}
+                      onMouseLeave={(e) => {
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: false,
+                        }));
+                      }}
+                    >
+                      <div className="text text-[18px]">Quick Play</div>
+                      <FaRegCirclePlay
+                        className="text-[28px] cursor-pointer"
+                        onClick={() => {
+                          PlayYouTube();
+                          setYoutubeUrl(videos[0].largevideo);
+                        }}
+                      />
+                    </div>
+                    <div
+                      className="play2 z-1 items-center absolute text-white font-medium"
+                      onMouseEnter={(e) => {
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: true,
+                        }));
+                      }}
+                      onMouseLeave={(e) => {
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: false,
+                        }));
+                      }}
+                    >
+                      <FaRegCirclePlay
+                        className="text-[55px] cursor-pointer"
+                        onClick={() => {
+                          PlayYouTube();
+                          setYoutubeUrl(videos[0].largevideo);
+                        }}
+                      />
+                    </div>
+                    <video
+                      className="large-vi cursor-pointer"
+                      muted
+                      loop
 
-                  if (videos.length % 2 == 0) {
-                    videoElements.push(
-                      ...videos.slice(-1).map((x, idx) => (
+                      poster={videos[0].poster}
+                      onMouseEnter={(e) => {
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: true,
+                        }));
+                      }}
+                      onMouseLeave={(e) => {
+                        setHoverStates((prev) => ({
+                          ...prev,
+                          [index]: false,
+                        }));
+                      }}
+                    ></video>
+                  </div>
+                );
+                videoElements.push(
+                  <div
+
+                    className="small-videos flex items-center justify-center flex-wrap w-full mt-6 "
+                    key={`small-videos-${index}`}
+                  >
+                    {videos
+                      .slice(
+                        1,
+                        videos.slice(1).length % 2 !== 0
+                          ? videos.length - 1
+                          : videos.length
+                      )
+                      .map((item, idx) => (
                         <div
-                          className="video-large flex justify-center items-center mt-8 relative w-full"
-                          key={`large-video-s${index}`}
+                          className="video-small flex justify-center items-center relative"
+                          key={`small-video-${idx}`}
                         >
-                          {/* Large video container with hover effects */}
+                          {/* Small video container with hover effects */}
                           <div
-                            className="bg1 l-bg-1 absolute"
+                            className="bg1 absolute"
                             style={{
-                              background: controlHoverStates[index]
+                              background: hoverStates[`${index}-${idx}`]
                                 ? "black"
                                 : "transparent",
-                              width: controlHoverStates[index]
-                                ? `${hoverbg1bigWidth}`
+
+                              width: hoverStates[`${index}-${idx}`]
+                                ? `${hoverbg1smallWidth}`
                                 : "0",
-                              height: controlHoverStates[index] ? "100%" : "0",
+                              height: hoverStates[`${index}-${idx}`]
+                                ? "100%"
+                                : "0",
                               transition: "opacity 300ms ease-in",
-                              opacity: controlHoverStates[index] ? "0.6" : "0",
+                              opacity: hoverStates[`${index}-${idx}`]
+                                ? "0.6"
+                                : "0",
                             }}
                           ></div>
                           <div
-                            className="bg2 l-bg-2 absolute"
+                            className="bg2 s-bg-2 absolute"
                             style={{
-                              background: controlHoverStates[index]
+                              background: hoverStates[`${index}-${idx}`]
                                 ? "black"
                                 : "transparent",
                               transition: "all 300ms ease-in",
-                              opacity: controlHoverStates[index] ? "0.6" : "0",
+                              opacity: hoverStates[`${index}-${idx}`]
+                                ? "0.6"
+                                : "0",
                             }}
                           ></div>
                           <div
-                            className={`text Thisis left-[${TextPosition}] text-[28px] font-semibold text-white absolute pt-4 pl-3`}
+                            className="text Thisis left-[5%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
                             style={{
-                              opacity: controlHoverStates[index] ? "1" : "0",
+                              opacity: hoverStates[`${index}-${idx}`]
+                                ? "1"
+                                : "0",
                               transition: "all 200ms ease-in",
-                              top: controlHoverStates[index] ? "2%" : "0",
+                              top: hoverStates[`${index}-${idx}`]
+                                ? "2%"
+                                : "0",
                             }}
                           >
-                          <div>
-                                {x.text1}
-                                <div className="small font-extralight text-[14px]">
-                                  {x.type}
-                                </div>
+                            <div>
+                              {item.text1}
+                              <div className="small font-extralight text-[14px]">
+                                {item.type}
                               </div>
+                            </div>
                           </div>
                           <div
-                            className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                            className="text viewpro top-[66%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
                             style={{
-                              opacity: controlHoverStates[index] ? "1" : "0",
+                              opacity: hoverStates[`${index}-${idx}`]
+                                ? "1"
+                                : "0",
                               transition: "all 200ms ease-in",
-                              left: controlHoverStates[index]
-                                ? `${TextPosition}`
+                              left: hoverStates[`${index}-${idx}`]
+                                ? "5%"
                                 : "0",
                             }}
                           >
                             <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
-                              <span className="text-[14px]"> </span>{" "}
-                              
+                              <span className="text-[14px]">
+                                {" "}
+
+                              </span>{" "}
+
                             </div>
                           </div>
                           <div
-                            className="play z-1 flex gap-2 items-center top-[80%] absolute text-white font-medium pt-4 pl-3"
+                            className="play z-1 flex gap-2 items-center top-[66%] absolute text-white font-medium pt-4 pl-3"
                             style={{
-                              opacity: controlHoverStates[index] ? "1" : "0",
+                              opacity: hoverStates[`${index}-${idx}`]
+                                ? "1"
+                                : "0",
                               transition: "all 200ms ease-in",
-                              right: controlHoverStates[index]
-                                ? `${TextPosition}`
+                              right: hoverStates[`${index}-${idx}`]
+                                ? "5%"
                                 : "0",
                             }}
                             onMouseEnter={(e) => {
-                              setControlHoverStates((prev) => ({
+
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: true,
+                                [`${index}-${idx}`]: true,
                               }));
                             }}
                             onMouseLeave={(e) => {
-                              setControlHoverStates((prev) => ({
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: false,
+                                [`${index}-${idx}`]: false,
                               }));
                             }}
                           >
@@ -1209,24 +1150,23 @@ let Alldata =  [
                               className="text-[28px] cursor-pointer"
                               onClick={() => {
                                 PlayYouTube();
-
-                              
-                                setYoutubeUrl(x.video);
+                                console.log(item.video, "madsga")
+                                setYoutubeUrl(item.video);
                               }}
                             />
                           </div>
                           <div
                             className="play2 z-1 items-center absolute text-white font-medium"
                             onMouseEnter={(e) => {
-                              setControlHoverStates((prev) => ({
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: true,
+                                [`${index}-${idx}`]: true,
                               }));
                             }}
                             onMouseLeave={(e) => {
-                              setControlHoverStates((prev) => ({
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: false,
+                                [`${index}-${idx}`]: false,
                               }));
                             }}
                           >
@@ -1234,339 +1174,481 @@ let Alldata =  [
                               className="text-[55px] cursor-pointer"
                               onClick={() => {
                                 PlayYouTube();
-                                setYoutubeUrl(x.video);
+                                setYoutubeUrl(item.video);
                               }}
                             />
                           </div>
                           <video
-                            className="large-vi cursor-pointer"
+                            className="small-vi cursor-pointer"
                             muted
                             loop
-                            poster={x.poster}
+                            poster={item.poster}
                             onMouseEnter={(e) => {
-                              setControlHoverStates((prev) => ({
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: true,
+                                [`${index}-${idx}`]: true,
                               }));
                             }}
                             onMouseLeave={(e) => {
-                              setControlHoverStates((prev) => ({
+                              setHoverStates((prev) => ({
                                 ...prev,
-                                [index]: false,
+                                [`${index}-${idx}`]: false,
                               }));
                             }}
                           ></video>
                         </div>
-                      ))
-                    );
-                  }
+                      ))}
+                  </div>
+                );
 
+                if (videos.length % 2 == 0) {
+                  videoElements.push(
+                    ...videos.slice(-1).map((x, idx) => (
+                      <div
+                        className="video-large flex justify-center items-center mt-8 relative w-full"
+                        key={`large-video-s${index}`}
+                      >
+                        {/* Large video container with hover effects */}
+                        <div
+                          className="bg1 l-bg-1 absolute"
+                          style={{
+                            background: controlHoverStates[index]
+                              ? "black"
+                              : "transparent",
+                            width: controlHoverStates[index]
+                              ? `${hoverbg1bigWidth}`
+                              : "0",
+                            height: controlHoverStates[index] ? "100%" : "0",
+                            transition: "opacity 300ms ease-in",
+                            opacity: controlHoverStates[index] ? "0.6" : "0",
+                          }}
+                        ></div>
+                        <div
+                          className="bg2 l-bg-2 absolute"
+                          style={{
+                            background: controlHoverStates[index]
+                              ? "black"
+                              : "transparent",
+                            transition: "all 300ms ease-in",
+                            opacity: controlHoverStates[index] ? "0.6" : "0",
+                          }}
+                        ></div>
+                        <div
+                          className={`text Thisis left-[${TextPosition}] text-[28px] font-semibold text-white absolute pt-4 pl-3`}
+                          style={{
+                            opacity: controlHoverStates[index] ? "1" : "0",
+                            transition: "all 200ms ease-in",
+                            top: controlHoverStates[index] ? "2%" : "0",
+                          }}
+                        >
+                          <div>
+                            {x.text1}
+                            <div className="small font-extralight text-[14px]">
+                              {x.type}
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                          style={{
+                            opacity: controlHoverStates[index] ? "1" : "0",
+                            transition: "all 200ms ease-in",
+                            left: controlHoverStates[index]
+                              ? `${TextPosition}`
+                              : "0",
+                          }}
+                        >
+                          <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
+                            <span className="text-[14px]"> </span>{" "}
+
+                          </div>
+                        </div>
+                        <div
+                          className="play z-1 flex gap-2 items-center top-[80%] absolute text-white font-medium pt-4 pl-3"
+                          style={{
+                            opacity: controlHoverStates[index] ? "1" : "0",
+                            transition: "all 200ms ease-in",
+                            right: controlHoverStates[index]
+                              ? `${TextPosition}`
+                              : "0",
+                          }}
+                          onMouseEnter={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: true,
+                            }));
+                          }}
+                          onMouseLeave={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: false,
+                            }));
+                          }}
+                        >
+                          <div className="text text-[18px]">Quick Play</div>
+                          <FaRegCirclePlay
+                            className="text-[28px] cursor-pointer"
+                            onClick={() => {
+                              PlayYouTube();
+
+
+                              setYoutubeUrl(x.video);
+                            }}
+                          />
+                        </div>
+                        <div
+                          className="play2 z-1 items-center absolute text-white font-medium"
+                          onMouseEnter={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: true,
+                            }));
+                          }}
+                          onMouseLeave={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: false,
+                            }));
+                          }}
+                        >
+                          <FaRegCirclePlay
+                            className="text-[55px] cursor-pointer"
+                            onClick={() => {
+                              PlayYouTube();
+                              setYoutubeUrl(x.video);
+                            }}
+                          />
+                        </div>
+                        <video
+                          className="large-vi cursor-pointer"
+                          muted
+                          loop
+                          poster={x.poster}
+                          onMouseEnter={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: true,
+                            }));
+                          }}
+                          onMouseLeave={(e) => {
+                            setControlHoverStates((prev) => ({
+                              ...prev,
+                              [index]: false,
+                            }));
+                          }}
+                        ></video>
+                      </div>
+                    ))
+                  );
                 }
-                return videoElements;
-              })
+
+              }
+              return videoElements;
+            })
             : null}
         </div>
 
         {TypeOfVideoToPrint !== "All"
           ? LargeVideoData?.map((X, index) => {
-              return (
+            return (
+              <div
+                className="video-large flex justify-center items-center mt-16 relative"
+                key={index}
+              >
+                {/* Hover background (bg1) for large video */}
                 <div
-                  className="video-large flex justify-center items-center mt-16 relative"
-                  key={index}
+                  className="bg1 l-bg-1 absolute"
+                  style={{
+                    background: largeVideoHoverStates[index]
+                      ? "black"
+                      : "transparent",
+                    width: largeVideoHoverStates[index]
+                      ? `${hoverbg1bigWidth}`
+                      : "0",
+                    height: largeVideoHoverStates[index] ? "100%" : "0",
+                    transition: "opacity 300ms ease-in",
+                    opacity: largeVideoHoverStates[index] ? "0.6" : "0",
+                  }}
+                ></div>
+
+                {/* Additional background (bg2) for large video */}
+                <div
+                  className="bg2 l-bg-2 absolute"
+                  style={{
+                    background: largeVideoHoverStates[index]
+                      ? "black"
+                      : "transparent",
+                    transition: "all 300ms ease-in",
+                    opacity: largeVideoHoverStates[index] ? "0.6" : "0",
+                  }}
+                ></div>
+
+                {/* Text for large video */}
+                <div
+                  className="text Thisis left-[23%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                  style={{
+                    opacity: largeVideoHoverStates[index] ? "1" : "0",
+                    transition: "all 200ms ease-in",
+                    top: largeVideoHoverStates[index] ? "2%" : "0",
+                  }}
                 >
-                  {/* Hover background (bg1) for large video */}
-                  <div
-                    className="bg1 l-bg-1 absolute"
-                    style={{
-                      background: largeVideoHoverStates[index]
-                        ? "black"
-                        : "transparent",
-                      width: largeVideoHoverStates[index]
-                        ? `${hoverbg1bigWidth}`
-                        : "0",
-                      height: largeVideoHoverStates[index] ? "100%" : "0",
-                      transition: "opacity 300ms ease-in",
-                      opacity: largeVideoHoverStates[index] ? "0.6" : "0",
-                    }}
-                  ></div>
-
-                  {/* Additional background (bg2) for large video */}
-                  <div
-                    className="bg2 l-bg-2 absolute"
-                    style={{
-                      background: largeVideoHoverStates[index]
-                        ? "black"
-                        : "transparent",
-                      transition: "all 300ms ease-in",
-                      opacity: largeVideoHoverStates[index] ? "0.6" : "0",
-                    }}
-                  ></div>
-
-                  {/* Text for large video */}
-                  <div
-                    className="text Thisis left-[23%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                    style={{
-                      opacity: largeVideoHoverStates[index] ? "1" : "0",
-                      transition: "all 200ms ease-in",
-                      top: largeVideoHoverStates[index] ? "2%" : "0",
-                    }}
-                  >
-                    <div className="small font-extralight text-[14px]">
-                      Explainer Video
-                    </div>
+                  <div className="small font-extralight text-[14px]">
+                    Explainer Video
                   </div>
-
-                  {/*  button */}
-                  <div
-                    className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                    style={{
-                      opacity: largeVideoHoverStates[index] ? "1" : "0",
-                      transition: "all 200ms ease-in",
-                      left: largeVideoHoverStates[index] ? "23%" : "0",
-                    }}
-                  >
-                    <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
-                      <span className="text-[14px]"> </span>
-                      
-                    </div>
-                  </div>
-
-                  {/* Quick Play button */}
-                  <div
-                    className="play flex gap-2 items-center top-[80%] absolute text-white font-medium pt-4 pl-3 z-1"
-                    style={{
-                      opacity: largeVideoHoverStates[index] ? "1" : "0",
-                      transition: "all 200ms ease-in",
-                      right: largeVideoHoverStates[index] ? "23%" : "0",
-                    }}
-                    onMouseEnter={(e) => {
-                      setLargeVideoHoverStates((prev) => ({
-                        ...prev,
-                        [index]: true,
-                      }));
-                    }}
-                    onMouseLeave={(e) => {
-                      setLargeVideoHoverStates((prev) => ({
-                        ...prev,
-                        [index]: false,
-                      }));
-                    }}
-                  >
-                    <div className="text text-[18px]">Quick Play</div>
-                    <FaRegCirclePlay
-                      className="text-[28px] cursor-pointer"
-                      onClick={() => {
-                        PlayYouTube();
-                        setYoutubeUrl(X.largevideo);
-                      }}
-                    />
-                  </div>
-
-                  {/* Play icon for large video */}
-                  <div className="play2 items-center absolute text-white font-medium z-1">
-                    <FaRegCirclePlay
-                      className="text-[55px] cursor-pointer"
-                      onClick={() => {
-                        PlayYouTube();
-                        setYoutubeUrl(X.largevideo);
-                      }}
-                      onMouseEnter={(e) => {
-                        setLargeVideoHoverStates((prev) => ({
-                          ...prev,
-                          [index]: true,
-                        }));
-                      }}
-                      onMouseLeave={(e) => {
-                        setLargeVideoHoverStates((prev) => ({
-                          ...prev,
-                          [index]: false,
-                        }));
-                      }}
-                    />
-                  </div>
-
-                  {/* Video player for large video */}
-                  <video
-                    className="large-vi cursor-pointer"
-                    muted
-                    loop
-                    poster={X.poster}
-                    onMouseEnter={(e) => {
-                      setLargeVideoHoverStates((prev) => ({
-                        ...prev,
-                        [index]: true,
-                      }));
-                    }}
-                    onMouseLeave={(e) => {
-                      setLargeVideoHoverStates((prev) => ({
-                        ...prev,
-                        [index]: false,
-                      }));
-                    }}
-                  ></video>
                 </div>
-              );
-            })
+
+                {/*  button */}
+                <div
+                  className="text viewpro top-[80%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                  style={{
+                    opacity: largeVideoHoverStates[index] ? "1" : "0",
+                    transition: "all 200ms ease-in",
+                    left: largeVideoHoverStates[index] ? "23%" : "0",
+                  }}
+                >
+                  <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
+                    <span className="text-[14px]"> </span>
+
+                  </div>
+                </div>
+
+                {/* Quick Play button */}
+                <div
+                  className="play flex gap-2 items-center top-[80%] absolute text-white font-medium pt-4 pl-3 z-1"
+                  style={{
+                    opacity: largeVideoHoverStates[index] ? "1" : "0",
+                    transition: "all 200ms ease-in",
+                    right: largeVideoHoverStates[index] ? "23%" : "0",
+                  }}
+                  onMouseEnter={(e) => {
+                    setLargeVideoHoverStates((prev) => ({
+                      ...prev,
+                      [index]: true,
+                    }));
+                  }}
+                  onMouseLeave={(e) => {
+                    setLargeVideoHoverStates((prev) => ({
+                      ...prev,
+                      [index]: false,
+                    }));
+                  }}
+                >
+                  <div className="text text-[18px]">Quick Play</div>
+                  <FaRegCirclePlay
+                    className="text-[28px] cursor-pointer"
+                    onClick={() => {
+                      PlayYouTube();
+                      setYoutubeUrl(X.largevideo);
+                    }}
+                  />
+                </div>
+
+                {/* Play icon for large video */}
+                <div className="play2 items-center absolute text-white font-medium z-1">
+                  <FaRegCirclePlay
+                    className="text-[55px] cursor-pointer"
+                    onClick={() => {
+                      PlayYouTube();
+                      setYoutubeUrl(X.largevideo);
+                    }}
+                    onMouseEnter={(e) => {
+                      setLargeVideoHoverStates((prev) => ({
+                        ...prev,
+                        [index]: true,
+                      }));
+                    }}
+                    onMouseLeave={(e) => {
+                      setLargeVideoHoverStates((prev) => ({
+                        ...prev,
+                        [index]: false,
+                      }));
+                    }}
+                  />
+                </div>
+
+                {/* Video player for large video */}
+                <video
+                  className="large-vi cursor-pointer"
+                  muted
+                  loop
+                  poster={X.poster}
+                  onMouseEnter={(e) => {
+                    setLargeVideoHoverStates((prev) => ({
+                      ...prev,
+                      [index]: true,
+                    }));
+                  }}
+                  onMouseLeave={(e) => {
+                    setLargeVideoHoverStates((prev) => ({
+                      ...prev,
+                      [index]: false,
+                    }));
+                  }}
+                ></video>
+              </div>
+            );
+          })
           : null}
 
         <div className="videos">
           <div className="small-videos flex items-center justify-center flex-wrap w-full mt-6">
             {TypeOfVideoToPrint !== "All"
               ? DataToVideo?.map((X, index, arr) => {
-                  return (
-                    <div         
-                      className="video-small flex justify-center items-center relative"
-                      key={index}
+                return (
+                  <div
+                    className="video-small flex justify-center items-center relative"
+                    key={index}
+                  >
+                    {/* Hover background (bg1) for small video */}
+                    <div
+                      className="bg1 absolute"
+                      style={{
+                        background: smallVideoHoverStates[index]
+                          ? "black"
+                          : "transparent",
+                        width: smallVideoHoverStates[index]
+                          ? `${hoverbg1smallWidth}`
+                          : "0",
+                        height: smallVideoHoverStates[index] ? "100%" : "0",
+                        transition: "opacity 300ms ease-in",
+                        opacity: smallVideoHoverStates[index] ? "0.6" : "0",
+                      }}
+                    ></div>
+
+                    {/* Additional background (bg2) for small video */}
+                    <div
+                      className="bg2 s-bg-2 absolute"
+                      style={{
+                        background: smallVideoHoverStates[index]
+                          ? "black"
+                          : "transparent",
+                        transition: "all 300ms ease-in",
+                        opacity: smallVideoHoverStates[index] ? "0.6" : "0",
+                      }}
+                    ></div>
+
+                    {/* Text for small video */}
+                    <div
+                      className="text Thisis left-[5%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                      style={{
+                        opacity: smallVideoHoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        top: smallVideoHoverStates[index] ? "2%" : "0",
+                      }}
                     >
-                      {/* Hover background (bg1) for small video */}
-                      <div
-                        className="bg1 absolute"
-                        style={{
-                          background: smallVideoHoverStates[index]
-                            ? "black"
-                            : "transparent",
-                          width: smallVideoHoverStates[index]
-                            ? `${hoverbg1smallWidth}`
-                            : "0",
-                          height: smallVideoHoverStates[index] ? "100%" : "0",
-                          transition: "opacity 300ms ease-in",
-                          opacity: smallVideoHoverStates[index] ? "0.6" : "0",
-                        }}
-                      ></div>
-
-                      {/* Additional background (bg2) for small video */}
-                      <div
-                        className="bg2 s-bg-2 absolute"
-                        style={{
-                          background: smallVideoHoverStates[index]
-                            ? "black"
-                            : "transparent",
-                          transition: "all 300ms ease-in",
-                          opacity: smallVideoHoverStates[index] ? "0.6" : "0",
-                        }}
-                      ></div>
-
-                      {/* Text for small video */}
-                      <div
-                        className="text Thisis left-[5%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                        style={{
-                          opacity: smallVideoHoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          top: smallVideoHoverStates[index] ? "2%" : "0",
-                        }}
-                      >
-                        <div>
-                          This is a video
-                          <div className="small font-extralight text-[14px]">
-                            Explainer Video
-                          </div>
+                      <div>
+                        This is a video
+                        <div className="small font-extralight text-[14px]">
+                          Explainer Video
                         </div>
                       </div>
+                    </div>
 
-                      {/*  button */}
-                      <div
-                        className="text viewpro top-[66%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
-                        style={{
-                          opacity: smallVideoHoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          left: smallVideoHoverStates[index] ? "5%" : "0",
-                        }}
-                      >
-                        <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
-                          <span className="text-[14px]"> </span>
-                          
-                        </div>
+                    {/*  button */}
+                    <div
+                      className="text viewpro top-[66%] text-[28px] font-semibold text-white absolute pt-4 pl-3"
+                      style={{
+                        opacity: smallVideoHoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        left: smallVideoHoverStates[index] ? "5%" : "0",
+                      }}
+                    >
+                      <div className="small font-extralight text-[13px] flex items-center justify-center gap-2">
+                        <span className="text-[14px]"> </span>
+
                       </div>
+                    </div>
 
-                      {/* Quick Play button */}
-                      <div
-                        className="play flex gap-2 items-center top-[66%] absolute text-white font-medium pt-4 pl-3 z-1"
-                        style={{
-                          opacity: smallVideoHoverStates[index] ? "1" : "0",
-                          transition: "all 200ms ease-in",
-                          right: smallVideoHoverStates[index] ? "5%" : "0",
+                    {/* Quick Play button */}
+                    <div
+                      className="play flex gap-2 items-center top-[66%] absolute text-white font-medium pt-4 pl-3 z-1"
+                      style={{
+                        opacity: smallVideoHoverStates[index] ? "1" : "0",
+                        transition: "all 200ms ease-in",
+                        right: smallVideoHoverStates[index] ? "5%" : "0",
+                      }}
+                      onMouseEnter={(e) => {
+                        // e.target.play();
+                        setSmallVideoHoverStates((prev) => ({
+                          ...prev,
+                          [index]: true,
+                        }));
+                      }}
+                      onMouseLeave={(e) => {
+                        // e.target.pause();
+                        // e.target.currentTime = 0;
+                        setSmallVideoHoverStates((prev) => ({
+                          ...prev,
+                          [index]: false,
+                        }));
+                      }}
+                    >
+                      <div className="text text-[18px] ">Quick Play</div>
+                      <div>
+                        {" "}
+                        <FaRegCirclePlay
+                          className="text-[28px] cursor-pointer"
+                          onClick={() => {
+                            PlayYouTube();
+                            setYoutubeUrl(X.video);
+                          }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Play icon for small video */}
+                    <div className="play2 items-center absolute text-white font-medium z-1  ">
+                      <FaRegCirclePlay
+                        className="text-[55px] cursor-pointer"
+                        onClick={() => {
+                          PlayYouTube();
+                          setYoutubeUrl(X.video);
                         }}
                         onMouseEnter={(e) => {
-                          // e.target.play();
+
                           setSmallVideoHoverStates((prev) => ({
                             ...prev,
                             [index]: true,
                           }));
                         }}
                         onMouseLeave={(e) => {
-                          // e.target.pause();
-                          // e.target.currentTime = 0;
+
                           setSmallVideoHoverStates((prev) => ({
                             ...prev,
                             [index]: false,
                           }));
                         }}
-                      >
-                        <div className="text text-[18px] ">Quick Play</div>
-                        <div>
-                          {" "}
-                          <FaRegCirclePlay
-                            className="text-[28px] cursor-pointer"
-                            onClick={() => {
-                              PlayYouTube();
-                              setYoutubeUrl(X.video);
-                            }}
-                          />
-                        </div>
-                      </div>
-
-                      {/* Play icon for small video */}
-                      <div className="play2 items-center absolute text-white font-medium z-1  ">
-                        <FaRegCirclePlay
-                          className="text-[55px] cursor-pointer"
-                          onClick={() => {
-                            PlayYouTube();
-                            setYoutubeUrl(X.video);
-                          }}
-                          onMouseEnter={(e) => {
-                   
-                            setSmallVideoHoverStates((prev) => ({
-                              ...prev,
-                              [index]: true,
-                            }));
-                          }}
-                          onMouseLeave={(e) => {
-                      
-                            setSmallVideoHoverStates((prev) => ({
-                              ...prev,
-                              [index]: false,
-                            }));
-                          }}
-                        />
-                      </div>
-
-                      {/* Video player for small video */}
-                      <video
-                        className="small-vi cursor-pointer"
-                        muted
-                        loop
-                        poster={X.poster}
-                        onMouseEnter={(e) => {          
-                          setSmallVideoHoverStates((prev) => ({
-                            ...prev,
-                            [index]: true,
-                          }));
-                        }}
-                        onMouseLeave={(e) => {              
-                          setSmallVideoHoverStates((prev) => ({
-                            ...prev,
-                            [index]: false,
-                          }));
-                        }}
-                      ></video>
+                      />
                     </div>
-                  );
-                })
+
+                    {/* Video player for small video */}
+                    <video
+                      className="small-vi cursor-pointer"
+                      muted
+                      loop
+                      poster={X.poster}
+                      onMouseEnter={(e) => {
+                        setSmallVideoHoverStates((prev) => ({
+                          ...prev,
+                          [index]: true,
+                        }));
+                      }}
+                      onMouseLeave={(e) => {
+                        setSmallVideoHoverStates((prev) => ({
+                          ...prev,
+                          [index]: false,
+                        }));
+                      }}
+                    ></video>
+                  </div>
+                );
+              })
               : null}
           </div>
         </div>
 
       </div>
+
     </WorkDiv>
   );
 };
@@ -1774,6 +1856,20 @@ const WorkDiv = styled.div`
     @media (max-width: 410px) {
       top: 25%;
       right: 3%;
+    }
+  }
+  .ball-right{
+    @media (max-width: 992px) {
+     display: none;
+    }
+  
+  }
+  .ball2{
+    width: 200px;
+  }
+  .multi-balls{
+    @media (max-width:992px) {
+      display: none;
     }
   }
 `;

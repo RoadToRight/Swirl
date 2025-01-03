@@ -5,7 +5,7 @@ import Button from "./Button";
 import Context1 from "../Context/Context1";
 import { Link } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
-
+import { RxCross2 } from "react-icons/rx";
 const Pricing = () => {
   const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [btnwidth, setbtnwidth] = useState("325px");
@@ -93,7 +93,7 @@ const Pricing = () => {
         <br />
         <div className="small2 smallt flex gap-6 flex-wrap items-center justify-center px-8">
           <div
-            className={`one font-light text-center flex items-center gap-1 text-${Textcolor}`}
+            className={`one font-light text-center flex items-center gap-1 text-${Textcolor} text-one`}
           >
             <FaCheck />
             Custom Illustrations & Custom Characters
@@ -129,9 +129,9 @@ const Pricing = () => {
 
         <br />
 
-        <div className={`small4 font-bold text-center text-${Textcolor}`}>
+        {/* <div className={`small4 font-bold text-center text-${Textcolor}`}>
           save up to 64% on an annual plan
-        </div>
+        </div> */}
       </div>
 
       <div className="Plans">
@@ -162,13 +162,13 @@ const Pricing = () => {
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                Licensed free music
+                Licensed free music and sfx
               </li>
               <li
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                HD format video
+                HD Quality
               </li>
               <li
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
@@ -185,8 +185,26 @@ const Pricing = () => {
               <li
                 className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
               >
-                <FaCheck />
-                Licensed Free sfxHD format video
+                <RxCross2 />
+                4k Quality
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Custom Illustration
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Custom Characters
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Script Writing
               </li>
             </div>
           </div>
@@ -242,7 +260,7 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link to={"/contactus"} onClick={scrollToTop} state={{location:"From Basic Plan"}}>
+              <Link to={"/contactus"} onClick={scrollToTop} state={{ location: "From Basic Plan" }}>
                 <Button
                   text={"Get Quote"}
                   color={"#360F4F"}
@@ -271,7 +289,7 @@ const Pricing = () => {
             <div className="ul list-none">
               <li className="flex items-center gap-2 text-[#ffffff] text-[15px] leading-[48px]">
                 <FaCheck />
-                30 second duration
+                60 second duration
               </li>
               <li className="flex items-center gap-2 text-[#ffffff] leading-[48px]">
                 <FaCheck />
@@ -279,11 +297,11 @@ const Pricing = () => {
               </li>
               <li className="flex items-center gap-2 text-[#ffffff] leading-[48px]">
                 <FaCheck />
-                Custom Illustration
+                Licensed Free music and sfx
               </li>
               <li className="flex items-center gap-2 text-[#ffffff] leading-[48px]">
                 <FaCheck />
-                Licensed Free music
+                HD Quality
               </li>
               <li className="flex items-center gap-2 text-[#ffffff] leading-[48px]">
                 {" "}
@@ -293,9 +311,29 @@ const Pricing = () => {
                 <FaCheck />
                 Dedicated support
               </li>
-              <li className="flex items-center gap-2 text-[14px]  leading-[48px]">
-                <FaCheck />
-                Licensed Free sfxHD format video
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                4K Quality
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Custom Illustration
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Custom Characters
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[14px] ${Textcolor2} leading-[48px] `}
+              >
+                <RxCross2 />
+                Script Writing
               </li>
             </div>
           </div>
@@ -351,7 +389,7 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link to={"/contactus"} onClick={scrollToTop} state={{location:"From Standard Plan"}}>
+              <Link to={"/contactus"} onClick={scrollToTop} state={{ location: "From Standard Plan" }}>
                 <Button
                   text={"Get Quote"}
                   color={"#360F4F"}
@@ -367,7 +405,7 @@ const Pricing = () => {
         </div>
 
         <div>
-          <div className={`Premium plan ${bgcolor2}`}>
+          <div className={`Premium plan3 plan ${bgcolor2}`}>
             <div
               className={`head font-bold leading-[26.4px text-[18px] text-${Textcolor} pt-4`}
             >
@@ -381,13 +419,7 @@ const Pricing = () => {
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                30 second duration Script
-              </li>
-              <li
-                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
-              >
-                <FaCheck />
-                writing
+                90 second duration 
               </li>
               <li
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
@@ -399,26 +431,52 @@ const Pricing = () => {
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                Custom Illustration
+                Licensed Free music and sfx
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
+              >
+                <FaCheck />
+                4K Quality
+               
               </li>
               <li
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 {" "}
                 <FaCheck />
-                Custom characters
+                
+                Unlimited Revisions
               </li>
               <li
                 className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                Licensed Free music
+                Custom Illustration
               </li>
               <li
-                className={`flex items-center gap-2 text-[14px]  leading-[48px] text-${Textcolor}`}
+                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
               >
                 <FaCheck />
-                Licensed Free sfx HD & 4k format
+                Custom Character
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
+              >
+                <FaCheck />
+                Script Writing
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
+              >
+                <FaCheck />
+                Dedicated Support
+              </li>
+              <li
+                className={`flex items-center gap-2 text-[#002632] leading-[48px] text-${Textcolor}`}
+              >
+                <FaCheck />
+                HD Quality
               </li>
             </div>
           </div>
@@ -475,7 +533,7 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link to={"/contactus"} onClick={scrollToTop} state={{location:"From Premium Plan"}}>
+              <Link to={"/contactus"} onClick={scrollToTop} state={{ location: "From Premium Plan" }}>
                 <Button
                   text={"Get Quote"}
                   color={"#360F4F"}
@@ -493,7 +551,7 @@ const Pricing = () => {
 
       <div className="custom-crafted container  bg-blue-800 flex justify-around items-center">
         <div className="custo-div flex gap-3 ">
-          <div className=" text font-bold leading-[26.4px] text-[16px] text-white pt-4 pl-2 w-[145px]">
+          <div className=" text font-extrabold leading-[26.4px] text-[23px] text-white pt-4 pl-2 ">
             <span className=""> Custom Crafted</span>
           </div>
           <div className="hr2 bg-white mt-2"></div>
@@ -504,7 +562,7 @@ const Pricing = () => {
         </div>
 
         <div className="button">
-          <Link to={"/contactus"} onClick={scrollToTop} state={{location:"From Custom Craft"}}>
+          <Link to={"/contactus"} onClick={scrollToTop} state={{ location: "From Custom Craft" }}>
             <Button
               text={"Contact Now"}
               color={"white"}
@@ -532,8 +590,7 @@ const PricingDiv = styled.div`
   overflow: hidden;
   /* background-color: black; */
   /* height: 100vh; */
-
-  .imgDiv {
+.imgDiv {
     width: 374.01px;
     height: 393.19px;
   }
@@ -550,7 +607,7 @@ const PricingDiv = styled.div`
   }
   .plan {
     width: 328px;
-    height: 452px;
+    height: auto;
     border-radius: 13px;
     display: flex;
     flex-direction: column;
@@ -567,7 +624,7 @@ const PricingDiv = styled.div`
   }
   .plan2 {
     width: 328px;
-    height: 452px;
+    height: auto;
     border-radius: 13px;
     display: flex;
     flex-direction: column;
@@ -611,7 +668,11 @@ const PricingDiv = styled.div`
       width: 300px; /* Adjust width for smaller screens */
     }
   }
-
+.text-one{
+  @media (max-width:334px) {
+    font-size: 12px;
+  }
+}
   .best {
     border-top-right-radius: 11px;
     border-bottom-left-radius: 13px;
@@ -625,13 +686,13 @@ const PricingDiv = styled.div`
     height: 1px;
     width: 240px;
     @media (max-width: 767px) {
-      margin-left: 60px;
-      width: 210px;
+      /* margin-left: 60px; */
+      width: 90%;
     }
-    @media (max-width: 466px) {
+    /* @media (max-width: 466px) {
       margin-left: 35px;
       width: 210px;
-    }
+    } */
   }
   .hr2 {
     background-color: #360f4f;
@@ -641,6 +702,8 @@ const PricingDiv = styled.div`
       height: 2px;
       width: 100%;
     }
+    height: 2px;
+    width: 100%;
   }
   .ex {
     @media (max-width: 767px) {
@@ -659,11 +722,15 @@ const PricingDiv = styled.div`
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 80vw;
+    width: 65vw;
     height: 80px;
     border-radius: 5px;
-
-    @media (max-width: 920px) {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 25px 0px;
+      @media (max-width: 920px) {
       width: 90%;
     }
     @media (max-width: 767px) {
@@ -676,17 +743,20 @@ const PricingDiv = styled.div`
     }
 
     .small {
-      /* width:40px */
-      /* background-color:red ; */
       display: flex;
-
       align-items: center;
       box-sizing: border-box;
       width: 40vw;
       @media (max-width: 767px) {
         text-align: center;
       }
-      @media (max-width: 468px) {
+      
+      text-align: center;
+      @media (max-width: 924px) {
+        width: 80%;
+      
+      }
+      @media (max-width: 768px) {
         width: 80%;
         font-size: 12px;
       }
@@ -698,6 +768,11 @@ const PricingDiv = styled.div`
         align-items: center;
       }
     }
+    .custo-div {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
   }
   .smallt {
     @media (max-width: 400px) {
@@ -768,14 +843,14 @@ const PricingDiv = styled.div`
       justify-content: center;
 
       .pricingeexplay1 {
-        left: 74px;
+        left: 36px;
       }
 
       .pricingeexplay2 {
-        left: 154px;
+        left: 113px;
       }
       .pricingeexplay3 {
-        left: 240px;
+        left: 195px;
       }
     }
   }

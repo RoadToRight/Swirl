@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Context1 from "../Context/Context1";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useWindowScroll } from "react-use";
 
 const Navigation = ({ DarkLight, setDarkLight }) => {
@@ -16,6 +16,7 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
   let bgcolor2 = DarkLight ? "bg-black" : "bg-white";
   let bgcolor3 = DarkLight && scrolled ? "bg-white" : DarkLight && mobileWidthgconfirm ? "bg-white" : mobileWidthgconfirm ? "bg-black" :"bg-transparent";
   let bgcolor4 = DarkLight && scrolled ? "bg-black" : "bg-white";
+  let Navigate = useNavigate();
   let logo =
     DarkLight && scrolled
       ? "/Project IMG/navblack.jpg"
@@ -90,7 +91,7 @@ let logoSize =    DarkLight && scrolled ? "w-[150px]" : ""
   return (
     <NavDiv className={`${scrolled ? bgcolor : " bg-transparent"}`} style={{boxShadow:`${shadow}`}}>
       <Link to={"/"}><div className="logo cursor-pointer ">
-        <img src={`${logo}`} alt="" className={`${logoSize}`} />
+        <img src={`${logo}`} alt="" className={`${logoSize} cursor-pointer `} onClick={() => Navigate("/")}/>
       </div></Link>
       <div className="nav-links  flex justify-center items-center">
         <ul
@@ -109,35 +110,35 @@ let logoSize =    DarkLight && scrolled ? "w-[150px]" : ""
           <Link
             className={`link text-${Textcolor2}`}
             to={"/"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop();NavOpen()}}
           >
             <li>HOME</li>
           </Link>
           <Link
             className={`link text-${Textcolor2}`}
             to={"/creations/All"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop();NavOpen()}}
           >
             <li>CREATIONS</li>
           </Link>
           <Link
             className={`link text-${Textcolor2}`}
             to={"/pricing"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop();NavOpen()}}
           >
             <li>PRICING</li>
           </Link>
           <Link
             className={`link text-${Textcolor2}`}
             to={"/aboutus"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop();NavOpen()}}
           >
-            <li>ABOUT</li>
+            <li>ABOUT US</li>
           </Link>
           <Link
             className={`link text-${Textcolor2}`}
             to={"/contactus"}
-            onClick={scrollToTop}
+            onClick={() => {scrollToTop();NavOpen()}}
           >
             <li>CONTACT</li>
           </Link>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Context1 from "../Context/Context1";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navigation2 = ({ DarkLight, setDarkLight }) => {
   const [NavOpenCondi, setNavOpenCondi] = useState(false);
@@ -16,6 +16,8 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "black";
   let bgcolor2 = DarkLight ? "black" : "white";
+  let Navigate = useNavigate();
+
   let logo = DarkLight
     ? "/Project IMG/navblack.jpg"
     : "/Project IMG/Layer_8.png";
@@ -31,7 +33,9 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
     setNavOpenCondi((props) => !props);
     // console.log("ma chale");
   };
-
+const NavOpen2 = () => {
+  setNavOpenCondi(false)
+}
   useEffect(() => {
     // Function to update the window width
     const handleResize = () => {
@@ -63,7 +67,7 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
   return (
     <NavDiv className={`bg-${bgcolor} `} style={{boxShadow:`${shadow}`}}>
       <div className="logo">
-        <img src={`${logo}`} alt="" className={`w-[150px]`}/>
+        <img src={`${logo}`} alt="" className={`w-[150px] cursor-pointer`} onClick={() => Navigate("/")}/>
       </div>
       <div className="nav-links  flex justify-center items-center">
         <ul
@@ -82,35 +86,35 @@ const Navigation2 = ({ DarkLight, setDarkLight }) => {
           <Link
             className={`link text-${Textcolor}`}
             to={"/"}
-            onClick={() => {scrollToTop(); NavOpen()}}
+            onClick={() => {scrollToTop(); NavOpen2()}}
           >
             <li>HOME</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/creations/All"}
-            onClick={() => {scrollToTop(); NavOpen()}}
+            onClick={() => {scrollToTop(); NavOpen2()}}
           >
             <li>CREATIONS</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/pricing"}
-            onClick={() => {scrollToTop(); NavOpen()}}
+            onClick={() => {scrollToTop(); NavOpen2()}}
           >
             <li>PRICING</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/aboutus"}
-            onClick={() => {scrollToTop(); NavOpen()}}
+            onClick={() => {scrollToTop(); NavOpen2()}}
           >
-            <li>ABOUT</li>
+            <li>ABOUT US</li>
           </Link>
           <Link
             className={`link text-${Textcolor}`}
             to={"/contactus"}
-            onClick={() => {scrollToTop(); NavOpen()}}
+            onClick={() => {scrollToTop(); NavOpen2()}}
           >
             <li>CONTACT</li>
           </Link>
@@ -178,6 +182,7 @@ const NavDiv = styled.div`
   position: sticky;
   top: 0;
   z-index: 999;
+
   /* background: transparent; */
   display: flex; // Change this to block or grid if sticky still doesn’t work
   align-items: center;
@@ -208,7 +213,7 @@ const NavDiv = styled.div`
     }
     ul {
       height: 50px;
-
+ 
       @media (max-width: 992px) {
         flex-direction: column;
         background-color: black;

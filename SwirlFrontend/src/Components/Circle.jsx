@@ -104,10 +104,10 @@ const Circle = () => {
                   }}
                 ></div>
                 <div className="text-onbg absolute first-circle z-1 w-[145px]">
-                  Video Editing
+                  Character Animation
                 </div>
                 <img
-                  src="/Project IMG/img1(1).png"
+                  src="/Project IMG/Compassion Video.png"
                   alt=""
                   className="first-circle z-1 w-[145px]"
                   style={{
@@ -131,7 +131,7 @@ const Circle = () => {
                   }}
                 ></div>
                 <div className="text-onbg absolute first-circle z-1 w-[145px]">
-                  Video Editing
+                  Isometric
                 </div>
                 <img
                   src="/Project IMG/about1.png"
@@ -162,7 +162,7 @@ const Circle = () => {
                   Whiteboard Video
                 </div>
                 <img
-                  src="/Project IMG/img1(3).png"
+                  src="/Project IMG/white.png"
                   alt=""
                   className="first-circle z-1 w-[145px]"
                   style={{

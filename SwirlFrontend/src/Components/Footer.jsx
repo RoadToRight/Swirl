@@ -1,10 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FaVimeoV } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
@@ -30,12 +31,12 @@ const Footer = () => {
               </label>
               <ul className="flex flex-col items-center justify-center  mr-10 Company-Footer-1">
                 <li>    <Link
-                    to="/creations/All"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Work </Link></li>
+                  to="/creations/All"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Work </Link></li>
                 <li>
                   <Link
                     to="/aboutus"
@@ -44,7 +45,7 @@ const Footer = () => {
                       scrollToTop();
                     }}
                   >
-                    About
+                    About Us
                   </Link>
                 </li>
                 <li>
@@ -59,44 +60,44 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>  <Link
-                    to="/contactus"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Contact </Link></li>
+                  to="/contactus"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Contact </Link></li>
               </ul>
             </div>
             <div className="text-lightgrey font-medium leading-[35px] flex flex-col items-center justify-center WithOutHeadingFooter1">
               <ul className="mt-9 ">
                 <li className="Testimonials"><Link
-                    to="/#testinomials"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Testimonials</Link></li>
+                  to="/#testinomials"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Testimonials</Link></li>
                 <li><Link
-                    to="/#projectslider"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Projects Slider</Link></li>
+                  to="/#projectslider"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Projects Slider</Link></li>
                 <li> <Link
-                    to="/#questions"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Q&A </Link></li>
+                  to="/#questions"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Q&A </Link></li>
                 <li> <Link
-                    to="/#tracker"
-                    className="text-white no-underline"
-                    onClick={() => {
-                      scrollToTop();
-                    }}
-                  >Our Stats</Link></li>
+                  to="/#tracker"
+                  className="text-white no-underline"
+                  onClick={() => {
+                    scrollToTop();
+                  }}
+                >Our Stats</Link></li>
               </ul>
             </div>
           </div>
@@ -204,10 +205,17 @@ const Footer = () => {
             All rights reserved © 2024 Swirl365
           </small>
           <div className="text-lightpink font-normal flex items-center gap-2 icons ">
-            <FaInstagram  className="icon"/> <FaVimeoV className="icon"/> <FaYoutube className="icon"/> <FaLinkedinIn className="icon"/>
+            <FaInstagram className="icon" /> <FaYoutube className="icon" /> <FaLinkedinIn className="icon" />
+            <FaFacebook className={`icon`}  cursor={"pointer"} />
+            <FaXTwitter
+              className={` icon`}
+              
+              cursor={"pointer"}
+            />
           </div>
         </div>
       </div>
+
     </FooterDiv>
   );
 };

@@ -26,7 +26,7 @@ const ContactUS = () => {
   const [comment, setComment] = useState("");
   const [Select2Error, setSelect2Error] = useState("");
   const { DarkLight } = useContext(Context1);
-  const apiUrl = import.meta.env.VITE_API_URL; 
+  const apiUrl = import.meta.env.VITE_API_URL;
   let name = "";
   let email = "";
   let commentt = "";
@@ -38,8 +38,8 @@ const ContactUS = () => {
   let border = DarkLight ? "1px solid black" : "1px solid white";
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-const location =  useLocation();
-// console.log(location.state?.location)
+  const location = useLocation();
+  // console.log(location.state?.location)
   useEffect(() => {
     const handleResize = () => {
       setwindowidth(window.innerWidth);
@@ -63,10 +63,10 @@ const location =  useLocation();
     // setIsOpen2(!isOpen2);
     console.log("1")
     e.stopPropagation();
-    if(isOpen){
+    if (isOpen) {
       setIsOpen(false);
       setIsOpen2(true);
-    }else{
+    } else {
       setIsOpen2(!isOpen2);
     }
   };
@@ -84,10 +84,10 @@ const location =  useLocation();
   const handleToggleDropdown = (e) => {
     console.log("2")
     e.stopPropagation();
-    if(isOpen2){
+    if (isOpen2) {
       setIsOpen(true);
       setIsOpen2(false);
-    }else{
+    } else {
       setIsOpen(!isOpen);
     }
   };
@@ -154,7 +154,7 @@ const location =  useLocation();
       name === "Correct" &&
       email === "Correct" &&
       commentt === "Correct" &&
-      select === "Correct" 
+      select === "Correct"
       // checkbox === "Correct"
 
     ) {
@@ -168,12 +168,12 @@ const location =  useLocation();
             comment: comment,
             budget: selectedOption,
             industry: selectedOption2,
-            UserComeFrom : location.state?.location
+            UserComeFrom: location.state?.location
           }),
           headers: {
-             "Content-Type": "application/json",
-             "Authorization":"Bearer protected"
-             },
+            "Content-Type": "application/json",
+            "Authorization": "Bearer protected"
+          },
         });
         response = await response.json();
         console.log(response);
@@ -224,11 +224,11 @@ const location =  useLocation();
           draggable: true,
           progress: undefined,
           theme: "dark",
-          style:{
-            background:"linear-gradient(135deg, #3b0a45, #2f1d3f, #4b1f6f)",
-            color:"white",
-        }
-          });
+          style: {
+            background: "linear-gradient(135deg, #3b0a45, #2f1d3f, #4b1f6f)",
+            color: "white",
+          }
+        });
       }
     } else {
       toast(`Please Fill All Fields!`, {
@@ -240,11 +240,11 @@ const location =  useLocation();
         draggable: true,
         progress: undefined,
         theme: "dark",
-        style:{
-          background:"linear-gradient(135deg, #3b0a45, #2f1d3f, #4b1f6f)",
-          color:"white",
-      }
-        });
+        style: {
+          background: "linear-gradient(135deg, #3b0a45, #2f1d3f, #4b1f6f)",
+          color: "white",
+        }
+      });
     }
   };
 
@@ -287,17 +287,17 @@ const location =  useLocation();
     }
 
     finalSubmit();
-  
+
   };
-const CloseSelectOnAnotherInput = () =>{
-  setIsOpen(false)
-  setIsOpen2(false)
-}
-const ContactClick = () =>{
-  setIsOpen(false)
-  setIsOpen2(false)
-}
-// console.log(isOpen,"das")
+  const CloseSelectOnAnotherInput = () => {
+    setIsOpen(false)
+    setIsOpen2(false)
+  }
+  const ContactClick = () => {
+    setIsOpen(false)
+    setIsOpen2(false)
+  }
+
   return (
     <ContactUSdiv className={`bg-${bgcolor}`} onClick={ContactClick}>
       <div className="ball absolute right-0 top-28">
@@ -385,7 +385,7 @@ const ContactClick = () =>{
                   required
                   value={Name}
                   onChange={(e) => setNaming(e.target.value)}
-                  onClick={() => {CloseSelectOnAnotherInput()}}
+                  onClick={() => { CloseSelectOnAnotherInput() }}
                 />
 
                 <Input
@@ -397,8 +397,8 @@ const ContactClick = () =>{
                   required
                   value={Lastname}
                   onChange={(e) => setLastNaming(e.target.value)}
-            
-                  onClick={() => {CloseSelectOnAnotherInput()}}
+
+                  onClick={() => { CloseSelectOnAnotherInput() }}
                 />
               </div>
 
@@ -415,7 +415,7 @@ const ContactClick = () =>{
                   className="border-1 border-x-black border-y-black focus:outline-none"
                   value={Email}
                   onChange={(e) => settingEmail(e.target.value)}
-                  onClick={() => {CloseSelectOnAnotherInput()}}
+                  onClick={() => { CloseSelectOnAnotherInput() }}
                   required
                 />
               </div>
@@ -436,9 +436,8 @@ const ContactClick = () =>{
                       {selectedOption || "Select a project budget"}
                     </span>
                     <svg
-                      className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${
-                        isOpen ? "rotate-180" : ""
-                      } text-${Textcolor}`}
+                      className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${isOpen ? "rotate-180" : ""
+                        } text-${Textcolor}`}
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -466,12 +465,11 @@ const ContactClick = () =>{
                         <li
                           key={option}
                           onClick={() => handleSelectOption(option)}
-                          className="px-4 py-2 text-gray-700 cursor-pointer hover:bg-[#EBE1F9] focus:outline-none"
+                          className="px-3 py-2 text-gray-700 cursor-pointer hover:bg-[#EBE1F9] focus:outline-none text-[14px]"
                         >
                           <span
-                            className={`${
-                              selectedOption === option ? "font-bold" : ""
-                            } block px-0 py-2`}
+                            className={`${selectedOption === option ? "font-bold" : ""
+                              } block px-0 py-2`}
                           >
                             {option}
                           </span>
@@ -492,9 +490,8 @@ const ContactClick = () =>{
                       {selectedOption2 || "Select your industry"}
                     </span>
                     <svg
-                      className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${
-                        isOpen2 ? "rotate-180" : ""
-                      } text-${Textcolor}`}
+                      className={`inline-block ml-2 transform transition-transform duration-200 absolute right-4 top-1/2 transform -translate-y-1/2 ${isOpen2 ? "rotate-180" : ""
+                        } text-${Textcolor}`}
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -512,17 +509,16 @@ const ContactClick = () =>{
                   </button>
                   {isOpen2 && (
                     <ul className="absolute w-full mt-1 bg-white border border-gray-300 rounded-md shadow-lg p-0 h-56 overflow-y-scroll">
-                      {["Accounting and Finance", "Administrative and Clerical", "Agriculture", "Construction","Creative and Design","Customer Service","Education" ,"Energy and Utilities","Engineering","Financial Services" ,"Healthcare","Hospitality","IT","Labor","Legal","Maintenance and Repair","Management" ,"Manufacturing and Industrial" , "Marketing and Advertising","Pharamaceutical and Research" ,"Production Animation Agency" ,"Professional" , "Restaurant And Food Service","Retail","SaaS","Sales","Security","Sustainabilty" , "Telecommunications","Transportation","Warehouse","Student"].map(
+                      {["Accounting and Finance", "Administrative and Clerical", "Agriculture", "Construction", "Creative and Design", "Customer Service", "Education", "Energy and Utilities", "Engineering", "Financial Services", "Healthcare", "Hospitality", "IT", "Labor", "Legal", "Maintenance and Repair", "Management", "Manufacturing and Industrial", "Marketing and Advertising", "Pharamaceutical and Research", "Production Animation Agency", "Professional", "Restaurant And Food Service", "Retail", "SaaS", "Sales", "Security", "Sustainabilty", "Telecommunications", "Transportation", "Warehouse", "Student"].map(
                         (option) => (
                           <li
                             key={option}
                             onClick={() => handleSelectOption2(option)}
-                            className="px-4 py-2 text-gray-700 cursor-pointer hover:bg-[#EBE1F9] focus:outline-none"
+                            className="px-3 py-2 text-gray-700 cursor-pointer hover:bg-[#EBE1F9] focus:outline-none text-[13px]"
                           >
                             <span
-                              className={`${
-                                selectedOption2 === option ? "font-bold" : ""
-                              } block px-0 py-2`}
+                              className={`${selectedOption2 === option ? "font-bold" : ""
+                                } block px-0 py-2`}
                             >
                               {option}
                             </span>
@@ -545,7 +541,7 @@ const ContactClick = () =>{
                   placeholder="Comments"
                   value={comment}
                   onChange={handleCommentChange}
-                  onClick={() => {CloseSelectOnAnotherInput()}}
+                  onClick={() => { CloseSelectOnAnotherInput() }}
                 ></Textarea>
               </div>
               <div className="error text-red-700 input2error flex justify-start items-center ">
