@@ -18,34 +18,34 @@ const TopBrands = () => {
      const [WindowWidth, setWindowWidth] = useState(window.innerWidth)
     const animation = useRef(null);
   let bgcolor = DarkLight ? "white" : "linear-gradient(135deg,#202A66,#82155A)" ;
-  // useGSAP(() => {
+  useEffect(() => {
   
     
-  //   if (brandsAnimation && top.current) {
-  //     // If brandsAnimation is true, create the animation
-  //     if (!animation.current) {
-  //       animation.current = gsap.fromTo(
-  //         top.current,
-  //         { x: 0 },
-  //         {
-  //           x: -1000,
+    if (brandsAnimation && top.current) {
+      // If brandsAnimation is true, create the animation
+      if (!animation.current) {
+        animation.current = window.gsap.fromTo(
+          top.current,
+          { x: 0 },
+          {
+            x: -1000,
            
-  //           duration: 20,
-  //           repeat: -1,
-  //           yoyo: true,
-  //         }
-  //       );
-  //     }
-  //   } else if (animation.current) {
-  //     // If brandsAnimation is false, stop and reset the animation
+            duration: 20,
+            repeat: -1,
+            yoyo: true,
+          }
+        );
+      }
+    } else if (animation.current) {
+      // If brandsAnimation is false, stop and reset the animation
   
-  //     animation.current.kill();
-  //     gsap.set(top.current, { x: 0 });
-  //     animation.current = null;
-  //     // animation.current.restart(); 
-  //   }
+      animation.current.kill();
+      window.gsap.set(top.current, { x: 0 });
+      animation.current = null;
+      // animation.current.restart(); 
+    }
   
-  // }, [brandsAnimation]);
+  }, [brandsAnimation]);
   
     useEffect(() => {
       // Function to update the window width
