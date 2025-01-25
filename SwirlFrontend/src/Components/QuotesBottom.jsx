@@ -15,6 +15,22 @@ const QuotesBottom = () => {
   let bgcolor2 = DarkLight ? "white" : "black" ;
 
 
+  useEffect(() => {
+    // GSAP animation using the global `gsap` from the window object
+ window.gsap.from('.Qdiv', {
+      y: 400,  // Start from 200px below the element's initial position
+      opacity: 0,  // Start from 0 opacity
+      duration: 1,  // Duration for the animation
+      ease: 'power3.out',  // Easing function to smooth the transition
+      scrollTrigger: {
+        trigger: '.Qdiv',  // The element to trigger the animation
+        start: '-25% 80%',  // Start animation when the top of the element reaches 80% from the top of the viewport
+        end: 'top 30%',    // End when the top of the element reaches 30% from the top of the viewport
+        scrub: 1,  // Smoothly scrub the animation based on scroll position
+        // markers: true,  // Show scroll trigger markers for debugging (you can remove it once you're done debugging)
+      },
+    });
+  }, []);
 
   return (
     <QBottom className={`bg-${bgcolor2}`}>
