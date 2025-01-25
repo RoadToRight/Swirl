@@ -37,7 +37,10 @@ const ReadyTomakeVideo = () => {
     });
   }, []);
 
-
+ useEffect(() => {
+         window.gsap.registerPlugin(window.ScrollTrigger);
+  window.ScrollTrigger.refresh();
+}, [location])
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
