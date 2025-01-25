@@ -13,7 +13,7 @@ const Home = () => {
   return (
     <HomeDiv>
       <div className="video-div">
-        <video muted loop autoPlay="autoplay" onCanPlayThrough={() => handleCanPlayThrough()}>
+        <video muted loop autoPlay="autoplay" preload="auto">
           <source src="/SOHAIB SHOWREEL_4.mp4" type="video/mp4"></source>
         </video>
         <div className="background"></div>
