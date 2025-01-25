@@ -34,7 +34,7 @@ let qchild = useRef();
 
   useEffect(() => {
          window.gsap.registerPlugin(window.ScrollTrigger);
-  ScrollTrigger.refresh();
+  window.ScrollTrigger.refresh();
 }, [location])
 
   return (
