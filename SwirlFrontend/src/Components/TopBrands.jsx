@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import styled from 'styled-components';
 import Context1 from '../Context/Context1';
 // import gsap from "gsap";
-// import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 
 
 
