@@ -1,9 +1,9 @@
 // import { useGSAP } from "@gsap/react";
 import React, { useContext, useEffect, useRef, useState } from "react";
 // import gsap from "gsap";
-import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
+// import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
 
-import { useGSAP } from "@gsap/react";
+// import { useGSAP } from "@gsap/react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FaPlay } from "react-icons/fa";
@@ -303,36 +303,7 @@ const setImageSlides3 = (index,slide) => {
   const scrollToTop = () => {
     window.scrollTo(0, 0);
   };
-  useGSAP(() => {
-    gsap.fromTo(
-      SmallImg.current,
-      {
-        x: 0, // Starting position (right side)
-      },
-      {
-        x: -1000, // Ending position (left side)
-        delay: 1,
-        duration: 28,
-        repeat: -1, // Repeat indefinitely
-        yoyo: true, // Reverse the animation after each cycle
-      }
-    );
 
-    gsap.fromTo(
-      SmallImg2.current,
-      {
-        x: -1500, // Starting position (left side)
-      },
-      {
-        x: 0, // Ending position (right side)
-        delay: 1,
-        duration: Small2 ? 0 : 35,
-        repeat: -1, // Repeat indefinitely
-        yoyo: true, // Reverse the animation after each cycle
-        ease: "linear",
-      }
-    );
-  });
   return (
     <SliderDiv ref={ProjectSlider}>
       <div className="text mt-16 container">
