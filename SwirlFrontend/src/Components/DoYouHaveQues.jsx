@@ -16,7 +16,26 @@ const DoYouHaveQues = () => {
 let q = useRef();
 let qchild = useRef();
 
+  useEffect(() => {
+ 
+  window.gsap.from(qchild.current, {
+      y: 400,  // Start from 200px below the element's initial position
+      opacity: 0,  // Start from 0 opacity
+      duration: 1,  // Duration for the animation
+      ease: 'power3.out',  // Easing function to smooth the transition
+      scrollTrigger: {
+        trigger: q.current,  // The element to trigger the animation
+        start: '-33% 80%',  
+        end: 'top 30%',  
+        scrub: 1,  
+      },
+    });
+  }, []);
 
+  useEffect(() => {
+         window.gsap.registerPlugin(window.ScrollTrigger);
+  ScrollTrigger.refresh();
+}, [location])
 
   return (
     <ParentDiv className={`bg-${bgcolor2}`} ref={q}>
