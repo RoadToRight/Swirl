@@ -219,6 +219,14 @@ const ImgSlider = () => {
   const SmallImg = useRef();
   const SmallImg2 = useRef();
   const [Small2, setSmall2] = useState(false);
+
+  
+    useEffect(() => {
+    // GSAP animation using the global `gsap` from window object
+    window.gsap.to(".box", { rotation: 360, duration: 2 });
+  }, []);
+
+  
   const { PlayYouTubeCard, setYoutubeUrl, ProjectSlider,setSlideLoad } =
     useContext(Context1);
   const [SlideImagesLoad, setSlideImagesLoad] = useState(images1.reduce((acc, _, index) => {
