@@ -223,7 +223,38 @@ const ImgSlider = () => {
   
     useEffect(() => {
     // GSAP animation using the global `gsap` from window object
-    window.gsap.to(".box", { rotation: 360, duration: 2 });
+    // window.gsap.to(".box", { rotation: 360, duration: 2 });
+
+    window.gsap.fromTo(
+      SmallImg.current,
+      {
+        x: 0, // Starting position (right side)
+      },
+      {
+        x: -1000, // Ending position (left side)
+        delay: 1,
+        duration: 28,
+        repeat: -1, // Repeat indefinitely
+        yoyo: true, // Reverse the animation after each cycle
+      }
+    );
+
+
+        window.gsap.fromTo(
+      SmallImg2.current,
+      {
+        x: -1500, // Starting position (left side)
+      },
+      {
+        x: 0, // Ending position (right side)
+        delay: 1,
+        duration: Small2 ? 0 : 35,
+        repeat: -1, // Repeat indefinitely
+        yoyo: true, // Reverse the animation after each cycle
+        ease: "linear",
+      }
+    );
+      
   }, []);
 
   
