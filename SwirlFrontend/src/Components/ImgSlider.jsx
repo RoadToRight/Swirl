@@ -1,6 +1,6 @@
 // import { useGSAP } from "@gsap/react";
 import React, { useContext, useEffect, useRef, useState } from "react";
-// import gsap from "gsap";
+import gsap from "gsap";
 // import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
 
 // import { useGSAP } from "@gsap/react";
