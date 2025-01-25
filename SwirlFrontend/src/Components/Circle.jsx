@@ -53,6 +53,38 @@ const Circle = () => {
       [circle]: { rotateX: 0, rotateY: 0 },
     }));
   };
+
+    useEffect(() => {
+    // GSAP animation using the global `gsap` from window object
+    window.gsap.from(".imgDiv", {
+      x: -300, // Start from 300px left of the element's initial position
+      opacity: 0, // Start from 0 opacity
+      duration: 1.5, // Adjusted duration for smoother animation
+      ease: "power3.out", // Easing function to smooth the transition
+      scrollTrigger: {
+        trigger: ".imgDiv", // The element to trigger the animation
+        start: "top 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
+        end: "bottom 80%", // End when the top of the element reaches 80% from the top of the viewport
+        scrub: 1, // Smoothly scrub the animation based on scroll position
+        markers: false, // Disable markers once you're done debugging
+      },
+    });
+
+       window.gsap.from(".textttC", {
+      x: -300, // Start from 300px left of the element's initial position
+      opacity: 0, // Start from 0 opacity
+      duration: 1.5, // Adjusted duration for smoother animation
+      ease: "power3.out", // Easing function to smooth the transition
+      scrollTrigger: {
+        trigger: ".imgDiv", // The element to trigger the animation
+        start: "top 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
+        end: "bottom 80%", // End when the top of the element reaches 80% from the top of the viewport
+        scrub: 1, // Smoothly scrub the animation based on scroll position
+        markers: false, // Disable markers once you're done debugging
+      },
+    });
+  }, []);
+  
   return (
     <ParentCircle $darkLight={DarkLight}>
       <TopBrandsWithCircle />
