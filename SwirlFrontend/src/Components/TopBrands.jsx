@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Context1 from '../Context/Context1';
 // import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
 
 
 
