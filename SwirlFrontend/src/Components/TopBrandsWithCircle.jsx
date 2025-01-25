@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import Context1 from "../Context/Context1";
 import styled from "styled-components";
 // import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
+// import { useGSAP } from "@gsap/react";
+// import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
 
 const TopBrandsWithCircle = () => {
   const { DarkLight } = useContext(Context1);
@@ -16,34 +16,34 @@ const TopBrandsWithCircle = () => {
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "transparent";
 // console.log(top)
-useGSAP(() => {
+// useGSAP(() => {
 
   
-  if (brandsAnimation && top.current) {
-    // If brandsAnimation is true, create the animation
-    if (!animation.current) {
-      animation.current = gsap.fromTo(
-        top.current,
-        { x: 0 },
-        {
-          x: -1000,
+//   if (brandsAnimation && top.current) {
+//     // If brandsAnimation is true, create the animation
+//     if (!animation.current) {
+//       animation.current = gsap.fromTo(
+//         top.current,
+//         { x: 0 },
+//         {
+//           x: -1000,
        
-          duration: 20,
-          repeat: -1,
-          yoyo: true,
-        }
-      );
-    }
-  } else if (animation.current) {
-    // If brandsAnimation is false, stop and reset the animation
+//           duration: 20,
+//           repeat: -1,
+//           yoyo: true,
+//         }
+//       );
+//     }
+//   } else if (animation.current) {
+//     // If brandsAnimation is false, stop and reset the animation
 
-    animation.current.kill();
-    gsap.set(top.current, { x: 0 });
-    animation.current = null;
-    // animation.current.restart(); 
-  }
+//     animation.current.kill();
+//     gsap.set(top.current, { x: 0 });
+//     animation.current = null;
+//     // animation.current.restart(); 
+//   }
 
-}, [brandsAnimation]);
+// }, [brandsAnimation]);
 
 
 
