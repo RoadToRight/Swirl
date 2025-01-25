@@ -26,7 +26,8 @@
     "react-spinners": "^0.15.0",
     "react-toastify": "^10.0.6",
     "react-use": "^17.5.1",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+      "@gsap/react": "^2.1.1",
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
