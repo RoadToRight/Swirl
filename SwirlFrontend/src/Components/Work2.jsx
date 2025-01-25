@@ -6,7 +6,7 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import Button from "./Button";
 import { data, Alldata, balls } from "../creationsImg";
-// import { useGSAP } from "@gsap/react";
+import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loader from "./Loader";
