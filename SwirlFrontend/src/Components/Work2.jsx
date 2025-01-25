@@ -6,12 +6,12 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import Button from "./Button";
 import { data, Alldata, balls } from "../creationsImg";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Loader from "./Loader";
 import Loader2 from "./Loader2";
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const Work2 = () => {
   const { DarkLight,loading2, setloading2 } = useContext(Context1);
