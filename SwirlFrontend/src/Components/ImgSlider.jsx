@@ -343,9 +343,7 @@ const setImageSlides3 = (index,slide) => {
                 src={image}
                 className="img1  w-[55vw] h-[475px] object-cover object-cover flex-shrink-0 rounded-3xl"
                 alt={`image-${index}`}
-                onLoad={() =>                 
-                  setImageSlides(index,"SlideAll1")
-                }
+             
               />
             </div>
           ))}
@@ -372,9 +370,7 @@ const setImageSlides3 = (index,slide) => {
               <img
                 src={x}
                 className="img2  w-[500px] h-[240px] object-cover flex-shrink-0 rounded-lg"
-                onLoad={() =>                 
-                  setImageSlides2(index,"SlideAll2")
-                }
+          
               />
             </div>
           );
@@ -396,9 +392,7 @@ const setImageSlides3 = (index,slide) => {
               <img
                 src={x}
                 className="img2  w-[500px] h-[240px] object-cover flex-shrink-0 rounded-lg"
-                onLoad={() =>                 
-                  setImageSlides3(index,"SlideAll3")
-                }
+            
               />
             </div>
           );
