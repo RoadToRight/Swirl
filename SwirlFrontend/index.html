@@ -5,13 +5,14 @@
     <link rel="icon" href="/Project IMG/ball.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- Add GSAP from CDN for development -->
+    <!-- Add GSAP and ScrollTrigger from CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
     
-    <!-- Make GSAP available globally -->
+    <!-- Make GSAP and ScrollTrigger available globally -->
     <script>
-      window.gsap = gsap;  // This makes GSAP available globally via window.gsap
+      window.gsap = gsap;  // Makes GSAP globally available
+      window.ScrollTrigger = ScrollTrigger;  // Makes ScrollTrigger globally available
     </script>
 
     <title>Your App</title>
