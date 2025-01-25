@@ -322,13 +322,13 @@ const [SlideLoad, setSlideLoad] = useState(true)
                   {!SwapQuotes ? (
                     <>
                       {" "}
-                      <Home /> <Circle />  <Darkpurplebg />
+                      <Home /> <Circle /> <ImgSlider/> <Darkpurplebg />
                       <Quotes /> <Stats /> <QuotesBottom /> <DoYouHaveQues />{" "}
                     </>
                   ) : (
                     <>
                       {" "}
-                      <Home /> <Circle /> <Darkpurplebg />
+                      <Home /> <Circle /> <ImgSlider/> <Darkpurplebg />
                       <Quotes /> <QuotesBottom />
                       <Stats /> <DoYouHaveQues />{" "}
                     </>
