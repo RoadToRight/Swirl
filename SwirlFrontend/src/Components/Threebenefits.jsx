@@ -24,6 +24,20 @@ const Threebenefits = () => {
     window.scrollTo(0, 0);
   };
    
+  useEffect(() => {
+      window.gsap.from(three.current, {
+        x: -300, // Start from 200px below the element's initial position
+        opacity: 0, // Start from 0 opacity
+        duration: 1.5, // Duration for the animation
+        ease: "power3.out", // Easing function to smooth the transition
+        scrollTrigger: {
+          trigger: three.current, 
+          start: "top 80%",
+          end: "bottom 80%", 
+          scrub: 1, 
+        },
+      });
+  }, []);
   return (
     <>
       <ThreeBeneDiv className={`bg-${bgcolor} `}>
