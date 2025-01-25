@@ -51,7 +51,7 @@ const Work2 = () => {
   const videoRefs = useRef([]);
   const videoRefs2 = useRef([]);
   const videoRefs3 = useRef([]);
-  const { contextSafe } = useGSAP();
+  // const { contextSafe } = useGSAP();
 
   // console.log()
   useEffect(() => {
@@ -141,12 +141,12 @@ const Work2 = () => {
     setYoutubeVideo((props) => !props);
   };
 
-  const AnimationOnClick = contextSafe(() => {
-    gsap.from(work.current, {
-      y: 1000,
-      opacity: 0,
-    });
-  });
+  // const AnimationOnClick = contextSafe(() => {
+  //   gsap.from(work.current, {
+  //     y: 1000,
+  //     opacity: 0,
+  //   });
+  // });
   let arr = [];
   const handleVideoRef = (el, index) => {
     if (el !== null) {
