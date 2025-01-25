@@ -78,7 +78,7 @@ const [SlideLoad, setSlideLoad] = useState(true)
       
       if(location.pathname === "/"){
        
-        if(!isVideoLoaded && !SlideLoad){
+        if(!SlideLoad){
    
           if (document.readyState === "complete") {
             setLoading(false); // If the page is already fully loaded, hide the loader
