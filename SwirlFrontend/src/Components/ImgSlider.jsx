@@ -1,7 +1,7 @@
 // import { useGSAP } from "@gsap/react";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+// import gsap from "gsap";
+// import { useGSAP } from "@gsap/react";
 import styled from "styled-components";
 import Button from "./Button";
 import { FaPlay } from "react-icons/fa";
