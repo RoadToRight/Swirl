@@ -9,6 +9,7 @@ import { data, Alldata, balls } from "../creationsImg";
 import { useGSAP } from "@gsap/react";
 // import gsap from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.0/gsap.min.js";
 import Loader from "./Loader";
 import Loader2 from "./Loader2";
 // gsap.registerPlugin(ScrollTrigger);
