@@ -32,10 +32,10 @@ let qchild = useRef();
     });
   }, []);
 
-  useEffect(() => {
-         window.gsap.registerPlugin(window.ScrollTrigger);
-  window.ScrollTrigger.refresh();
-}, [location])
+//   useEffect(() => {
+//          window.gsap.registerPlugin(window.ScrollTrigger);
+//   window.ScrollTrigger.refresh();
+// }, [location])
 
   return (
     <ParentDiv className={`bg-${bgcolor2}`} ref={q}>
