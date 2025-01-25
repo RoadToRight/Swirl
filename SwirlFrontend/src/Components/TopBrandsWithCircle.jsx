@@ -16,34 +16,34 @@ const TopBrandsWithCircle = () => {
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "transparent";
 // console.log(top)
-// useGSAP(() => {
+useEffect(() => {
 
   
-//   if (brandsAnimation && top.current) {
-//     // If brandsAnimation is true, create the animation
-//     if (!animation.current) {
-//       animation.current = gsap.fromTo(
-//         top.current,
-//         { x: 0 },
-//         {
-//           x: -1000,
+  if (brandsAnimation && top.current) {
+    // If brandsAnimation is true, create the animation
+    if (!animation.current) {
+      animation.current = window.gsap.fromTo(
+        top.current,
+        { x: 0 },
+        {
+          x: -1000,
        
-//           duration: 20,
-//           repeat: -1,
-//           yoyo: true,
-//         }
-//       );
-//     }
-//   } else if (animation.current) {
-//     // If brandsAnimation is false, stop and reset the animation
+          duration: 20,
+          repeat: -1,
+          yoyo: true,
+        }
+      );
+    }
+  } else if (animation.current) {
+    // If brandsAnimation is false, stop and reset the animation
 
-//     animation.current.kill();
-//     gsap.set(top.current, { x: 0 });
-//     animation.current = null;
-//     // animation.current.restart(); 
-//   }
+    animation.current.kill();
+    window.gsap.set(top.current, { x: 0 });
+    animation.current = null;
+    // animation.current.restart(); 
+  }
 
-// }, [brandsAnimation]);
+}, [brandsAnimation]);
 
 
 
