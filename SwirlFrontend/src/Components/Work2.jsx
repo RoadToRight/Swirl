@@ -141,12 +141,12 @@ const Work2 = () => {
     setYoutubeVideo((props) => !props);
   };
 
-  // const AnimationOnClick = contextSafe(() => {
-  //   gsap.from(work.current, {
-  //     y: 1000,
-  //     opacity: 0,
-  //   });
-  // });
+  const AnimationOnClick = () => {
+    window.gsap.from(work.current, {
+      y: 1000,
+      opacity: 0,
+    });
+  };
   let arr = [];
   const handleVideoRef = (el, index) => {
     if (el !== null) {
@@ -170,6 +170,19 @@ const Work2 = () => {
    * ! USEGSAP
    */
 
+  useEffect(() => {
+      window.gsap.registerPlugin(window.ScrollTrigger);
+     window.gsap.from(work.current,{
+    y:1000,
+    opacity:0,
+    scrollTrigger:{
+      markers:true,
+      start:"5% top",
+      end:"5% top",
+      scrub:2,
+    }
+  })
+  }, []);
 
 useEffect(() => {
   // console.log(IMAGESLOAD,loading2)
