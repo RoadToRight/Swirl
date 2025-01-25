@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect  } from "react";
 import styled from "styled-components";
 import Context1 from "../Context/Context1";
 // import { useGSAP } from '@gsap/react';
