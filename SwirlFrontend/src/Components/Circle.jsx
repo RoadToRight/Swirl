@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState,useEffect } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Context1 from "../Context/Context1";
