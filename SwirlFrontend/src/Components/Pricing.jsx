@@ -552,7 +552,7 @@ const Pricing = () => {
         </div>
       </div>
 
-      <div className="custom-crafted container  bg-blue-800 flex justify-around items-center">
+      <div className="custom-crafted container  bg-[#681291] flex justify-around items-center">
         <div className="custo-div flex gap-3 ">
           <div className=" text font-extrabold leading-[26.4px] text-[35px] text-white pt-4 pl-2 ">
             <span className=""> Custom Crafted</span>
