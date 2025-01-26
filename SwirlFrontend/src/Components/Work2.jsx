@@ -170,19 +170,7 @@ const Work2 = () => {
    * ! USEGSAP
    */
 
-  useEffect(() => {
-      window.gsap.registerPlugin(window.ScrollTrigger);
-     window.gsap.from(work.current,{
-    y:1000,
-    opacity:0,
-    scrollTrigger:{
-      markers:true,
-      start:"5% top",
-      end:"5% top",
-      scrub:2,
-    }
-  })
-  }, []);
+
 
 useEffect(() => {
   // console.log(IMAGESLOAD,loading2)
@@ -277,7 +265,7 @@ useEffect(() => {
   return (
  
    
-    <Workdiv>
+    <Workdiv className={`bg-${bgcolor}`}>
     {loading2 && <Loader2 />}
       {YoutubeVideo ? (
         <div className="video-container">
