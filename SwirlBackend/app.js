@@ -10,7 +10,7 @@ app.use(cors())
 dotenv.config({path:".env"})
 app.use(CapatchaRoute)
 
-app.get("/",() => {
+app.get("/",(req,res) => {
   res.json({
     success:true
   })
