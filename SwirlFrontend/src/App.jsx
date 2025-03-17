@@ -17,7 +17,7 @@ let Threebenefits = lazy(() => import("./Components/Threebenefits"));
 let TopBrands = lazy(() => import("./Components/TopBrands"));
 let Home = lazy(() => import("./Components/Home"));
 let Navigation = lazy(() => import("./Components/Navigation"));
-let ImgSlider = lazy(() => import("./Components/ImgSlider"));
+// let ImgSlider = lazy(() => import("./Components/ImgSlider"));
 import { Route, Routes, useLocation } from "react-router-dom";
 import Context1 from "./Context/Context1";
 let Pricing = lazy(() => import("./Components/Pricing"));
@@ -28,6 +28,7 @@ let Work2 = lazy(() => import("./Components/Work2"));
 import "react-toastify/dist/ReactToastify.css";
 import { IoCloseOutline } from "react-icons/io5";
 import styled from "styled-components";
+import {Helmet} from "react-helmet";
 
 function App() {
   //useSTATE
@@ -156,6 +157,26 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+  <title>Swirl365 | Home</title>
+
+  <meta 
+    name="description" 
+    content="Bring your ideas to life with expert animation and motion graphics. Swirl365 creates engaging 2D & 3D animations, explainer videos, and motion graphics that captivate and inspire. Let’s turn your vision into reality!" 
+  />
+
+  <meta 
+    property="og:title" 
+    content="Swirl365 | Professional Animation & Motion Graphics" 
+  />
+  <meta 
+    property="og:description" 
+    content="Looking for top-tier animation services? Swirl365 specializes in 2D animation, motion graphics, whiteboard videos, and more. Elevate your brand with stunning visuals and engaging storytelling!" 
+  />
+
+  <meta property="og:type" content="website" />
+</Helmet>
+
       {YoutubeVideo ? (
         <VideoContainerCard className="video-container">
           <IoCloseOutline
@@ -290,13 +311,13 @@ function App() {
                   {!SwapQuotes ? (
                     <>
                       {" "}
-                      <Home /> <Circle /> <ImgSlider /> <Darkpurplebg />
+                      <Home /> <Circle />  <Darkpurplebg />
                       <Quotes /> <Stats /> <QuotesBottom /> <DoYouHaveQues />{" "}
                     </>
                   ) : (
                     <>
                       {" "}
-                      <Home /> <Circle /> <ImgSlider /> <Darkpurplebg />
+                      <Home /> <Circle />  <Darkpurplebg />
                       <Quotes /> <QuotesBottom />
                       <Stats /> <DoYouHaveQues />{" "}
                     </>

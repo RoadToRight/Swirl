@@ -1,30 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import {Helmet} from "react-helmet";
+
 
 const Home = () => {
 
   return (
     <HomeDiv>
-<Helmet>
-  <title>Swirl365 | Home</title>
 
-  <meta 
-    name="description" 
-    content="Bring your ideas to life with expert animation and motion graphics. Swirl365 creates engaging 2D & 3D animations, explainer videos, and motion graphics that captivate and inspire. Let’s turn your vision into reality!" 
-  />
-
-  <meta 
-    property="og:title" 
-    content="Swirl365 | Professional Animation & Motion Graphics" 
-  />
-  <meta 
-    property="og:description" 
-    content="Looking for top-tier animation services? Swirl365 specializes in 2D animation, motion graphics, whiteboard videos, and more. Elevate your brand with stunning visuals and engaging storytelling!" 
-  />
-
-  <meta property="og:type" content="website" />
-</Helmet>
 
       <div className="video-div">
        
