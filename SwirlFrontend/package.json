@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@studio-freight/lenis": "^1.0.42",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",
     "lenis": "^1.1.22",

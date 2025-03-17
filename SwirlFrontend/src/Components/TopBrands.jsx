@@ -3,6 +3,7 @@ import styled, { keyframes, css } from "styled-components";
 import Context1 from "../Context/Context1";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+
 const row1 = [
   "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214474/top1_ihuoum.webp",
   "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top2_titjho.webp",
@@ -15,15 +16,14 @@ const row1 = [
 ];
 
 const TopBrands = () => {
-  const { DarkLight } = useContext(Context1);
+  const { DarkLight, HomePage, setHomePage } = useContext(Context1);
 
   let Textcolor = DarkLight ? "black" : "white";
   const [brandsAnimation, setbrandsAnimation] = useState(false);
   let top = useRef(null);
   const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
-  const animation = useRef(null);
   let bgcolor = DarkLight ? "white" : "linear-gradient(135deg,#202A66,#82155A)";
-
+  let bgcolor2 = DarkLight ? "white" : "transparent";
   useEffect(() => {
     // Function to update the window width
     const handleResize = () => {
@@ -48,58 +48,84 @@ const TopBrands = () => {
   }, [WindowWidth]);
 
   return (
-    <TopBrandsDiv style={{ background: `${bgcolor}` }}>
+    <TopBrandsDiv style={{ background: `${HomePage ? bgcolor2 : bgcolor}` }}>
       <div>
-        <div className="text text-[17px] font-bold leading-[25px] text-center mb-6 text-[#C707E4]">
-          Testimonials
-        </div>
+
         <div
           className={`text text-[17px] font-medium leading-[25px] text-center text-${Textcolor}`}
         >
           Used by over 450+ of the world's best startups and established
           enterprises
         </div>
-              {
-                 brandsAnimation ? <>
-                     <AppContainer>
-             <Wrapper>
-               <Marquee>
-                 <MarqueeGroup>
-                   {row1.map((el) => (
-                     <ImageGroup>
-                       <Image src={el} />
-                     </ImageGroup>
-                   ))}
-                 </MarqueeGroup>
-                 <MarqueeGroup>
-                   {row1.map((el) => (
-                     <ImageGroup>
-                       <Image src={el} />
-                     </ImageGroup>
-                   ))}
-                 </MarqueeGroup>
-               </Marquee>
-             </Wrapper>
-           </AppContainer>
-                 </> : 
-                 <div className="logos mt-6" ref={top}>
-                 <div className="img-div"
-                 >
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214474/top1_ihuoum.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top2_titjho.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top3_trmuto.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214476/top4_riqcet.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214464/q6_sznw0e.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214479/top9_exwzgi.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top7_zek0qc.webp" alt="" />
-                   <LazyLoadImage effect="blur"  src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top8_a8cyis.webp" alt="" />
-                
-                   
-                 </div>
-               
-               </div>
-               }
-               
+        {brandsAnimation ? (
+          <>
+            <AppContainer>
+              <Wrapper>
+                <Marquee>
+                  <MarqueeGroup>
+                    {row1.map((el) => (
+                      <ImageGroup>
+                        <Image src={el} />
+                      </ImageGroup>
+                    ))}
+                  </MarqueeGroup>
+                  <MarqueeGroup>
+                    {row1.map((el) => (
+                      <ImageGroup>
+                        <Image src={el} />
+                      </ImageGroup>
+                    ))}
+                  </MarqueeGroup>
+                </Marquee>
+              </Wrapper>
+            </AppContainer>
+          </>
+        ) : (
+          <div className="logos mt-6" ref={top}>
+            <div className="img-div">
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214474/top1_ihuoum.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top2_titjho.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top3_trmuto.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214476/top4_riqcet.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214464/q6_sznw0e.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214479/top9_exwzgi.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top7_zek0qc.webp"
+                alt=""
+              />
+              <LazyLoadImage
+                effect="blur"
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top8_a8cyis.webp"
+                alt=""
+              />
+            </div>
+          </div>
+        )}
       </div>
     </TopBrandsDiv>
   );

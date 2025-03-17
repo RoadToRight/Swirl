@@ -8,6 +8,7 @@ import Button from "./Button";
 import { data, Alldata, balls } from "../creationsImg";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css'
+import {Helmet} from "react-helmet";
 const Work2 = () => {
   //useState
   const [isOpen2, setIsOpen2] = useState(false);
@@ -54,15 +55,12 @@ const Work2 = () => {
     const handleResize = () => {
       setwindowWidth(window.innerWidth);
     };
-
-    // Add event listener on component mount
     window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   useEffect(() => {
     if (windowWidth <= 1024) {
       setsmallvideosAnimationState(false);
@@ -201,7 +199,18 @@ const Work2 = () => {
 
   return (
     <Workdiv className={`bg-${bgcolor}`}>
+    
       {/* --------------------------------------------------- Youtube  ----------------------------------------------------*/}
+      <Helmet>
+  <title>Swirl365 | Our Animation Work</title>
+  
+  <meta name="description" content="Find the perfect style for your video. Explore our award-winning live-action, animation, and motion graphics projects to inspire your next creative video." />
+
+  <meta property="og:title" content="Swirl365 | Award-Winning Animation Work" />
+  <meta property="og:description" content="Discover high-quality animation, motion graphics, whiteboard animation, cel animation, 2D animation, line art explainer videos, isometric videos, and more. Get inspired for your next video project!" />
+  
+  <meta property="og:type" content="website" />
+</Helmet>
 
       {YoutubeVideo ? (
         <div className="video-container">

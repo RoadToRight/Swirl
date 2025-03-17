@@ -10,6 +10,7 @@ import Context1 from "../Context/Context1";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
+import { Helmet } from "react-helmet";
 
 const ContactUS = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ const ContactUS = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [errorMessageComment, setErrorMessageComment] = useState("");
   const [comment, setComment] = useState("");
-  const [btnDisable, setbtnDisable] = useState(false)
+  const [btnDisable, setbtnDisable] = useState(false);
   const [Select2Error, setSelect2Error] = useState("");
   const { DarkLight } = useContext(Context1);
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -62,7 +63,6 @@ const ContactUS = () => {
   }, [windowidth]);
 
   const handleToggleDropdown2 = (e) => {
-
     e.stopPropagation();
     if (isOpen) {
       setIsOpen(false);
@@ -83,7 +83,6 @@ const ContactUS = () => {
     }
   };
   const handleToggleDropdown = (e) => {
-
     e.stopPropagation();
     if (isOpen2) {
       setIsOpen(true);
@@ -95,7 +94,7 @@ const ContactUS = () => {
 
   const handleSelectOption = (value) => {
     setSelectedOption(value);
-    setIsOpen(false); 
+    setIsOpen(false);
 
     if (!value) {
       setSelect2Error("Please Select An Option");
@@ -105,7 +104,6 @@ const ContactUS = () => {
   };
 
   const settingEmail = (value) => {
-  
     setEmail(value);
     if (emailRegex.test(value)) {
       setErrorMessage("");
@@ -149,17 +147,14 @@ const ContactUS = () => {
   };
 
   const finalSubmit = async () => {
-
     if (
       name === "Correct" &&
       email === "Correct" &&
       commentt === "Correct" &&
       select === "Correct"
- 
     ) {
-   
       try {
-        setbtnDisable(true)
+        setbtnDisable(true);
         let response = await fetch(`${apiUrl}/send/email`, {
           method: "post",
           body: JSON.stringify({
@@ -177,7 +172,7 @@ const ContactUS = () => {
           },
         });
         response = await response.json();
-   console.log(response)
+        console.log(response);
         if (response.success) {
           setComment("");
           setEmail("");
@@ -185,7 +180,7 @@ const ContactUS = () => {
           setLastname("");
           setSelectedOption("");
           setSelectedOption2("");
-          setbtnDisable(false)
+          setbtnDisable(false);
           toast(`${response.message}`, {
             position: "bottom-right",
             autoClose: 5000,
@@ -201,7 +196,7 @@ const ContactUS = () => {
             },
           });
         } else {
-          setbtnDisable(false)
+          setbtnDisable(false);
           toast(`${response.message}`, {
             position: "bottom-right",
             autoClose: 5000,
@@ -218,8 +213,8 @@ const ContactUS = () => {
           });
         }
       } catch (error) {
-        setbtnDisable(false)
-        console.log(error)
+        setbtnDisable(false);
+        console.log(error);
         toast(`${error}`, {
           position: "bottom-right",
           autoClose: 3000,
@@ -304,8 +299,32 @@ const ContactUS = () => {
 
   return (
     <ContactUSdiv className={`bg-${bgcolor}`} onClick={ContactClick}>
+<Helmet>
+  <title>Swirl365 | Contact Us</title>
+
+  <meta 
+    name="description" 
+    content="Contact us to find the perfect style for your video. We are a leading video company that creates tailor-made video content to connect brands and people." 
+  />
+
+  <meta 
+    property="og:title" 
+    content="Swirl365 | Contact Us – Ready to Partner Up?" 
+  />
+  <meta 
+    property="og:description" 
+    content="As a leading explainer video company, we craft tailor-made video content trusted by global brands. From startups to Fortune 500 companies, we bring ideas to life. Let's discuss your project—fill out the form to get started!" 
+  />
+
+  <meta property="og:type" content="website" />
+</Helmet>
+
+
       <div className="ball absolute right-0 top-28">
-        <img src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp" alt="" />
+        <img
+          src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
+          alt=""
+        />
       </div>
       <div className="text flex flex-col container items-center gap-3 mt-3">
         <div
@@ -324,14 +343,15 @@ const ContactUS = () => {
 
       <div className="sides">
         <div className="left-side">
-          <div className={`head font-bold text-[38px] flex items-center text-${Textcolor} gap-6 justify-between`}>
-            Let's Connect! 
- 
-<div class="loader mb-4">
-  <div class="dot"></div>
-  <div class="dot"></div>
-  <div class="dot"></div>
-</div>
+          <div
+            className={`head font-bold text-[38px] flex items-center text-${Textcolor} gap-6 justify-between`}
+          >
+            Let's Connect!
+            <div class="loader mb-4">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
           </div>
 
           <div
@@ -359,43 +379,51 @@ const ContactUS = () => {
           >
             Follow us
             <div className="social-img flex gap-2">
-            <a
-              href="https://www.facebook.com/share/1L1NVFUKaT/?mibextid=wwXIfr"
-              target="_blank"
-            >
-              <FaFacebook className={`icon`} size={"28px"} cursor={"pointer"} />
+              <a
+                href="https://www.facebook.com/share/1L1NVFUKaT/?mibextid=wwXIfr"
+                target="_blank"
+              >
+                <FaFacebook
+                  className={`icon`}
+                  size={"28px"}
+                  cursor={"pointer"}
+                />
               </a>
               {/* <FaXTwitter
                 className={` icon`}
                 size={"28px"}
                 cursor={"pointer"}
               /> */}
-                    <a
-              href="https://www.youtube.com/@Swirl365-binish"
-              target="_blank"
-            >
-              <FaYoutube className={` icon`} size={"28px"} cursor={"pointer"} />
-                       </a>
-                       <a
-              href="https://www.instagram.com/swirl_365/profilecard/?igsh=MWRleG45eTE3ZWd4cg=="
-              target="_blank"
-            >
-              <RiInstagramFill
-                className={` icon`}
-                size={"28px"}
-                cursor={"pointer"}
-              />
-               </a>
-               <a
-              href="https://www.linkedin.com/company/swirl-365/"
-              target="_blank"
-            >
-              <AiFillLinkedin
-                className={` icon`}
-                size={"28px"}
-                cursor={"pointer"}
-              />
-                 </a>
+              <a
+                href="https://www.youtube.com/@Swirl365-binish"
+                target="_blank"
+              >
+                <FaYoutube
+                  className={` icon`}
+                  size={"28px"}
+                  cursor={"pointer"}
+                />
+              </a>
+              <a
+                href="https://www.instagram.com/swirl_365/profilecard/?igsh=MWRleG45eTE3ZWd4cg=="
+                target="_blank"
+              >
+                <RiInstagramFill
+                  className={` icon`}
+                  size={"28px"}
+                  cursor={"pointer"}
+                />
+              </a>
+              <a
+                href="https://www.linkedin.com/company/swirl-365/"
+                target="_blank"
+              >
+                <AiFillLinkedin
+                  className={` icon`}
+                  size={"28px"}
+                  cursor={"pointer"}
+                />
+              </a>
             </div>
           </div>
         </div>
@@ -619,21 +647,27 @@ const ContactUS = () => {
               <div className="error text-red-700 input2error flex justify-start items-center ">
                 {errorMessageComment}
               </div>
-                  {
-                    btnDisable ? <div className="flex items-center justify-center">
-                       <div className={`button-load mt-3 flex items-center justify-center bg-black  py-2 `} style={{width:`${btnWidth}`}}><PacmanLoader  size={"20px"}  color="white" className={``} /> </div>
-                    </div> :       <div className="button mt-3 flex items-center justify-center">
-                    <Button
-                      text={"Get a Quote"}
-                      color={bgcolor2}
-                      width={btnWidth}
-                      height={"52px"}
-                      textcolor={Textcolor3}
-                      fnc={SubmitForm}
-                    />
+              {btnDisable ? (
+                <div className="flex items-center justify-center">
+                  <div
+                    className={`button-load mt-3 flex items-center justify-center bg-black  py-2 `}
+                    style={{ width: `${btnWidth}` }}
+                  >
+                    <PacmanLoader size={"20px"} color="white" className={``} />{" "}
                   </div>
-                  }
-        
+                </div>
+              ) : (
+                <div className="button mt-3 flex items-center justify-center">
+                  <Button
+                    text={"Get a Quote"}
+                    color={bgcolor2}
+                    width={btnWidth}
+                    height={"52px"}
+                    textcolor={Textcolor3}
+                    fnc={SubmitForm}
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -656,7 +690,7 @@ const ContactUSdiv = styled.div`
   input:-webkit-autofill:hover,
   input:-webkit-autofill:active,
   input:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 1000px #ffffffa4 inset ;
+    -webkit-box-shadow: 0 0 0 1000px #ffffffa4 inset;
 
     /* -webkit-text-fill-color: #555555 !important; */
     /* border: 1px solid #ccc !important; */
@@ -669,114 +703,113 @@ const ContactUSdiv = styled.div`
     backdrop-filter: blur(10px);
     background-color: transparent !important;
   }
-  /* From Uiverse.io by Pradeepsaranbishnoi */ 
-/* The loader container */
-.loader {
-  width: 140px;
-  height: 0px;
-  perspective: 200px;
-}
+  /* From Uiverse.io by Pradeepsaranbishnoi */
+  /* The loader container */
+  .loader {
+    width: 140px;
+    height: 0px;
+    perspective: 200px;
+  }
 
-
-/* The dot */
-.dot {
-  position: absolute;
-  top: 25%;
-  left: 25%;
-  width: 60px;
-  height: 60px;
-  margin-top: -30px;
-  margin-left: -30px;
-  border-radius: 50px;
-  border: 20px outset #1e3f57;
-  transform-origin: 50% 50%;
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  background-color: transparent;
-  animation: dot1 1000ms cubic-bezier(.49,.06,.43,.85) infinite;
-}
-
-.dot:nth-child(2) {
-  width: 70px;
-  height: 70px;
-  margin-top: -35px;
-  margin-left: -35px;
-  border-width: 30px;
-  border-color: #447891;
-  animation-name: dot2;
-  animation-delay: 75ms;
-  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-}
-
-.dot:nth-child(3) {
-  width: 80px;
-  height: 80px;
-  margin-top: -40px;
-  margin-left: -40px;
-  border-width: 20px;
-  border-color: #6bb2cd;
-  animation-name: dot3;
-  animation-delay: 150ms;
-  box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
-  transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-}
-
-@keyframes dot1 {
-  0% {
-    border-color: #1e3f57;
+  /* The dot */
+  .dot {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 60px;
+    height: 60px;
+    margin-top: -30px;
+    margin-left: -30px;
+    border-radius: 50px;
+    border: 20px outset #1e3f57;
+    transform-origin: 50% 50%;
     transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    background-color: transparent;
+    animation: dot1 1000ms cubic-bezier(0.49, 0.06, 0.43, 0.85) infinite;
   }
 
-  50% {
-    border-color: #1e574f;
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
-    border-color: #1e3f57;
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-}
-
-@keyframes dot2 {
-  0% {
+  .dot:nth-child(2) {
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    border-width: 30px;
     border-color: #447891;
-    box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-
-  50% {
-    border-color: #449180;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
-    border-color: #447891;
-    box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
-    transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
-  }
-}
-
-@keyframes dot3 {
-  0% {
-    border-color: #6bb2cd;
+    animation-name: dot2;
+    animation-delay: 75ms;
     box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
     transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
   }
 
-  50% {
-    border-color: #6bcdb2;
-    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
-    transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
-  }
-
-  100% {
+  .dot:nth-child(3) {
+    width: 80px;
+    height: 80px;
+    margin-top: -40px;
+    margin-left: -40px;
+    border-width: 20px;
     border-color: #6bb2cd;
+    animation-name: dot3;
+    animation-delay: 150ms;
     box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
     transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
   }
-}
+
+  @keyframes dot1 {
+    0% {
+      border-color: #1e3f57;
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+
+    50% {
+      border-color: #1e574f;
+      transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
+    }
+
+    100% {
+      border-color: #1e3f57;
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+  }
+
+  @keyframes dot2 {
+    0% {
+      border-color: #447891;
+      box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+
+    50% {
+      border-color: #449180;
+      box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
+      transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
+    }
+
+    100% {
+      border-color: #447891;
+      box-shadow: inset 0 0 15px 0 rgba(255, 255, 255, 0.2);
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+  }
+
+  @keyframes dot3 {
+    0% {
+      border-color: #6bb2cd;
+      box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+
+    50% {
+      border-color: #6bcdb2;
+      box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.8);
+      transform: rotateX(20deg) rotateY(20deg) rotateZ(50deg) translateZ(0px);
+    }
+
+    100% {
+      border-color: #6bb2cd;
+      box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.1);
+      transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
+    }
+  }
   .ball {
     @media (max-width: 992px) {
       top: 120%;

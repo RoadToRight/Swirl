@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa6";
 import Button from "./Button";
@@ -6,12 +6,15 @@ import Context1 from "../Context/Context1";
 import { Link } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
+import {Helmet} from "react-helmet";
+let SpacemenPopup = lazy(()=>import("./SpacemenPopup"))
 const Pricing = () => {
   const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [btnwidth, setbtnwidth] = useState("325px");
   const [YoutubeVideo, setYoutubeVideo] = useState(false);
   const [YoutubeUrl, setYoutubeUrl] = useState();
-  const { DarkLight } = useContext(Context1);
+
+  const { DarkLight,SpaceMen, setSpaceMen,PlanFromPopUp, setPlanFromPopUp } = useContext(Context1);
 
   let Textcolor = DarkLight ? "black" : "white";
   let Textcolor2 = DarkLight ? "text-[#b3a9a9]" : "text-[#b3a9a9]";
@@ -19,7 +22,7 @@ const Pricing = () => {
 
   let bgcolor = DarkLight ? "white" : "black";
   let bgcolor2 = DarkLight ? "bg-[#ffffff84]" : "bg-[#360F4F99]";
-
+  
   useEffect(() => {
     // Function to update the window width
     const handleResize = () => {
@@ -51,6 +54,29 @@ const Pricing = () => {
 
   return (
     <PricingDiv className={`bg-${bgcolor}`}>
+      
+     <Suspense >{SpaceMen &&  <SpacemenPopup />}</Suspense>
+     <Helmet>
+  <title>Swirl365 | Pricing Plans</title>
+
+  <meta 
+    name="description" 
+    content="Explore our flexible pricing plans for high-quality animation services. Get 30-second animations with AI voiceover, custom illustrations, HD & 4K quality, licensed music, multiple revisions, and dedicated support – all at competitive rates." 
+  />
+
+  <meta 
+    property="og:title" 
+    content="Swirl365 | Pricing Plans – Affordable Animation Services" 
+  />
+  <meta 
+    property="og:description" 
+    content="Looking for high-quality animation at the right price? Swirl365 offers flexible pricing plans tailored to your needs. From 2D and motion graphics to custom character animations, get professional videos at competitive rates with HD & 4K quality, scriptwriting, revisions, and more!" 
+  />
+
+  <meta property="og:type" content="website" />
+</Helmet>
+
+      
       {YoutubeVideo ? (
         <div className="video-container">
           <IoCloseOutline
@@ -272,13 +298,13 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link
-                to={"/contactus"}
-                onClick={scrollToTop}
+              <div
+                
+                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Basic")}}
                 state={{ location: "From Basic Plan" }}
               >
                 <Button
-                  text={"Get Quote"}
+                  text={"Get Started"}
                   color={"#360F4F"}
                   width={btnwidth}
                   height={"40px"}
@@ -286,7 +312,7 @@ const Pricing = () => {
                   translateZ={"16px"}
                   MinustranslateZ={"-18px"}
                 />
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -418,13 +444,13 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link
-                to={"/contactus"}
-                onClick={scrollToTop}
+              <div
+                
+                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Standard")}}
                 state={{ location: "From Standard Plan" }}
               >
                 <Button
-                  text={"Get Quote"}
+                  text={"Get Started"}
                   color={"#360F4F"}
                   width={btnwidth}
                   height={"40px"}
@@ -432,7 +458,7 @@ const Pricing = () => {
                   translateZ={"16px"}
                   MinustranslateZ={"-18px"}
                 />
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -577,13 +603,13 @@ const Pricing = () => {
               </div>
             </div>
             <div className="flex items-start justify-start mt-2">
-              <Link
-                to={"/contactus"}
-                onClick={scrollToTop}
+              <div
+                
+                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Premium")}}
                 state={{ location: "From Premium Plan" }}
               >
                 <Button
-                  text={"Get Quote"}
+                  text={"Get Started"}
                   color={"#360F4F"}
                   width={btnwidth}
                   height={"40px"}
@@ -591,7 +617,7 @@ const Pricing = () => {
                   translateZ={"16px"}
                   MinustranslateZ={"-18px"}
                 />
-              </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -611,7 +637,7 @@ const Pricing = () => {
 
         <div className="button">
           <Link
-            to={"/contactus"}
+            
             onClick={scrollToTop}
             state={{ location: "From Custom Craft" }}
           >

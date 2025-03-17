@@ -14,7 +14,7 @@ const Footer = () => {
 
   return (
     <FooterDiv>
-      <div className="Footer-Sections-5">
+      <div className="Footer-Parent-Without-End">
         <div className="Logo">
           <div>
             <LazyLoadImage
@@ -29,8 +29,8 @@ const Footer = () => {
             The video production company you've been looking for.
           </small>
         </div>
-        <div className="Footer-Sections-4 flex">
-          <div className="first-parent">
+        <div className="Footer-Part-2-Parent flex">
+          <div className="First-Cols">
             <div className="Child text-lightgrey font-medium leading-[35px] flex flex-col items-center justify-center">
               <label className="head text-lightpink font-normal text-[14px]">
                 Company
@@ -135,9 +135,8 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-
-          <div className="second-parent">
-            <div className="Footer-Section-6 text-lightgrey font-medium leading-[35px] flex flex-col items-center justify-center">
+          <div className="Second-Cols">
+            <div className="Second-Cols-Child text-lightgrey font-medium leading-[35px] flex flex-col items-center justify-center">
               <label className="head text-lightpink font-normal text-[14px]">
                 Capabilities
               </label>
@@ -246,11 +245,8 @@ const Footer = () => {
               {" "}
               <FaInstagram className="icon" />
             </a>{" "}
-            <a
-              href="https://www.youtube.com/@Swirl365-binish"
-              target="_blank"
-            >
-            <FaYoutube className="icon" />{" "}
+            <a href="https://www.youtube.com/@Swirl365-binish" target="_blank">
+              <FaYoutube className="icon" />{" "}
             </a>
             <a
               href="https://www.linkedin.com/company/swirl-365/"
@@ -297,7 +293,6 @@ const FooterDiv = styled.div`
     border-radius: 30px;
     z-index: 2;
   }
-
   ul li:hover::after {
     content: "";
     width: 100%;
@@ -319,8 +314,7 @@ const FooterDiv = styled.div`
       padding: 10px 28px;
     }
   }
-
-  .Footer-Sections-5 {
+  .Footer-Parent-Without-End {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -331,7 +325,7 @@ const FooterDiv = styled.div`
       gap: 30px;
     }
   }
-  .Footer-Sections-4 {
+  .Footer-Part-2-Parent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
@@ -365,7 +359,7 @@ const FooterDiv = styled.div`
     }
   }
 
-  .Footer-Section-6 {
+  .Second-Cols-Child {
     @media (max-width: 991px) {
       align-items: flex-start;
     }
@@ -376,7 +370,7 @@ const FooterDiv = styled.div`
       padding-left: 30px;
     }
   }
-  .first-parent {
+  .First-Cols {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -410,7 +404,7 @@ const FooterDiv = styled.div`
     }
   }
 
-  .second-parent {
+  .Second-Cols {
     display: flex;
     justify-content: center;
     align-items: center;

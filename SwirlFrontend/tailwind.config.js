@@ -12,15 +12,6 @@ export default {
         darkpink: "#C707E4",
         lightpurple: "#F4EFFF",
       },
-      // keyframes: {
-      //   scroll: {
-      //     "0%": { transform: "translateX(0)" },
-      //     "100%": { transform: "translateX(-50%)" }, // Move by half width of images to ensure seamless looping
-      //   },
-      // },
-      // animation: {
-      //   scroll: "scroll 15s linear infinite",
-      // },
     },
   },
   plugins: [],

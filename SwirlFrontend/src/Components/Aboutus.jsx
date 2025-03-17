@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components';
 import Context1 from '../Context/Context1';
+import {Helmet} from "react-helmet";
 
 const Aboutus = () => {
 
@@ -12,6 +13,27 @@ const Aboutus = () => {
 
   return (
     <AboutDiv className={`bg-${bgcolor}`}>
+     <Helmet>
+  <title>Swirl365 | About Us</title>
+
+  <meta 
+    name="description" 
+    content="Swirl365 was born from a passion for creativity and innovation. From a small team of dreamers to a full-fledged software house, we bridge technology and artistry to deliver cutting-edge solutions. Our journey continues with every project we bring to life." 
+  />
+
+  <meta 
+    property="og:title" 
+    content="Swirl365 | About Us" 
+  />
+  <meta 
+    property="og:description" 
+    content="At Swirl365, we craft exceptional digital experiences, from 2D and 3D animation to web and app development, social media marketing, and more. We transform ideas into impactful solutions, delivering quality, innovation, and reliability in every project." 
+  />
+
+  <meta property="og:type" content="website" />
+</Helmet>
+
+
       <div className="ball absolute right-0 top-6">
         <img src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp" alt="" />
       </div>

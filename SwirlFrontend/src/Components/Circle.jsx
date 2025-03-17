@@ -2,8 +2,8 @@ import React, { useContext, useState,useEffect } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import Context1 from "../Context/Context1";
-import TopBrandsWithCircle from "./TopBrandsWithCircle";
 import { Link } from "react-router-dom";
+import TopBrands from "./TopBrands";
 const Circle = () => {
   const { DarkLight } = useContext(Context1);
 
@@ -47,7 +47,7 @@ const Circle = () => {
   
   return (
     <ParentCircle $darkLight={DarkLight}>
-      <TopBrandsWithCircle />
+      <TopBrands />
       <CircleDiv>
         <div className="Circle-div">
           <div className="flex justify-center items-center ">

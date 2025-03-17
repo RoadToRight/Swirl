@@ -21,7 +21,6 @@ let ImgSlider = lazy(() => import("./Components/ImgSlider"));
 import { Route, Routes, useLocation } from "react-router-dom";
 import Context1 from "./Context/Context1";
 let Pricing = lazy(() => import("./Components/Pricing"));
-let Navigation2 = lazy(() => import("./Components/Navigation2"));
 let Scroll = lazy(() => import("./Components/ScrollIndicator"));
 let Loader = lazy(() => import("./Components/Loader"));
 import { ToastContainer } from "react-toastify";
@@ -31,42 +30,31 @@ import { IoCloseOutline } from "react-icons/io5";
 import styled from "styled-components";
 
 function App() {
+  //useSTATE
   const [DarkLight, setDarkLight] = useState(true);
   const [loading, setLoading] = useState(true);
   const [YoutubeVideo, setYoutubeVideo] = useState(false);
   const [YoutubeUrl, setYoutubeUrl] = useState();
   const [isVideoLoaded, setIsVideoLoaded] = useState(true);
-  const location = useLocation();
   const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [SwapQuotes, setSwapQuotes] = useState(false);
   const [SlideLoad, setSlideLoad] = useState(true);
+    const [SpaceMen, setSpaceMen] = useState(false)
+    const [HomePage, setHomePage] = useState(false);
+    const [PlanFromPopUp, setPlanFromPopUp] = useState("")
 
+  //useLocation
+  const location = useLocation();
+//useRef
   let Testinomials = useRef(null);
   let ProjectSlider = useRef(null);
   let Tracker = useRef(null);
   let Questions = useRef(null);
+//useEffect
 
   const PlayYouTubeCard = () => {
     setYoutubeVideo((props) => !props);
   };
-
-  useEffect(() => {
-    // Change the document title based on the current route
-    if (location.pathname === "/") {
-      document.title = "Home";
-    } else if (location.pathname === "/about") {
-      document.title = "About Us";
-    } else if (location.pathname === "/creations") {
-      document.title = "Our Creations";
-    } else if (location.pathname === "/contactus") {
-      document.title = "Contact Us";
-    } else if (location.pathname === "/pricing") {
-      document.title = "Pricing";
-    } else {
-      document.title = "Swirl 365";
-    }
-  }, [location]);
-
   useEffect(() => {
     setTimeout(() => {
       if (location.pathname === "/") {
@@ -98,7 +86,13 @@ function App() {
       }
     }, 3000);
   }, [isVideoLoaded]);
-
+  useEffect(() => {
+    if (location.pathname === "/") {
+      setHomePage(true);
+    } else {
+      setHomePage(false);
+    }
+  }, [location]);
   useEffect(() => {
     if(loading){
       document.body.style.overflow = "hidden";
@@ -197,7 +191,9 @@ function App() {
         style={{
           "--toastify-color-progress-light":
             "linear-gradient(135deg , #202a66,#82155A)",
+         
         }}
+   
       />
       <Context1.Provider
         value={{
@@ -217,17 +213,22 @@ function App() {
           setIsVideoLoaded,
           SlideLoad,
           setSlideLoad,
+          SpaceMen, setSpaceMen,
+          HomePage, setHomePage,
+          PlanFromPopUp, setPlanFromPopUp
         }}
       >
+                        <Navigation
+                  DarkLight={DarkLight}
+                  setDarkLight={setDarkLight}
+                />
+
         <Routes>
           <Route
             path="/creations/:WorkName"
             element={
               <>
-                <Navigation2
-                  DarkLight={DarkLight}
-                  setDarkLight={setDarkLight}
-                />
+
                 <div className="overflow-hidden">
                   <Work2 />
                   <DoYouHaveQues />
@@ -240,10 +241,7 @@ function App() {
             path="/aboutus"
             element={
               <>
-                <Navigation2
-                  DarkLight={DarkLight}
-                  setDarkLight={setDarkLight}
-                />
+
                 <div className="overflow-hidden">
                   <Aboutus />
                   <Stats />
@@ -258,10 +256,7 @@ function App() {
             path="/pricing"
             element={
               <>
-                <Navigation2
-                  DarkLight={DarkLight}
-                  setDarkLight={setDarkLight}
-                />
+
                 <div className="overflow-hidden">
                   <Pricing />
                   <TopBrands />
@@ -276,10 +271,7 @@ function App() {
             path="/contactus"
             element={
               <>
-                <Navigation2
-                  DarkLight={DarkLight}
-                  setDarkLight={setDarkLight}
-                />
+
                 <div className="overflow-hidden">
                   <ContactUS />
                   <TopBrands />
