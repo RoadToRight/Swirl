@@ -196,14 +196,14 @@ const Work2 = () => {
       });
     });
   }
-
+  const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <Workdiv className={`bg-${bgcolor}`}>
     
       {/* --------------------------------------------------- Youtube  ----------------------------------------------------*/}
       <Helmet>
   <title>Swirl365 | Our Animation Work</title>
-  
+  <link rel="canonical" href={canonicalUrl} />
   <meta name="description" content="Find the perfect style for your video. Explore our award-winning live-action, animation, and motion graphics projects to inspire your next creative video." />
 
   <meta property="og:title" content="Swirl365 | Award-Winning Animation Work" />

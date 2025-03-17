@@ -296,12 +296,12 @@ const ContactUS = () => {
     setIsOpen(false);
     setIsOpen2(false);
   };
-
+  const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <ContactUSdiv className={`bg-${bgcolor}`} onClick={ContactClick}>
 <Helmet>
   <title>Swirl365 | Contact Us</title>
-
+  <link rel="canonical" href={canonicalUrl} />
   <meta 
     name="description" 
     content="Contact us to find the perfect style for your video. We are a leading video company that creates tailor-made video content to connect brands and people." 

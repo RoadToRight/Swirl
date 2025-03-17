@@ -10,12 +10,13 @@ const Aboutus = () => {
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "black";
   let bgcolor2 = DarkLight ? "#ffffff64" : "transparent";
+  const canonicalUrl = `https://swirl365.com${location.pathname}`;
 
   return (
     <AboutDiv className={`bg-${bgcolor}`}>
      <Helmet>
   <title>Swirl365 | About Us</title>
-
+  <link rel="canonical" href={canonicalUrl} />
   <meta 
     name="description" 
     content="Swirl365 was born from a passion for creativity and innovation. From a small team of dreamers to a full-fledged software house, we bridge technology and artistry to deliver cutting-edge solutions. Our journey continues with every project we bring to life." 

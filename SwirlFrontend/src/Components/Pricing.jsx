@@ -51,14 +51,14 @@ const Pricing = () => {
   const PlayYouTube = () => {
     setYoutubeVideo((props) => !props);
   };
-
+  const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <PricingDiv className={`bg-${bgcolor}`}>
       
      <Suspense >{SpaceMen &&  <SpacemenPopup />}</Suspense>
      <Helmet>
   <title>Swirl365 | Pricing Plans</title>
-
+  <link rel="canonical" href={canonicalUrl} />
   <meta 
     name="description" 
     content="Explore our flexible pricing plans for high-quality animation services. Get 30-second animations with AI voiceover, custom illustrations, HD & 4K quality, licensed music, multiple revisions, and dedicated support – all at competitive rates." 

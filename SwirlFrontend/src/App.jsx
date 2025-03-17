@@ -28,7 +28,7 @@ let Work2 = lazy(() => import("./Components/Work2"));
 import "react-toastify/dist/ReactToastify.css";
 import { IoCloseOutline } from "react-icons/io5";
 import styled from "styled-components";
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 function App() {
   //useSTATE
@@ -40,18 +40,18 @@ function App() {
   const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [SwapQuotes, setSwapQuotes] = useState(false);
   const [SlideLoad, setSlideLoad] = useState(true);
-    const [SpaceMen, setSpaceMen] = useState(false)
-    const [HomePage, setHomePage] = useState(false);
-    const [PlanFromPopUp, setPlanFromPopUp] = useState("")
+  const [SpaceMen, setSpaceMen] = useState(false);
+  const [HomePage, setHomePage] = useState(false);
+  const [PlanFromPopUp, setPlanFromPopUp] = useState("");
 
   //useLocation
   const location = useLocation();
-//useRef
+  //useRef
   let Testinomials = useRef(null);
   let ProjectSlider = useRef(null);
   let Tracker = useRef(null);
   let Questions = useRef(null);
-//useEffect
+  //useEffect
 
   const PlayYouTubeCard = () => {
     setYoutubeVideo((props) => !props);
@@ -95,12 +95,12 @@ function App() {
     }
   }, [location]);
   useEffect(() => {
-    if(loading){
+    if (loading) {
       document.body.style.overflow = "hidden";
-    }else{
-      document.body.style.overflow = "auto"; 
+    } else {
+      document.body.style.overflow = "auto";
     }
-  }, [loading,]);
+  }, [loading]);
 
   const scrollToElement = (id) => {
     let elementToScroll = null; // Initialize to null
@@ -154,28 +154,29 @@ function App() {
       setSwapQuotes(false);
     }
   }, [windowidth]);
-
+  const canonicalUrl = `https://swirl365.com${location.pathname}`;
+  console.log(canonicalUrl)
   return (
     <div>
       <Helmet>
-  <title>Swirl365 | Home</title>
+        <title>Swirl365 | Home</title>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          name="description"
+          content="Bring your ideas to life with expert animation and motion graphics. Swirl365 creates engaging 2D & 3D animations, explainer videos, and motion graphics that captivate and inspire. Let’s turn your vision into reality!"
+        />
 
-  <meta 
-    name="description" 
-    content="Bring your ideas to life with expert animation and motion graphics. Swirl365 creates engaging 2D & 3D animations, explainer videos, and motion graphics that captivate and inspire. Let’s turn your vision into reality!" 
-  />
+        <meta
+          property="og:title"
+          content="Swirl365 | Professional Animation & Motion Graphics"
+        />
+        <meta
+          property="og:description"
+          content="Looking for top-tier animation services? Swirl365 specializes in 2D animation, motion graphics, whiteboard videos, and more. Elevate your brand with stunning visuals and engaging storytelling!"
+        />
 
-  <meta 
-    property="og:title" 
-    content="Swirl365 | Professional Animation & Motion Graphics" 
-  />
-  <meta 
-    property="og:description" 
-    content="Looking for top-tier animation services? Swirl365 specializes in 2D animation, motion graphics, whiteboard videos, and more. Elevate your brand with stunning visuals and engaging storytelling!" 
-  />
-
-  <meta property="og:type" content="website" />
-</Helmet>
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       {YoutubeVideo ? (
         <VideoContainerCard className="video-container">
@@ -212,9 +213,7 @@ function App() {
         style={{
           "--toastify-color-progress-light":
             "linear-gradient(135deg , #202a66,#82155A)",
-         
         }}
-   
       />
       <Context1.Provider
         value={{
@@ -234,22 +233,21 @@ function App() {
           setIsVideoLoaded,
           SlideLoad,
           setSlideLoad,
-          SpaceMen, setSpaceMen,
-          HomePage, setHomePage,
-          PlanFromPopUp, setPlanFromPopUp
+          SpaceMen,
+          setSpaceMen,
+          HomePage,
+          setHomePage,
+          PlanFromPopUp,
+          setPlanFromPopUp,
         }}
       >
-                        <Navigation
-                  DarkLight={DarkLight}
-                  setDarkLight={setDarkLight}
-                />
+        <Navigation DarkLight={DarkLight} setDarkLight={setDarkLight} />
 
         <Routes>
           <Route
             path="/creations/:WorkName"
             element={
               <>
-
                 <div className="overflow-hidden">
                   <Work2 />
                   <DoYouHaveQues />
@@ -262,7 +260,6 @@ function App() {
             path="/aboutus"
             element={
               <>
-
                 <div className="overflow-hidden">
                   <Aboutus />
                   <Stats />
@@ -277,7 +274,6 @@ function App() {
             path="/pricing"
             element={
               <>
-
                 <div className="overflow-hidden">
                   <Pricing />
                   <TopBrands />
@@ -292,7 +288,6 @@ function App() {
             path="/contactus"
             element={
               <>
-
                 <div className="overflow-hidden">
                   <ContactUS />
                   <TopBrands />
@@ -311,13 +306,13 @@ function App() {
                   {!SwapQuotes ? (
                     <>
                       {" "}
-                      <Home /> <Circle />  <Darkpurplebg />
+                      <Home /> <Circle /> <Darkpurplebg />
                       <Quotes /> <Stats /> <QuotesBottom /> <DoYouHaveQues />{" "}
                     </>
                   ) : (
                     <>
                       {" "}
-                      <Home /> <Circle />  <Darkpurplebg />
+                      <Home /> <Circle /> <Darkpurplebg />
                       <Quotes /> <QuotesBottom />
                       <Stats /> <DoYouHaveQues />{" "}
                     </>
