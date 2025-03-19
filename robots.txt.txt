@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.swirl365.com/sitemap.xml

@@ -76,3 +76,60 @@ export const SendEmail = catchAsyncErrors(async (req, res, next) => {
 
 
 })
+
+export const SendEmailPopup = catchAsyncErrors(async (req, res, next) => {
+
+  const authHeader =  req.headers['authorization'];
+  const token = authHeader && authHeader.split(" ")[1];
+ 
+   let {name,email,comment,UserComeFrom} = req.body;
+ 
+
+   if(token === process.env.TOKEN_FRONT){
+     console.log(email)
+     if(!name || !email || !comment){
+       return  res.status(400).json({
+          success:false,
+          message:"Please Give Complete Details"
+         })
+      }
+    
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: process.env.email,
+            pass: process.env.pass
+          }
+        });
+      
+        var mailOptions = {
+          from:  process.env.email,
+          to:  process.env.email,
+          subject: `Message from ${email}`,
+          html: `<h3>Sender Name: ${name} </h3>
+               <p><strong>Comment:</strong> ${comment}</p>
+      <p><strong>User Come From:</strong> ${UserComeFrom}</p>
+               ` 
+        };
+      
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+          } else {
+           res.status(200).json({
+            success:true,
+            message:"Email Sent Successfully We Will Contact You Very Later!"
+           })
+          }
+        });
+    
+   }else{
+     res.status(400).json({
+       success:false,
+       message:"Authentication Failed!"
+     })
+   }
+ 
+ 
+ })
+ 
