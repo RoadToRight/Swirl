@@ -1,23 +1,22 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaFacebook } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { AiFillLinkedin } from "react-icons/ai";
 import Button from "./Button";
-import Context1 from "../Context/Context1";
 import { toast } from "react-toastify";
 import { useLocation } from "react-router-dom";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { Helmet } from "react-helmet";
+import { useSelector } from "react-redux";
 
 const ContactUS = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [selectedOption, setSelectedOption] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
-  const [windowidth, setwindowidth] = useState(window.innerWidth);
+
   const [btnWidth, setbtnWidth] = useState("37.5vw");
   const [Name, setName] = useState("");
   const [Lastname, setLastname] = useState("");
@@ -28,13 +27,15 @@ const ContactUS = () => {
   const [comment, setComment] = useState("");
   const [btnDisable, setbtnDisable] = useState(false);
   const [Select2Error, setSelect2Error] = useState("");
-  const { DarkLight } = useContext(Context1);
+
+  const { DarkLight, windowidth } = useSelector((state) => state.Custom);
   const apiUrl = import.meta.env.VITE_API_URL;
   let name = "";
   let email = "";
   let commentt = "";
   let select = "";
   let Textcolor = DarkLight ? "black" : "white";
+
   let Textcolor3 = DarkLight ? "white" : "black";
   let bgcolor = DarkLight ? "white" : "black";
   let bgcolor2 = DarkLight ? "black" : "white";
@@ -43,17 +44,6 @@ const ContactUS = () => {
 
   const location = useLocation();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setwindowidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   useEffect(() => {
     if (windowidth <= 992) {
       setbtnWidth("80vw");
@@ -115,11 +105,7 @@ const ContactUS = () => {
   const handleCommentChange = (e) => {
     const commentValue = e.target.value;
     setComment(commentValue);
-
-    // Split the comment by spaces and filter out empty strings
     const wordCount = commentValue.trim().split(/\s+/).filter(Boolean).length;
-
-    // Check if there are at least 3 words
     if (wordCount < 3) {
       setErrorMessageComment("Your comment must contain at least 3 words.");
     } else {
@@ -137,7 +123,6 @@ const ContactUS = () => {
   };
 
   const setLastNaming = (value) => {
-    // console.log(value);
     setLastname(value);
     if (!value) {
       setNameError("Please Enter Your Name");
@@ -299,26 +284,25 @@ const ContactUS = () => {
   const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <ContactUSdiv className={`bg-${bgcolor}`} onClick={ContactClick}>
-<Helmet>
-  <title>Swirl365 | Contact Us</title>
-  <link rel="canonical" href={canonicalUrl} />
-  <meta 
-    name="description" 
-    content="Contact us to find the perfect style for your video. We are a leading video company that creates tailor-made video content to connect brands and people." 
-  />
+      <Helmet>
+        <title>Swirl365 | Contact Us</title>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          name="description"
+          content="Contact us to find the perfect style for your video. We are a leading video company that creates tailor-made video content to connect brands and people."
+        />
 
-  <meta 
-    property="og:title" 
-    content="Swirl365 | Contact Us – Ready to Partner Up?" 
-  />
-  <meta 
-    property="og:description" 
-    content="As a leading explainer video company, we craft tailor-made video content trusted by global brands. From startups to Fortune 500 companies, we bring ideas to life. Let's discuss your project—fill out the form to get started!" 
-  />
+        <meta
+          property="og:title"
+          content="Swirl365 | Contact Us – Ready to Partner Up?"
+        />
+        <meta
+          property="og:description"
+          content="As a leading explainer video company, we craft tailor-made video content trusted by global brands. From startups to Fortune 500 companies, we bring ideas to life. Let's discuss your project—fill out the form to get started!"
+        />
 
-  <meta property="og:type" content="website" />
-</Helmet>
-
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       <div className="ball absolute right-0 top-28">
         <img
@@ -344,7 +328,7 @@ const ContactUS = () => {
       <div className="sides">
         <div className="left-side">
           <div
-            className={`head font-bold text-[38px] flex items-center text-${Textcolor} gap-6 justify-between`}
+            className={`head font-bold text-[38px] flex items-center text-${Textcolor} gap-6 justify-between w-full`}
           >
             Let's Connect!
             <div class="loader mb-4">
@@ -389,11 +373,7 @@ const ContactUS = () => {
                   cursor={"pointer"}
                 />
               </a>
-              {/* <FaXTwitter
-                className={` icon`}
-                size={"28px"}
-                cursor={"pointer"}
-              /> */}
+  
               <a
                 href="https://www.youtube.com/@Swirl365-binish"
                 target="_blank"
@@ -473,7 +453,7 @@ const ContactUS = () => {
                   $Textcolor={Textcolor}
                   type="email"
                   placeholder="Type your email"
-                  className="border-1 border-x-black border-y-black focus:outline-none"
+                  className="border-1  border-x-black border-y-black focus:outline-none"
                   value={Email}
                   onChange={(e) => settingEmail(e.target.value)}
                   onClick={() => {
@@ -691,9 +671,6 @@ const ContactUSdiv = styled.div`
   input:-webkit-autofill:active,
   input:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0 1000px #ffffffa4 inset;
-
-    /* -webkit-text-fill-color: #555555 !important; */
-    /* border: 1px solid #ccc !important; */
     background-color: transparent !important;
   }
 
@@ -710,7 +687,6 @@ const ContactUSdiv = styled.div`
     height: 0px;
     perspective: 200px;
   }
-
   /* The dot */
   .dot {
     position: absolute;
@@ -810,124 +786,29 @@ const ContactUSdiv = styled.div`
       transform: rotateX(24deg) rotateY(20deg) rotateZ(0deg) translateZ(-25px);
     }
   }
-  .ball {
-    @media (max-width: 992px) {
-      top: 120%;
-      right: 30%;
-    }
-    @media (max-width: 546px) {
-      top: 150%;
-      right: 3%;
-    }
-    @media (max-width: 410px) {
-      top: 165%;
-      right: 3%;
-    }
-  }
   .sides {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 50px 0px;
-
-    @media (max-width: 1260px) {
-      gap: 40px;
-    }
-    @media (max-width: 992px) {
-      flex-wrap: wrap;
-
-      justify-content: center;
-      align-items: center;
-    }
-    @media (max-width: 620px) {
-      padding: 50px 20px;
-    }
   }
   .error {
     padding-left: 120px;
-    @media (max-width: 1260px) {
-      padding-left: 20px;
-    }
-    @media (max-width: 992px) {
-      padding-left: 0px;
-    }
   }
   .left-side {
-    width: 420px;
+    width: 430px;
     margin-left: 140px;
-    @media (max-width: 1260px) {
-      margin-left: 0px;
-    }
-
-    .head {
-      @media (max-width: 992px) {
-        text-align: center;
-      }
-    }
-    .small1 {
-      @media (max-width: 992px) {
-        text-align: center;
-      }
-    }
-    .social {
-      @media (max-width: 992px) {
-        justify-content: center;
-        align-items: center;
-      }
-    }
   }
-
   .right-side {
     width: 765px;
     min-height: 600px;
     border-radius: 9px;
     position: relative;
     padding: 20px 10px;
-    @media (max-width: 1260px) {
-      padding: 20px 0px;
-      width: 500px;
-    }
-    @media (max-width: 1086px) {
-      width: 45vw;
-    }
-    @media (max-width: 992px) {
-      width: 80vw;
-      background-color: transparent;
-      box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0);
-    }
-    @media (max-width: 620px) {
-      width: 92vw;
-    }
-    @media (max-width: 473px) {
-      width: 92vw;
-      height: auto;
-      padding: 20px 10px;
-    }
-  }
-  .select-text {
-    @media (max-width: 1260px) {
-      font-size: 14px;
-    }
-    @media (max-width: 992px) {
-      font-size: 16px;
-    }
-    @media (max-width: 510px) {
-      font-size: 14px;
-    }
-    @media (max-width: 473px) {
-      font-size: 16px;
-    }
-    @media (max-width: 440px) {
-      font-size: 14px;
-    }
-    @media (max-width: 390px) {
-      font-size: 12px;
-    }
   }
   .inputs {
     width: 100%;
   }
-
   .input1 {
     width: 100%;
     border-radius: 8px;
@@ -938,12 +819,6 @@ const ContactUSdiv = styled.div`
     input {
       background-color: #ffffff7a;
       width: 33%;
-      @media (max-width: 1260px) {
-        width: 45%;
-      }
-      @media (max-width: 992px) {
-        width: 50%;
-      }
     }
   }
 
@@ -957,63 +832,24 @@ const ContactUSdiv = styled.div`
     position: relative; /* Ensure this is not affected by backdrop-filter */
     z-index: 1;
     gap: 20px;
-    @media (max-width: 473px) {
-      justify-content: flex-start;
-      align-items: flex-start;
-    }
     input {
-      /* background-color: #ffffffa5; */
       background-color: #ffffff7a;
-      /* background-color: transparent; */
       border-radius: 1px solid black;
       padding: 10px 10px;
       border-radius: 5px;
       width: 68.5%;
-      @media (max-width: 1260px) {
-        width: 95%;
-      }
-      @media (max-width: 992px) {
-        width: 100%;
-      }
-      @media (max-width: 473px) {
-        width: 100%;
-      }
     }
   }
   .input3 {
-    @media (max-width: 473px) {
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: flex-start;
-      gap: 16px !important;
-    }
     .select1 {
       border: 1px solid black;
       border-radius: 2px;
       background-color: #ffffff7a;
-      @media (max-width: 1260px) {
-        width: 46.5%;
-      }
-      @media (max-width: 992px) {
-        width: 50%;
-      }
-      @media (max-width: 473px) {
-        width: 100%;
-      }
     }
     .select2 {
       border: 1px solid black;
       border-radius: 2px;
       background-color: #ffffff7a;
-      @media (max-width: 1260px) {
-        width: 46.5%;
-      }
-      @media (max-width: 992px) {
-        width: 50%;
-      }
-      @media (max-width: 473px) {
-        width: 100%;
-      }
     }
   }
   .comments {
@@ -1023,21 +859,6 @@ const ContactUSdiv = styled.div`
     width: 68.5%;
     background-color: #ffffff7a;
     border-radius: 2px;
-    @media (max-width: 1260px) {
-      width: 95%;
-    }
-    @media (max-width: 992px) {
-      width: 100%;
-    }
-    @media (max-width: 473px) {
-      width: 100%;
-    }
-    @media (max-width: 440px) {
-      font-size: 14px;
-    }
-    @media (max-width: 390px) {
-      font-size: 12px;
-    }
   }
 
   .comments::placeholder {
@@ -1049,6 +870,162 @@ const ContactUSdiv = styled.div`
   }
   .icon:hover {
     color: #6200ec;
+  }
+  @media (max-width: 1260px) {
+    .sides {
+      gap: 40px;
+    }
+    .error {
+      padding-left: 20px;
+    }
+    .left-side {
+      margin-left: 0px;
+    }
+    .right-side {
+      padding: 20px 0px;
+      width: 500px;
+    }
+    .select-text {
+      font-size: 14px;
+    }
+    .comments {
+      width: 95%;
+    }
+    .input1 {
+      input {
+        width: 45%;
+      }
+    }
+    .input2 {
+      input {
+        width: 95%;
+      }
+    }
+
+    .input3 {
+      .select1,
+      .select2 {
+        width: 46.5%;
+      }
+    }
+  }
+  @media (max-width: 1086px) {
+    .right-side {
+      width: 45vw;
+    }
+  }
+  @media (max-width: 992px) {
+    .ball{
+      top: 120%;
+      right: 30%;
+    }
+    .sides {
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .error {
+      padding-left: 0px;
+    }
+    .left-side {
+      .head {
+        text-align: center;
+      }
+      .small1 {
+        text-align: center;
+      }
+      .social {
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .right-side {
+      width: 80vw;
+      background-color: transparent;
+      box-shadow: 3px 4px 12px 1px rgba(0, 0, 0, 0);
+    }
+    .select-text {
+      font-size: 16px;
+    }
+    .comments {
+      width: 100%;
+    }
+    .input1 {
+      input {
+        width: 50%;
+      }
+    }
+    .input2 {
+      input {
+        width: 100%;
+      }
+    }
+    .input3 {
+      .select1,
+      .select2 {
+        width: 50%;
+      }
+    }
+  }
+  @media (max-width: 620px) {
+    .sides {
+      padding: 50px 20px;
+    }
+    .right-side {
+      width: 92vw;
+    }
+  }
+  @media (max-width: 546px) {
+    .ball{
+      top: 150%;
+      right: 3%;
+    }
+  }
+  @media (max-width: 510px) {
+    .select-text {
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 473px) {
+    .right-side {
+      width: 92vw;
+      height: auto;
+      padding: 20px 10px;
+    }
+    .select-text {
+      font-size: 15px;
+    }
+    .comments {
+      font-size: 14px;
+    }
+    .input3 {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 16px !important;
+      .select1,
+      .select2 {
+        width: 100%;
+      }
+    }
+    .input2 {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+  @media (max-width: 410px) {
+    .ball{
+      top: 165%;
+      right: 3%;
+    }
+  }
+  @media (max-width: 390px) {
+    .select-text {
+      font-size: 12px;
+    }
+    .comments {
+      font-size: 12px;
+    }
   }
 `;
 

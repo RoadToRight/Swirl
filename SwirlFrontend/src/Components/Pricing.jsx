@@ -1,20 +1,23 @@
-import React, { lazy, Suspense, useContext, useEffect, useState } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa6";
 import Button from "./Button";
-import Context1 from "../Context/Context1";
 import { Link } from "react-router-dom";
 import { IoCloseOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
-import {Helmet} from "react-helmet";
-let SpacemenPopup = lazy(()=>import("./SpacemenPopup"))
+import { Helmet } from "react-helmet";
+import { useDispatch, useSelector } from "react-redux";
+let SpacemenPopup = lazy(() => import("./SpacemenPopup"));
+import { scrollToTop } from "../Functions";
+
 const Pricing = () => {
-  const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [btnwidth, setbtnwidth] = useState("325px");
   const [YoutubeVideo, setYoutubeVideo] = useState(false);
   const [YoutubeUrl, setYoutubeUrl] = useState();
+  const { SpaceMen } = useSelector((state) => state.Custom);
+  const dispatch = useDispatch();
 
-  const { DarkLight,SpaceMen, setSpaceMen,PlanFromPopUp, setPlanFromPopUp } = useContext(Context1);
+  const { DarkLight,windowidth } = useSelector((state) => state.Custom);
 
   let Textcolor = DarkLight ? "black" : "white";
   let Textcolor2 = DarkLight ? "text-[#b3a9a9]" : "text-[#b3a9a9]";
@@ -22,19 +25,7 @@ const Pricing = () => {
 
   let bgcolor = DarkLight ? "white" : "black";
   let bgcolor2 = DarkLight ? "bg-[#ffffff84]" : "bg-[#360F4F99]";
-  
-  useEffect(() => {
-    // Function to update the window width
-    const handleResize = () => {
-      setwindowidth(window.innerWidth);
-    };
-    // Add event listener on component mount
-    window.addEventListener("resize", handleResize);
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+
 
   useEffect(() => {
     if (windowidth <= 466) {
@@ -44,9 +35,6 @@ const Pricing = () => {
     }
   }, [windowidth]);
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
 
   const PlayYouTube = () => {
     setYoutubeVideo((props) => !props);
@@ -54,29 +42,27 @@ const Pricing = () => {
   const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <PricingDiv className={`bg-${bgcolor}`}>
-      
-     <Suspense >{SpaceMen &&  <SpacemenPopup />}</Suspense>
-     <Helmet>
-  <title>Swirl365 | Pricing Plans</title>
-  <link rel="canonical" href={canonicalUrl} />
-  <meta 
-    name="description" 
-    content="Explore our flexible pricing plans for high-quality animation services. Get 30-second animations with AI voiceover, custom illustrations, HD & 4K quality, licensed music, multiple revisions, and dedicated support – all at competitive rates." 
-  />
+      <Suspense>{SpaceMen && <SpacemenPopup />}</Suspense>
+      <Helmet>
+        <title>Swirl365 | Pricing Plans</title>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          name="description"
+          content="Explore our flexible pricing plans for high-quality animation services. Get 30-second animations with AI voiceover, custom illustrations, HD & 4K quality, licensed music, multiple revisions, and dedicated support – all at competitive rates."
+        />
 
-  <meta 
-    property="og:title" 
-    content="Swirl365 | Pricing Plans – Affordable Animation Services" 
-  />
-  <meta 
-    property="og:description" 
-    content="Looking for high-quality animation at the right price? Swirl365 offers flexible pricing plans tailored to your needs. From 2D and motion graphics to custom character animations, get professional videos at competitive rates with HD & 4K quality, scriptwriting, revisions, and more!" 
-  />
+        <meta
+          property="og:title"
+          content="Swirl365 | Pricing Plans – Affordable Animation Services"
+        />
+        <meta
+          property="og:description"
+          content="Looking for high-quality animation at the right price? Swirl365 offers flexible pricing plans tailored to your needs. From 2D and motion graphics to custom character animations, get professional videos at competitive rates with HD & 4K quality, scriptwriting, revisions, and more!"
+        />
 
-  <meta property="og:type" content="website" />
-</Helmet>
+        <meta property="og:type" content="website" />
+      </Helmet>
 
-      
       {YoutubeVideo ? (
         <div className="video-container">
           <IoCloseOutline
@@ -241,7 +227,7 @@ const Pricing = () => {
             <div className="images mt-2 flex gap-2 relative">
               <div>
                 <img
-                className="w-[95px]"
+                  className="w-[95px]"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214490/Haive_sel5ey.webp"
                   alt=""
                 />
@@ -260,7 +246,7 @@ const Pricing = () => {
               </div>
               <div>
                 <img
-                className="w-[95px]"
+                  className="w-[95px]"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214461/property_wrspil.webp"
                   alt=""
                 />
@@ -279,7 +265,7 @@ const Pricing = () => {
               </div>
               <div>
                 <img
-                className="w-[95px]"
+                  className="w-[95px]"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214461/promise_qgqcum.webp"
                   alt=""
                 />
@@ -299,8 +285,14 @@ const Pricing = () => {
             </div>
             <div className="flex items-start justify-start mt-2">
               <div
-                
-                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Basic")}}
+                onClick={() => {
+                  scrollToTop();
+                  dispatch({
+                    type: "True",
+                    payload: "SpaceMen",
+                  });
+                  dispatch({type:"ValueChanger",payload:"PlanFromPopUp",value:"From Basic Plan"});
+                }}
                 state={{ location: "From Basic Plan" }}
               >
                 <Button
@@ -388,7 +380,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214487/zycada_cjhnxp.webp"
-                          className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -407,7 +399,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214469/sprinto_xeam6h.webp"
-                          className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -426,7 +418,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214489/game_kup6oi.webp"
-                          className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -445,8 +437,14 @@ const Pricing = () => {
             </div>
             <div className="flex items-start justify-start mt-2">
               <div
-                
-                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Standard")}}
+                onClick={() => {
+                  scrollToTop();
+                  dispatch({
+                    type: "True",
+                    payload: "SpaceMen",
+                  });
+                  dispatch({type:"ValueChanger",payload:"PlanFromPopUp",value:"From Standard Plan"});
+                }}
                 state={{ location: "From Standard Plan" }}
               >
                 <Button
@@ -547,7 +545,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214482/trust_quay_y4nmch.webp"
-                   className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -566,7 +564,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214486/zoomprop_hw6uqk.webp"
-                   className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -585,7 +583,7 @@ const Pricing = () => {
               <div>
                 <img
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214498/commitment_1_zx1rsv.webp"
-                   className="w-[95px]"
+                  className="w-[95px]"
                   alt=""
                 />
                 <img
@@ -604,8 +602,14 @@ const Pricing = () => {
             </div>
             <div className="flex items-start justify-start mt-2">
               <div
-                
-                onClick={() => {scrollToTop(); setSpaceMen(true);setPlanFromPopUp("From Premium")}}
+                onClick={() => {
+                  scrollToTop();
+                  dispatch({
+                    type: "True",
+                    payload: "SpaceMen",
+                  });
+                  dispatch({type:"ValueChanger",payload:"PlanFromPopUp",value:"From Premium Plan"});
+                }}
                 state={{ location: "From Premium Plan" }}
               >
                 <Button
@@ -636,11 +640,7 @@ const Pricing = () => {
         </div>
 
         <div className="button">
-          <Link
-            
-            onClick={scrollToTop}
-            state={{ location: "From Custom Craft" }}
-          >
+          <Link onClick={scrollToTop} state={{ location: "From Custom Craft" }}>
             <Button
               text={"Contact Now"}
               color={"white"}
@@ -691,7 +691,7 @@ const PricingDiv = styled.div`
     display: flex;
     flex-direction: column;
     gap: 12px;
-    
+
     backdrop-filter: blur(10px);
     /* background-color: #ffffff81; */
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -702,9 +702,8 @@ const PricingDiv = styled.div`
       width: 280px;
     }
   }
-  .plan:hover{
-
-    box-shadow:  3px 4px 40px 1px #360f4f;
+  .plan:hover {
+    box-shadow: 3px 4px 40px 1px #360f4f;
   }
   .plan2 {
     width: 388px;
@@ -725,13 +724,13 @@ const PricingDiv = styled.div`
     padding: 10px 15px;
     color: #ffffff;
     transition: all 300ms ease;
-    box-shadow:  13px 14px 100px 3px #360f4f;
+    box-shadow: 13px 14px 100px 3px #360f4f;
     @media (max-width: 466px) {
-      width: 300px; 
+      width: 300px;
     }
   }
-  .plan2:hover{
-    box-shadow:  13px 14px 150px 3px #360f4f;
+  .plan2:hover {
+    box-shadow: 13px 14px 150px 3px #360f4f;
   }
   .text-one {
     @media (max-width: 334px) {

@@ -1,33 +1,56 @@
-import React, { useContext, useEffect, useState } from "react";
-import styled from "styled-components";
+import React, { useEffect, useRef, useState } from "react";
+import styled, { keyframes, css } from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Context1 from "../Context/Context1";
-const Navigation = ({ DarkLight, setDarkLight }) => {
+import { scrollToTop } from "../Functions";
+import { useSelector, useDispatch } from "react-redux";
+
+const Navigation = () => {
+  const { DarkLight, HomePage, windowidth } = useSelector(
+    (state) => state.Custom
+  );
+  let dispatch = useDispatch();
   //useState
   const [NavOpenCondi, setNavOpenCondi] = useState(false);
-  const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [mobileNavWidth, setmobileNavWidth] = useState("330px");
   const [mobileWidthgconfirm, setmobileWidthgconfirm] = useState();
   const [scrolled, setScrolled] = useState(false);
+  const [Animate, setAnimate] = useState(false);
+  //ref
+  let NavigationBar = useRef();
 
-//useContext
- const {HomePage, setHomePage} = useContext(Context1)
   //useNavigate
   let Navigate = useNavigate();
 
   //useLocation
-  let location = useLocation();
 
+  const location = useLocation();
   //useEffect
+
+  useEffect(() => {
+    if (location.pathname === "/") {
+      console.log("true", location.pathname);
+      dispatch({
+        type: "True",
+        payload: "HomePage",
+      });
+    } else {
+      dispatch({
+        type: "False",
+        payload: "HomePage",
+      });
+    }
+  }, [location]);
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setScrolled(true);
+        setAnimate(true);
       } else {
         setScrolled(false);
+        setAnimate(false);
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -35,15 +58,7 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    const handleResize = () => {
-      setwindowidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+
   useEffect(() => {
     if (windowidth <= 486) {
       setmobileWidthgconfirm(true);
@@ -95,12 +110,12 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
     : "3px 4px 12px 1px rgba(255, 248, 248, 0.15)";
 
   //Functions
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
 
   const ModeChanger = () => {
-    setDarkLight((props) => !props);
+    dispatch({
+      type: "Opposite",
+      payload: "DarkLight",
+    });
   };
 
   const NavOpen = () => {
@@ -112,20 +127,27 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
 
   return (
     <NavDiv
+      ref={NavigationBar}
       $Position={HomePage ? "fixed" : "sticky"}
       className={`${
         HomePage ? (scrolled ? bgcolor : " bg-transparent") : bgcolor
       }`}
-      style={{ boxShadow: `${HomePage ? shadow : shadow2}` }}
+      style={{ boxShadow: `${HomePage ? shadow : shadow2} ` }}
+      $Animate={Animate}
     >
       <a href={"/"}>
         <div className="logo cursor-pointer ">
           <LazyLoadImage
+            title="Swirl365 logo"
             effect="blur"
             src={`${HomePage ? logo : logo2}`}
             alt="Logo"
-            className={`w-[150px] cursor-pointer`} 
+   
+            className={`w-[150px] cursor-pointer`}
             onClick={() => Navigate("/")}
+            width={"150px"}
+            height={"auto"}
+                     loading="lazy"
           />
         </div>
       </a>
@@ -198,7 +220,6 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
           </Link>
 
           <div>
-            
             <label className="switch" htmlFor="switch">
               <input
                 id="switch"
@@ -218,7 +239,6 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
                 <span className="dot"></span>
               </div>
             </label>
-
           </div>
           <div className="cross" onClick={() => NavOpen()}>
             <div
@@ -257,8 +277,25 @@ const Navigation = ({ DarkLight, setDarkLight }) => {
 };
 
 export default Navigation;
+const NavAnimate = keyframes`
+  from {
+    transform: translateY(-80%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
 
 const NavDiv = styled.div`
+  animation: ${(props) =>
+    props.$Animate
+      ? css`
+          ${NavAnimate} 0.45s ease-out forwards
+        `
+      : "none"};
+
   position: ${(props) => props.$Position};
   top: 0;
   z-index: 999;
@@ -270,6 +307,7 @@ const NavDiv = styled.div`
   width: 100%;
   overflow: visible;
   top: 0px;
+
   @media (max-width: 992px) {
     padding: 27px 25px;
   }

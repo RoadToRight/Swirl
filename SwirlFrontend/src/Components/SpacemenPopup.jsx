@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { RxCross2 } from "react-icons/rx";
-import Context1 from "../Context/Context1";
 import Button from "./Button";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { FaSquareInstagram } from "react-icons/fa6";
+import { useDispatch, useSelector } from "react-redux";
 
 const SpacemenPopup = () => {
   //UseState
@@ -15,12 +15,14 @@ const SpacemenPopup = () => {
   const [errorMessageComment, setErrorMessageComment] = useState("");
   const [comment, setComment] = useState("");
   const [btnDisable, setbtnDisable] = useState(false);
-  const [windowidth, setwindowidth] = useState(window.innerWidth);
   const [btnWidth, setbtnWidth] = useState("17.5vw");
   const [EmailSent, setEmailSent] = useState(false);
   const [MessageFromReq, setMessageFromReq] = useState("");
-  //useContaxt
-  const { DarkLight, SpaceMen, setSpaceMen,PlanFromPopUp } = useContext(Context1);
+
+  const { DarkLight, PlanFromPopUp, windowidth } = useSelector(
+    (state) => state.Custom
+  );
+  const dispatch = useDispatch();
   //var
   const apiUrl = import.meta.env.VITE_API_URL;
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -62,13 +64,13 @@ const SpacemenPopup = () => {
       console.log(Email, Name, comment);
       try {
         setbtnDisable(true);
-        let response = await fetch(`http://localhost:4001/send/email/popup`, {
+        let response = await fetch(`${apiUrl}`, {
           method: "post",
           body: JSON.stringify({
             email: Email,
             name: Name,
             comment: comment,
-            UserComeFrom:PlanFromPopUp
+            UserComeFrom: PlanFromPopUp,
             // UserComeFrom: location.state?.location,
           }),
           headers: {
@@ -122,17 +124,6 @@ const SpacemenPopup = () => {
   };
   //useEffect
   useEffect(() => {
-    const handleResize = () => {
-      setwindowidth(window.innerWidth);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-  useEffect(() => {
     if (windowidth <= 768) {
       setbtnWidth("80vw");
     } else {
@@ -146,7 +137,10 @@ const SpacemenPopup = () => {
         <div
           className="cross"
           onClick={() => {
-            setSpaceMen(false);
+            dispatch({
+              type: "False",
+              payload: "SpaceMen",
+            });
           }}
         >
           <RxCross2 />
@@ -155,13 +149,20 @@ const SpacemenPopup = () => {
           <img src="https://uiverse.io/astronaut.png" alt="" class="image" />
           <div class="heading">We're on Social Media</div>
           <div class="icons">
-            <a href="https://www.instagram.com/swirl_365/profilecard/?igsh=MWRleG45eTE3ZWd4cg==" class="instagram"   target="_blank">
-            <FaSquareInstagram color={"white"}/>
+            <a
+              href="https://www.instagram.com/swirl_365/profilecard/?igsh=MWRleG45eTE3ZWd4cg=="
+              class="instagram"
+              target="_blank"
+            >
+              <FaSquareInstagram color={"white"} />
             </a>
-            
-            <a href="https://www.facebook.com/share/1L1NVFUKaT/?mibextid=wwXIfr" class="x" target="_blank">
+
+            <a
+              href="https://www.facebook.com/share/1L1NVFUKaT/?mibextid=wwXIfr"
+              class="x"
+              target="_blank"
+            >
               <svg
-              
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
@@ -171,19 +172,35 @@ const SpacemenPopup = () => {
                 <path d="M22 12.07C22 6.16 17.52 1.28 11.85 1c-5.64-.28-10.24 4.36-10.24 10.07 0 5.03 3.71 9.15 8.46 9.91v-7h-2.55v-2.91h2.55v-2.36c0-2.34 1.4-3.62 3.53-3.62 1 .01 1.92.07 2.17.1v2.4h-1.49c-1.17 0-1.4.55-1.4 1.37v1.8h2.72l-.35 2.91h-2.36v7c4.75-.76 8.45-4.89 8.45-9.9z" />
               </svg>
             </a>
-            <a href="https://www.youtube.com/@Swirl365-binish" class="discord" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48px" height="48px">
-  <path d="M10 15l5.19-3L10 9v6zm11.13-8.2c-.24-.9-.96-1.6-1.85-1.85C17.54 4.5 12 4.5 12 4.5s-5.54 0-7.28.45c-.9.24-1.6.96-1.85 1.85C2.5 8.54 2.5 12 2.5 12s0 3.46.45 5.2c.24.9.96 1.6 1.85 1.85 1.74.45 7.28.45 7.28.45s5.54 0 7.28-.45c.9-.24 1.6-.96 1.85-1.85.45-1.74.45-5.2.45-5.2s0-3.46-.45-5.2z"/>
-</svg>
-
+            <a
+              href="https://www.youtube.com/@Swirl365-binish"
+              class="discord"
+              target="_blank"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="48px"
+                height="48px"
+              >
+                <path d="M10 15l5.19-3L10 9v6zm11.13-8.2c-.24-.9-.96-1.6-1.85-1.85C17.54 4.5 12 4.5 12 4.5s-5.54 0-7.28.45c-.9.24-1.6.96-1.85 1.85C2.5 8.54 2.5 12 2.5 12s0 3.46.45 5.2c.24.9.96 1.6 1.85 1.85 1.74.45 7.28.45 7.28.45s5.54 0 7.28-.45c.9-.24 1.6-.96 1.85-1.85.45-1.74.45-5.2.45-5.2s0-3.46-.45-5.2z" />
+              </svg>
             </a>
-            <a href="https://www.linkedin.com/company/swirl-365/" class="discord" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="48px" height="48px">
-  <path d="M4.98 3c-1.13 0-2 .9-2 2 0 1.12.87 2 2 2 1.12 0 2-.88 2-2 0-1.1-.9-2-2-2zM3 8h3.99V21H3V8zm7 0h3.79v1.62c.55-.9 1.56-2.12 3.71-2.12 3.96 0 4.69 2.6 4.69 6v7.5h-3.99v-6.4c0-1.52-.03-3.47-2.11-3.47-2.11 0-2.43 1.65-2.43 3.35v6.52H10V8z"/>
-</svg>
-
-
-
+            <a
+              href="https://www.linkedin.com/company/swirl-365/"
+              class="discord"
+              target="_blank"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                width="48px"
+                height="48px"
+              >
+                <path d="M4.98 3c-1.13 0-2 .9-2 2 0 1.12.87 2 2 2 1.12 0 2-.88 2-2 0-1.1-.9-2-2-2zM3 8h3.99V21H3V8zm7 0h3.79v1.62c.55-.9 1.56-2.12 3.71-2.12 3.96 0 4.69 2.6 4.69 6v7.5h-3.99v-6.4c0-1.52-.03-3.47-2.11-3.47-2.11 0-2.43 1.65-2.43 3.35v6.52H10V8z" />
+              </svg>
             </a>
           </div>
         </div>
@@ -260,7 +277,11 @@ const SpacemenPopup = () => {
               />
             </div>
           )}
-          <div className={`error w-[70%] ${MessageFromReq.success ? "text-green-700" : "text-red-700"} text-red-700 input2error flex justify-start items-center `}>
+          <div
+            className={`error w-[70%] ${
+              MessageFromReq.success ? "text-green-700" : "text-red-700"
+            } text-red-700 input2error flex justify-start items-center `}
+          >
             {MessageFromReq.message}
           </div>
         </div>

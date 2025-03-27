@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled, { keyframes, css } from "styled-components";
-import Context1 from "../Context/Context1";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { useDispatch, useSelector } from "react-redux";
 
 const row1 = [
   "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214474/top1_ihuoum.webp",
@@ -16,41 +16,28 @@ const row1 = [
 ];
 
 const TopBrands = () => {
-  const { DarkLight, HomePage, setHomePage } = useContext(Context1);
-
+  let { DarkLight, HomePage, windowidth } = useSelector(
+    (state) => state.Custom
+  );
   let Textcolor = DarkLight ? "black" : "white";
   const [brandsAnimation, setbrandsAnimation] = useState(false);
   let top = useRef(null);
-  const [WindowWidth, setWindowWidth] = useState(window.innerWidth);
   let bgcolor = DarkLight ? "white" : "linear-gradient(135deg,#202A66,#82155A)";
   let bgcolor2 = DarkLight ? "white" : "transparent";
-  useEffect(() => {
-    // Function to update the window width
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
+  const dispatch = useDispatch();
 
-    // Add event listener on component mount
-    window.addEventListener("resize", handleResize);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   useEffect(() => {
-    if (WindowWidth < 1490) {
+    if (windowidth < 1490) {
       setbrandsAnimation(true);
       // console.log("dsa")
     } else {
       setbrandsAnimation(false);
     }
-  }, [WindowWidth]);
+  }, [windowidth]);
 
   return (
     <TopBrandsDiv style={{ background: `${HomePage ? bgcolor2 : bgcolor}` }}>
       <div>
-
         <div
           className={`text text-[17px] font-medium leading-[25px] text-center text-${Textcolor}`}
         >
@@ -65,14 +52,24 @@ const TopBrands = () => {
                   <MarqueeGroup>
                     {row1.map((el) => (
                       <ImageGroup>
-                        <Image src={el} />
+                        <Image
+                          src={el}
+                          alt="logo"
+                          loading="lazy"
+                          title={"brands that created animations from us"}
+                        />
                       </ImageGroup>
                     ))}
                   </MarqueeGroup>
                   <MarqueeGroup>
                     {row1.map((el) => (
                       <ImageGroup>
-                        <Image src={el} />
+                        <Image
+                          src={el}
+                          alt="logo"
+                          loading="lazy"
+                          title={"brands that created animations from us"}
+                        />
                       </ImageGroup>
                     ))}
                   </MarqueeGroup>
@@ -84,44 +81,84 @@ const TopBrands = () => {
           <div className="logos mt-6" ref={top}>
             <div className="img-div">
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us "}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214474/top1_ihuoum.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top2_titjho.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214475/top3_trmuto.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214476/top4_riqcet.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214464/q6_sznw0e.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214479/top9_exwzgi.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top7_zek0qc.webp"
-                alt=""
+                alt="logo"
               />
               <LazyLoadImage
+                width={"110px"}
+                height={"auto"}
+                className=""
+                title={"brands that created animations from us"}
+                loading="lazy"
                 effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214478/top8_a8cyis.webp"
-                alt=""
+                alt="logo"
               />
             </div>
           </div>

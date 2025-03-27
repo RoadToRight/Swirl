@@ -1,13 +1,40 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
-import Context1 from "../Context/Context1";
+import { useLocation } from "react-router-dom";
 
 const Stats = () => {
   const [CountOn, setCountOn] = useState(false);
-  let { Tracker } = useContext(Context1);
+  let Tracker = useRef(null);
+  const location = useLocation();
+  const scrollToElement = (id) => {
+    let elementToScroll = null; // Initialize to null
+    switch (id) {
+      case "tracker":
+        elementToScroll = Tracker.current;
+        break;
+      default:
+        return; // Important: Exit early if no element is found
+    }
+    if (elementToScroll) {
+      elementToScroll.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+  useEffect(() => {
+    let targetId;
+    if (location.hash) {
+      targetId = location.hash.substring(1);
+      console.log(targetId);
+    }
+    if (targetId) {
+      scrollToElement(targetId);
+    }
+  }, [location.pathname]);
 
   return (
     <ScrollTrigger
@@ -80,7 +107,6 @@ const Stats = () => {
     </ScrollTrigger>
   );
 };
-
 export default Stats;
 
 const StatsDiv = styled.div`

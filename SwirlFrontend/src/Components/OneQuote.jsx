@@ -1,14 +1,11 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
-import Context1 from "../Context/Context1";
-// import { useGSAP } from "@gsap/react";
-// import {gsap} from "gsap";
-
+import { useSelector } from "react-redux";
 
 const OneQuote = () => {
-  const { DarkLight } = useContext(Context1);
+  const { DarkLight } = useSelector((state) => state.Custom);
   const [number, setnumber] = useState(0)
   const [Quote, setQuote] = useState(  {
     Quote:`  “I can only repeat what I have already said about Swirl365 work, it
@@ -117,7 +114,7 @@ useEffect(() => {
                 Quote.logo
                   
               }`}
-              alt=""
+              alt="Quotelogo"
             />
            <div className={`title text-${Textcolor}`}>{Quote.logoText}</div>
           </div>

@@ -5,13 +5,20 @@
 * {
   box-sizing: border-box;
 }
+@font-face {
+  font-family: 'Inter'; /* Change to your font name */
+  src: url('/fonts/Inter-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 body {
   font-family: "Inter", sans-serif;
   margin: 0px;
   padding: 0px;
-  cursor: url("")
+  /* cursor: url("")
       32 32,
-    auto;
+    auto; */
 }
 html {
   scroll-behavior: smooth;

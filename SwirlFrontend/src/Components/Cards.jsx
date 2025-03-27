@@ -1,15 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import Context1 from "../Context/Context1";
 import { MdOutlinePlayCircle } from "react-icons/md";
 import styled from "styled-components";
+import { useSelector, useDispatch } from "react-redux";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Cards = ({ img, title, text, img2, text2, url }) => {
-  const { DarkLight, PlayYouTubeCard, setYoutubeUrl } = useContext(Context1);
-
+  const { DarkLight } = useSelector((state) => state.Custom);
+  const dispatch = useDispatch();
   let Textcolor = DarkLight ? "black" : "white";
-
+  const PlayYouTubeCard = () => {
+    dispatch({
+      type: "Opposite",
+      payload: "YoutubeVideo",
+    });
+  };
   return (
     <CardDiv>
       <Card
@@ -25,12 +32,24 @@ const Cards = ({ img, title, text, img2, text2, url }) => {
             className={`text-[25px] cursor-pointer`}
             onClick={() => {
               PlayYouTubeCard();
-              setYoutubeUrl(url);
+              dispatch({
+                type: "ValueChanger",
+                payload: "YoutubeUrl",
+                value: url,
+              });
             }}
           />
         </div>
 
-        <Card.Img variant="top" src={`${img}`} />
+        <Card.Img
+          variant="top"
+          src={`${img}`}
+          alt="QouteBottomImages"
+          loading="lazy"
+          width={"auto"}
+          height={"auto"}
+          title="Ratings Stars Reviews"
+        />
         <Card.Body>
           <Card.Title
             style={{ fontSize: "22px", fontWeight: "bold", lineHeight: "27px" }}
@@ -54,12 +73,18 @@ const Cards = ({ img, title, text, img2, text2, url }) => {
             {text2}
           </ListGroup.Item>
           <div className="flex ml-4 py-2">
-            {[1, 2, 3, 4,5].map((x) => {
+            {[1, 2, 3, 4, 5].map((x) => {
               return (
-                <Card.Img
+                <LazyLoadImage
+                  effect="blur"
                   variant="top"
                   src={`https://res.cloudinary.com/diyha1kd9/image/upload/v1741214470/Star_rwu8sl.webp`}
-                  style={{ width: "21px", height: "21px" }}
+                  // style={{ width: "21px", height: "21px" }}
+                  alt="Star"
+                  loading="lazy"
+                  title="Ratings Stars Reviews"
+                  width={"21px"}
+                  height={"21px"}
                 />
               );
             })}

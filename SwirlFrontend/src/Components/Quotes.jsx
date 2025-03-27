@@ -1,33 +1,57 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
-import Context1 from "../Context/Context1";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css'
-const Quotes = () => {
-  const { DarkLight, Testinomials } = useContext(Context1);
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
+const Quotes = () => {
+  const { DarkLight } = useSelector((state) => state.Custom);
+  const location = useLocation();
+  let Testimonials = useRef(null);
+  // useEffect(() => {
+  //   window.gsap.from(".Quote", {
+  //     x: -250, // Start from 200px below the element's initial position
+  //     opacity: 0, // Start from 0 opacity
+  //     duration: 1, // Duration for the animation
+  //     ease: "power3.out", // Easing function to smooth the transition
+  //     scrollTrigger: {
+  //       trigger: ".Quote", // The element to trigger the animation
+  //       start: "18% 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
+  //       end: "bottom 30%", // End when the top of the element reaches 30% from the top of the viewport
+  //       scrub: 1, // Smoothly scrub the animation based on scroll position
+  //     },
+  //   });
+  // }, []);
+  const scrollToElement = (id) => {
+    let elementToScroll = null; // Initialize to null
+    switch (id) {
+      case "testinomials":
+        elementToScroll = Testimonials.current;
+        break;
+      default:
+        return; // Important: Exit early if no element is found
+    }
+    if (elementToScroll) {
+      elementToScroll.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
   useEffect(() => {
-    // GSAP animation using the global `gsap` from window object
-    window.gsap.from(".Quote", {
-      x: -250, // Start from 200px below the element's initial position
-      opacity: 0, // Start from 0 opacity
-      duration: 1, // Duration for the animation
-      ease: "power3.out", // Easing function to smooth the transition
-      scrollTrigger: {
-        trigger: ".Quote", // The element to trigger the animation
-        start: "18% 80%", // Start animation when the top of the element reaches 80% from the top of the viewport
-        end: "bottom 30%", // End when the top of the element reaches 30% from the top of the viewport
-        scrub: 1, // Smoothly scrub the animation based on scroll position
-     
-      },
-    });
-  }, []);
+    if (location.hash) {
+      const targetId = location.hash.substring(1);
+      console.log(targetId);
+      scrollToElement(targetId);
+    }
+  }, [location]);
 
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "bg-lightpurple" : "bg-[#230646]";
   let bgcolor2 = DarkLight ? "white" : "black";
   return (
-    <div className={`bg-${bgcolor2} `} ref={Testinomials}>
+    <div className={`bg-${bgcolor2} `} ref={Testimonials}>
       <QuotesDiv className={`bg-${bgcolor2} Quote`}>
         <div className="text container flex items-center justify-center flex-col gap-3">
           <div className="text-[14px] leading-[20px] font-normal text-darkpink text-center ">
@@ -47,14 +71,17 @@ const Quotes = () => {
               className={`Rectangle Rectangle-sec-1 ${bgcolor} w-[340px] relative p-4 rounded-3xl h-[435px]`}
             >
               <img
-              
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img"
+                alt="Quotes"
+                className=" h-22 absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -69,9 +96,11 @@ const Quotes = () => {
               <br />
               <br />
               <LazyLoadImage
-              effect="blur"
+                title="Testimonials"
+                loading="lazy"
+                effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214466/quoteimg1_ep5slj.webp"
-                alt=""
+                alt="logo1"
                 className="relative z-1 -left-2"
               />
             </div>
@@ -79,14 +108,17 @@ const Quotes = () => {
               className={`Rectangle ${bgcolor} w-[340px] relative p-4 rounded-3xl`}
             >
               <img
-              
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img"
+                alt="Quotes"
+                className=" h-22 absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -97,9 +129,11 @@ const Quotes = () => {
               <br />
               <div className="flex items-center pl-3">
                 <LazyLoadImage
-                effect="blur"
+                  title="Testimonials"
+                  loading="lazy"
+                  effect="blur"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214463/q4_e2zhyh.webp"
-                  alt=""
+                  alt="logo4"
                   className="relative z-1 -left-2"
                 />
                 <label className={`font-bold leading-[24px] z-1`}>Eric</label>
@@ -111,26 +145,18 @@ const Quotes = () => {
             <div
               className={`Rectangle ${bgcolor} w-[340px] relative p-4 rounded-3xl`}
             >
-                          <img
-              
-              src={
-                DarkLight
-                  ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
-                  : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
-              }
-              alt=""
-              className="w-24 h-22 absolute top-5 left-5 img"
-            />
-
-              <LazyLoadImage
-              effect="blur"
+              <img
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img "
+                alt="Quotes"
+                className="h-22 absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -140,9 +166,11 @@ const Quotes = () => {
               </div>
               <br />
               <LazyLoadImage
-              effect="blur"
+                title="Testimonials"
+                loading="lazy"
+                effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214462/q2_w3fewb.webp"
-                alt=""
+                alt="logo"
                 className="relative z-1 -left-2 "
               />
             </div>
@@ -150,14 +178,17 @@ const Quotes = () => {
               className={`Rectangle ${bgcolor}  w-[340px] relative p-4 rounded-3xl`}
             >
               <img
-              
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img"
+                alt="Quotes"
+                className="h-22 absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -167,9 +198,11 @@ const Quotes = () => {
               </div>
               <br />
               <LazyLoadImage
-              effect="blur"
+                title="Testimonials"
+                loading="lazy"
+                effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214462/q3_d4s986.webp"
-                alt=""
+                alt="logo3"
                 className="relative z-1 -left-2"
               />
             </div>
@@ -178,14 +211,17 @@ const Quotes = () => {
               className={`Rectangle ${bgcolor} w-[340px] relative p-4 rounded-3xl`}
             >
               <img
-              
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img"
+                alt="Quotes"
+                className=" h-22 absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -199,9 +235,11 @@ const Quotes = () => {
               <br />
               <div className="flex tems-center pl-3">
                 <LazyLoadImage
-                effect="blur"
+                  title="Testimonials"
+                  loading="lazy"
+                  effect="blur"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214463/q5_bzqriq.webp"
-                  alt=""
+                  alt="logo5"
                   className="relative z-1 -left-2"
                 />
                 <label className={`font-bold leading-[24px] z-1`}>
@@ -216,14 +254,17 @@ const Quotes = () => {
               className={`Rectangle2 ${bgcolor} w-[430px] relative p-4 rounded-3xl`}
             >
               <img
-              
+                title="Testimonials"
+                loading="lazy"
                 src={
                   DarkLight
                     ? "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214480/Vector_pf197m.webp"
                     : "https://res.cloudinary.com/diyha1kd9/image/upload/v1741214481/Vectordark_ixqlaj.webp"
                 }
-                alt=""
-                className="w-24 h-22 absolute top-5 left-5 img"
+                alt="Quotes"
+                className=" h-22  absolute top-5 left-5 img"
+                width={"96px"}
+                height={"88px"}
               />
 
               <div
@@ -246,7 +287,9 @@ const Quotes = () => {
               <br />
               <div className="flex items-center pl-3">
                 <LazyLoadImage
-                effect="blur"
+                  title="Testimonials"
+                  loading="lazy"
+                  effect="blur"
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214464/q6_sznw0e.webp"
                   alt=""
                   className="relative z-1 -left-2"
@@ -262,7 +305,6 @@ const Quotes = () => {
     </div>
   );
 };
-
 export default Quotes;
 
 const QuotesDiv = styled.div`

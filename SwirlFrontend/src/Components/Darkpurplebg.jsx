@@ -1,17 +1,12 @@
-import React,{useEffect } from "react";
+import React, { } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { Link } from "react-router-dom";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css'
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { scrollToTop } from "../Functions";
 
 const Darkpurplebg = () => {
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-
-
   return (
     <DarkPurplediv>
       <div className=" ">
@@ -40,13 +35,16 @@ const Darkpurplebg = () => {
         </div>
         <br />
         <div className="buttondiv ">
-          <Link to={"/pricing"} onClick={scrollToTop}>
+          <Link to={"/pricing"} onClick={scrollToTop} aria-label="Get an estimate">
+          <span className="d-none">Get an estimate</span>
             <Button
               color={"#0D0D0D"}
               text={"Get an estimate"}
               width={"212px"}
               height={"48px"}
               textcolor={"white"}
+              arialabel={"Get an estimate"}
+              href={"/pricing"}
             />
           </Link>
         </div>

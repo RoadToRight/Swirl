@@ -1,41 +1,43 @@
-import React, { useContext, useRef,useEffect  } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { TbTargetArrow } from "react-icons/tb";
 import Card from "react-bootstrap/Card";
 import { FaVideo } from "react-icons/fa";
 import { IoMdPlayCircle } from "react-icons/io";
 import { FaArrowRight } from "react-icons/fa6";
-import Context1 from "../Context/Context1";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { scrollToTop } from "../Functions";
+
 const Threebenefits = () => {
-  const { DarkLight } = useContext(Context1);
+  // const { DarkLight } = useContext(Context1);
+  const { DarkLight } = useSelector((state) => state.Custom);
 
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "black";
-  let three = useRef()
+  let three = useRef();
 
-  const scrollToTop = () => {
-    window.scrollTo(0, 0);
-  };
-   
   useEffect(() => {
-      window.gsap.from(three.current, {
-        x: -300, // Start from 200px below the element's initial position
-        opacity: 0, // Start from 0 opacity
-        duration: 1.5, // Duration for the animation
-        ease: "power3.out", // Easing function to smooth the transition
-        scrollTrigger: {
-          trigger: three.current, 
-          start: "top 80%",
-          end: "bottom 80%", 
-          scrub: 1, 
-        },
-      });
+    window.gsap.from(three.current, {
+      x: -300, // Start from 200px below the element's initial position
+      opacity: 0, // Start from 0 opacity
+      duration: 1.5, // Duration for the animation
+      ease: "power3.out", // Easing function to smooth the transition
+      scrollTrigger: {
+        trigger: three.current,
+        start: "top 80%",
+        end: "bottom 80%",
+        scrub: 1,
+      },
+    });
   }, []);
   return (
     <>
       <ThreeBeneDiv className={`bg-${bgcolor} `}>
-        <div className="flex justify-center items-center three-card-parent"  ref={three}>
+        <div
+          className="flex justify-center items-center three-card-parent"
+          ref={three}
+        >
           <div className="cards">
             <Card className={`Card bg-${bgcolor}`} style={{ border: "none" }}>
               <div className="flex items-center mt-3 ml-4 icon">
@@ -93,18 +95,14 @@ const Threebenefits = () => {
                   our creative idea jams so you can see us in action.
                 </Card.Text>
                 <Card.Title className="flex items-center gap-2 pink-head">
-                <Link
-                      to={"/contactus"}
-                      state={{ location: "From Book strategy call In AboutUs" }}
-                      className="text-[#C707E4] no-underline flex gap-2 items-center"
-                      onClick={scrollToTop}
-                    >
-                  <span className="text-[#C707E4]">
-                  
-                      Book strategy call
-                   
-                  </span>{" "}
-                  <FaArrowRight className="text-[#C707E4] arrow" />
+                  <Link
+                    to={"/contactus"}
+                    state={{ location: "From Book strategy call In AboutUs" }}
+                    className="text-[#C707E4] no-underline flex gap-2 items-center"
+                    onClick={scrollToTop}
+                  >
+                    <span className="text-[#C707E4]">Book strategy call</span>{" "}
+                    <FaArrowRight className="text-[#C707E4] arrow" />
                   </Link>
                 </Card.Title>
               </Card.Body>
@@ -132,19 +130,13 @@ const Threebenefits = () => {
                   accessible and maximizing the value of your investment.
                 </Card.Text>
                 <Card.Title className="flex items-center gap-2 pink-head">
-                <Link
-                      to={"/contactus"}
-                      state={{ location: "From Get Pricing In AboutUs" }}
-                      className="text-[#C707E4] no-underline flex gap-2 items-center"
-                      onClick={scrollToTop}
-                    >
-                  <span className="text-[#C707E4]">
-                    {" "}
-                 
-                      {" "}
-                      Get pricing
-                   
-                  </span>{" "}
+                  <Link
+                    to={"/contactus"}
+                    state={{ location: "From Get Pricing In AboutUs" }}
+                    className="text-[#C707E4] no-underline flex gap-2 items-center"
+                    onClick={scrollToTop}
+                  >
+                    <span className="text-[#C707E4]"> Get pricing</span>{" "}
                   </Link>
                   <FaArrowRight className="text-[#C707E4] arrow cursor-pointer" />
                 </Card.Title>
@@ -181,11 +173,11 @@ const ThreeBeneDiv = styled.div`
       }
     }
   }
-.arrow:hover{
-  scale: 1.2;
-  transition: transform 300ms ease;
-  transform: translateX(7px);
-}
+  .arrow:hover {
+    scale: 1.2;
+    transition: transform 300ms ease;
+    transform: translateX(7px);
+  }
   .Card {
     width: 23rem;
     @media (max-width: 765px) {

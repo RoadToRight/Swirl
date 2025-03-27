@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Context1 from "../Context/Context1";
+import { useSelector } from "react-redux";
 const AccordianCompo = ({ Question,Answer }) => {
   const [openIndex, setOpenIndex] = useState(null); // Track the currently open accordion item
-  const { DarkLight } = useContext(Context1);
+  const { DarkLight } = useSelector((state) => state.Custom);
 
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor2 = DarkLight ? "white" : "black";

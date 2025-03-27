@@ -1,11 +1,13 @@
-import React, { useContext, useState,useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
-import Context1 from "../Context/Context1";
 import { Link } from "react-router-dom";
 import TopBrands from "./TopBrands";
+import { useSelector } from "react-redux";
+
 const Circle = () => {
-  const { DarkLight } = useContext(Context1);
+  // const { DarkLight } = useContext(Context1);
+  const { DarkLight } = useSelector((state) => state.Custom);
 
   let Textcolor = DarkLight ? "black" : "white";
   let Logo = DarkLight
@@ -44,7 +46,7 @@ const Circle = () => {
       [circle]: { rotateX: 0, rotateY: 0 },
     }));
   };
-  
+
   return (
     <ParentCircle $darkLight={DarkLight}>
       <TopBrands />
@@ -71,16 +73,21 @@ const Circle = () => {
                   Motion Graphics
                 </div>
                 <img
+                  title={"Animation Company"}
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214506/img1_2_zx1suo.webp"
-                  alt=""
+                  alt="Animated Image"
                   className="first-circle z-1 w-[145px] circle"
+                  width={"145px"}
+                  height={"auto"}
                   style={{
                     transform: `perspective(150px) rotateX(${tilts.firstCircle.rotateX}deg) rotateY(${tilts.firstCircle.rotateY}deg)`,
                   }}
+                  loading="lazy"
                 />
               </div>
 
               {/* Second Circle */}
+
               <div
                 className="absolute -bottom-10 z-1 second-parent box_item tilt p-3"
                 style={{
@@ -99,12 +106,16 @@ const Circle = () => {
                   Character Animation
                 </div>
                 <img
+                  title={"Animation Company"}
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214492/Compassion_Video_av0lvl.webp"
-                  alt=""
+                  alt="Animated Image"
+                  width={"145px"}
+                  height={"auto"}
                   className="first-circle z-1 w-[145px]"
                   style={{
                     transform: `perspective(150px) rotateX(${tilts.secondCircle.rotateX}deg) rotateY(${tilts.secondCircle.rotateY}deg)`,
                   }}
+                  loading="lazy"
                 />
               </div>
 
@@ -126,12 +137,16 @@ const Circle = () => {
                   Isometric
                 </div>
                 <img
+                  title={"Animation Company"}
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214501/darkpurple2_1_rjlttr.webp"
-                  alt=""
+                  alt="Animated Image"
                   className="first-circle z-1 w-[145px]"
+                  width={"145px"}
+                  height={"auto"}
                   style={{
                     transform: `perspective(150px) rotateX(${tilts.thirdCircle.rotateX}deg) rotateY(${tilts.thirdCircle.rotateY}deg)`,
                   }}
+                  loading="lazy"
                 />
               </div>
 
@@ -154,26 +169,46 @@ const Circle = () => {
                   Whiteboard Video
                 </div>
                 <img
+                  title={"Animation Company"}
                   src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214484/white_fwbn6b.webp"
-                  alt=""
+                  alt="Animated Image"
                   className="first-circle z-1 w-[145px]"
+                  width={"145px"}
+                  height={"auto"}
                   style={{
                     transform: `perspective(150px) rotateX(${tilts.fourthCircle.rotateX}deg) rotateY(${tilts.fourthCircle.rotateY}deg)`,
                   }}
+                  loading="lazy"
                 />
               </div>
 
               {/* Background Elements */}
               <img
+                title={"Animation Company"}
                 src={`${Logo}`}
-                alt=""
+                alt="Animated Image"
                 className="absolute z-1 circleLogo w-[150px]"
+                width={"150px"}
+                height={"150px"}
+                loading="lazy"
               />
-              <img src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214497/circle_xe01zg.webp" alt="" className="absolute" />
               <img
+                title={"Animation Company"}
+                src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214497/circle_xe01zg.webp"
+                alt="Animated Image"
+                className="absolute"
+                width={"auto"}
+                height={"auto"}
+                loading="lazy"
+              />
+              <img
+                title={"Animation Company"}
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
-                alt=""
+                alt="Animated Image"
                 className="absolute ball"
+                width={"auto"}
+                height={"auto"}
+                loading="lazy"
               />
             </div>
           </div>
@@ -193,15 +228,19 @@ const Circle = () => {
               invest time in understanding your brand, message, and audience to
               create tailored animation video services.
             </div>
+            
             <div className="button mt-4 ">
-              <Link to="/pricing" onClick={scrollToTop}>
-              <Button
-                text={"Get an estimate"}
-                textcolor={"white"}
-                color={"#C707E4"}
-                width={"180px"}
-                height={"52px"}
-              />
+              <Link to="/pricing" onClick={scrollToTop} >
+              <span className="d-none">Get an estimate</span>
+                <Button
+                  text={"Get an estimate"}
+                  textcolor={"white"}
+                  color={"#C707E4"}
+                  width={"180px"}
+                  height={"52px"}
+                  arialabel={"Get an estimate"}
+                  href={"/pricing"}
+                />
               </Link>
             </div>
           </div>
@@ -226,7 +265,7 @@ const CircleDiv = styled.div`
   background-repeat: no-repeat;
   @media (max-width: 420px) {
     padding: 0px 20px;
-    }
+  }
   .circleLogo {
     @media (max-width: 568px) {
       width: 50%;
@@ -404,10 +443,8 @@ const CircleDiv = styled.div`
   }
 
   .box_item {
-
     overflow: hidden;
     transition: transform 0.1s ease-out;
-
   }
   .box_item:hover {
     transform: scale(1.05);

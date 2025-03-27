@@ -2,12 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
 import { Link, useLocation } from "react-router-dom";
-// import { useGSAP } from "@gsap/react";
-// import { gsap } from "gsap";
-// import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-// gsap.registerPlugin(ScrollTrigger);
-
 const ReadyTomakeVideo = () => {
   let ready = useRef();
   let readyparent = useRef()

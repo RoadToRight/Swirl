@@ -8,12 +8,14 @@ const Button = ({
   height,
   textcolor,
   border,
+  arialabel,
+  href,
   fnc = () => {},
   translateZ ,
   MinustranslateZ
 }) => {
   return (
-    <ButtonDiv className="cursor-pointer">
+    <ButtonDiv className="cursor-pointer" >
       
       <Span
         onClick={() => fnc()}
@@ -39,6 +41,8 @@ const Button = ({
           $translateZ={translateZ}
           $MinustranslateZ = {MinustranslateZ}
           className={`rounded-2xl  leading-[20px] font-bold btnn`}
+          href={href}
+          aria-label={arialabel}
         ></Anchor>{" "}
       </Span>
     </ButtonDiv>

@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import Context1 from "../Context/Context1";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { IoCloseOutline } from "react-icons/io5";
 import Button from "./Button";
 import { data, Alldata, balls } from "../creationsImg";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css'
-import {Helmet} from "react-helmet";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+import { Helmet } from "react-helmet";
+import {  useSelector } from "react-redux";
 const Work2 = () => {
   //useState
   const [isOpen2, setIsOpen2] = useState(false);
@@ -24,10 +24,9 @@ const Work2 = () => {
   const [YoutubeUrl, setYoutubeUrl] = useState();
   const [smallvideosAnimationState, setsmallvideosAnimationState] =
     useState(true);
-  const [windowWidth, setwindowWidth] = useState(window.innerWidth);
 
   //----------------------------------------------------------------------------useContext-----------------------------------------
-  const { DarkLight } = useContext(Context1);
+  const { DarkLight, windowWidth } = useSelector((state) => state.Custom);
   //----------------------------------------------------------------------------------variables-------------------------
   let Textcolor = DarkLight ? "black" : "white";
   let bgcolor = DarkLight ? "white" : "black";
@@ -45,22 +44,23 @@ const Work2 = () => {
   //----------------------------------------------------------useEffect---------------------------------------------------------
   useEffect(() => {
     let decodedString = decodeURIComponent(location.pathname);
-    let updatedString = decodedString.replace(/%/g, " ").split("/")[2];
-    handleSelectOption2(updatedString);
-    SearchVideoType2(updatedString);
+    let updatedString = decodedString.split("/")[2];
+    let filter = data.find((x, i) => {
+      let keys = Object.keys(x)[0];
+      let sanitizedkeys = keys.replace(/\s+/g, "");
+      return sanitizedkeys === updatedString;
+    });
+    let searchValue;
+    if (filter) {
+      searchValue = Object.keys(filter)[0];
+    } else {
+      searchValue = "All";
+    }
+    handleSelectOption2(searchValue);
+    StartingReloadRender(searchValue);
   }, [location]);
 
-  useEffect(() => {
-    // Function to update the window width
-    const handleResize = () => {
-      setwindowWidth(window.innerWidth);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
+// console.log(btnWidth)
   useEffect(() => {
     if (windowWidth <= 1024) {
       setsmallvideosAnimationState(false);
@@ -87,8 +87,9 @@ const Work2 = () => {
     setTypeOfVideo(value);
     setIsOpen2(false);
   };
-  const SearchVideoType2 = (TypeOfVideoParams) => {
+  const StartingReloadRender = (TypeOfVideoParams) => {
     setTypeOfVideoToPrint(TypeOfVideoParams ? TypeOfVideoParams : TypeOfVideo);
+    console.log(TypeOfVideo);
     if (!TypeOfVideoParams) {
       Navigate(`/creations/${TypeOfVideo}`);
     }
@@ -113,12 +114,12 @@ const Work2 = () => {
   };
   const SearchVideoType = (TypeOfVideoParams) => {
     setTypeOfVideoToPrint(TypeOfVideoParams ? TypeOfVideoParams : TypeOfVideo);
+    let SanitizeTypeOfVideo = TypeOfVideo.replace(/\s+/g, "");
     if (!TypeOfVideoParams) {
-      Navigate(`/creations/${TypeOfVideo}`);
+      Navigate(`/creations/${SanitizeTypeOfVideo}`);
     }
     let Filter = data.find((x) => {
       let Keys = Object.keys(x)[0];
-      let Values = Object.values(x)[0];
       if (TypeOfVideo !== "All") {
         return Keys === TypeOfVideo;
       }
@@ -199,18 +200,26 @@ const Work2 = () => {
   const canonicalUrl = `https://swirl365.com${location.pathname}`;
   return (
     <Workdiv className={`bg-${bgcolor}`}>
-    
       {/* --------------------------------------------------- Youtube  ----------------------------------------------------*/}
       <Helmet>
-  <title>Swirl365 | Our Animation Work</title>
-  <link rel="canonical" href={canonicalUrl} />
-  <meta name="description" content="Find the perfect style for your video. Explore our award-winning live-action, animation, and motion graphics projects to inspire your next creative video." />
+        <title>Swirl365 | Our Animation Work</title>
+        <link rel="canonical" href={canonicalUrl} />
+        <meta
+          name="description"
+          content="Find the perfect style for your video. Explore our award-winning live-action, animation, and motion graphics projects to inspire your next creative video."
+        />
 
-  <meta property="og:title" content="Swirl365 | Award-Winning Animation Work" />
-  <meta property="og:description" content="Discover high-quality animation, motion graphics, whiteboard animation, cel animation, 2D animation, line art explainer videos, isometric videos, and more. Get inspired for your next video project!" />
-  
-  <meta property="og:type" content="website" />
-</Helmet>
+        <meta
+          property="og:title"
+          content="Swirl365 | Award-Winning Animation Work"
+        />
+        <meta
+          property="og:description"
+          content="Discover high-quality animation, motion graphics, whiteboard animation, cel animation, 2D animation, line art explainer videos, isometric videos, and more. Get inspired for your next video project!"
+        />
+
+        <meta property="og:type" content="website" />
+      </Helmet>
 
       {YoutubeVideo ? (
         <div className="video-container">
@@ -234,14 +243,14 @@ const Work2 = () => {
       {/* --------------------------------------------------- Ball Work   ----------------------------------------------------*/}
       <div className="ball absolute left-0 top-28">
         <LazyLoadImage
-        effect="blur"
+          effect="blur"
           src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
           alt=""
         />
       </div>
       <div className="ball-right absolute right-0 top-28">
         <LazyLoadImage
-        effect="blur"
+          effect="blur"
           src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
           alt=""
         />
@@ -252,7 +261,7 @@ const Work2 = () => {
           return (
             <div className={`${x.class} absolute ${x.align} ${x.top}`}>
               <LazyLoadImage
-              effect="blur"
+                effect="blur"
                 src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
                 alt=""
               />
@@ -263,14 +272,14 @@ const Work2 = () => {
         <div>
           <div className="ball2 absolute right-36 top-[100%]">
             <LazyLoadImage
-            effect="blur"
+              effect="blur"
               src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
               alt=""
             />
           </div>
           <div className="ball2 absolute left-26 top-[120%]">
             <LazyLoadImage
-            effect="blur"
+              effect="blur"
               src="https://res.cloudinary.com/diyha1kd9/image/upload/v1741214496/ball_tuplpn.webp"
               alt=""
             />
@@ -403,7 +412,7 @@ const Work2 = () => {
                     }}
                   >
                     <LazyLoadImage
-                    effect="blur"
+                      effect="blur"
                       src={`${videos[0].poster}`}
                       alt=""
                       className={`w-[1120px] h-[470px]`}
@@ -479,7 +488,7 @@ const Work2 = () => {
                             }}
                           >
                             <LazyLoadImage
-                            effect="blur"
+                              effect="blur"
                               src={`${x.poster}`}
                               alt=""
                               className={`w-[550px] h-[370px]`}
@@ -562,7 +571,7 @@ const Work2 = () => {
                             }}
                           >
                             <LazyLoadImage
-                            effect="blur"
+                              effect="blur"
                               src={`${x.poster}`}
                               alt=""
                               className={`w-[1120px] h-[470px]`}
@@ -654,7 +663,7 @@ const Work2 = () => {
                   }}
                 >
                   <LazyLoadImage
-                  effect="blur"
+                    effect="blur"
                     src={`${x.poster}`}
                     alt=""
                     className={`w-[1120px] h-[470px]`}
@@ -722,7 +731,7 @@ const Work2 = () => {
                         }}
                       >
                         <LazyLoadImage
-                        effect="blur"
+                          effect="blur"
                           src={`${x.poster}`}
                           alt=""
                           className={`w-[550px] h-[370px]`}
